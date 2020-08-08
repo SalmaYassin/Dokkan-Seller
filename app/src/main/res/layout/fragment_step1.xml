@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pagesbkg"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:layout_width="215dp"
+        android:layout_height="30dp"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="140dp"
+        android:background="@drawable/edittex"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+
+        <EditText
+            android:id="@+id/locationId"
+            android:layout_width="215dp"
+            android:layout_height="30dp"
+            android:background="@drawable/edittex"
+            android:hint="Location "
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:textColorHint="#f8f6f7"
+            android:textSize="11sp"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(e.g : Cairo , Egypt)"
+            android:textColor="#ffff"
+            android:paddingLeft="55dp"
+            android:paddingTop="11dp"
+            android:textSize="7sp"
+
+            />
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <EditText
+        android:id="@+id/phoneId"
+        android:layout_width="215dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edittex"
+        android:hint="Phone "
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textColorHint="#f8f6f7"
+        android:textSize="11sp"
+
+
+
+        />
+    <EditText
+        android:id="@+id/facebookId"
+        android:layout_width="215dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edittex"
+        android:hint="Facebook "
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColorHint="#f8f6f7"
+        android:textSize="11sp"
+        />
+
+
+    <EditText
+        android:id="@+id/instgramId"
+        android:layout_width="215dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edittex"
+        android:hint="Instagram "
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColorHint="#f8f6f7"
+        android:textSize="11sp"
+        />
+
+
+
+    <Button
+        android:id="@+id/nxtbtn"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button2"
+        android:textSize="15sp"
+        android:text="NEXT "
+        android:textAllCaps="false"
+        android:textColor="#f8f6f7"
+        android:textStyle="bold"
+
+
+        />
+
+</LinearLayout>
+
+
+
+
