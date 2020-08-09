@@ -15,6 +15,9 @@
         <argument
             android:name="currentID"
             app:argType="string" />
+        <argument
+            android:name="shopName"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/step1"

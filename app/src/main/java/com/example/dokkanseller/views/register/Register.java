@@ -124,6 +124,7 @@ public class Register extends BaseFragment {
                                         if (task.isSuccessful()) {
                                             Bundle bundle = new Bundle();
                                             bundle.putString("currentID" , currentUserID);
+                                            bundle.putString("shopName" , nameOfShop);
                                             Log.d("ID_USER", "current user id : "+ currentUserID );
                                             getNavController().navigate(R.id.action_register_to_step1 , bundle);
                                         } else {

@@ -10,7 +10,7 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profile_image"
-        android:layout_width="60dp"
+        android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginBottom="2dp"
         android:src="@drawable/ic_add_a_photo"
@@ -21,46 +21,58 @@
     <Button
         android:id="@+id/categ_butt"
         android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:background="@drawable/edittex"
         android:layout_marginTop="17dp"
         android:paddingRight="40dp"
         android:text="Select Your Categories"
-        android:textSize="9sp"
+        android:textSize="11sp"
         android:textColor="#f8f6f7"
         />
 
     <EditText
         android:id="@+id/aboutId"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="55dp"
         android:layout_marginTop="18dp"
         android:background="@drawable/edittex"
-        android:hint="About"
-        android:inputType="text"
+        android:hint="Bio"
         android:paddingLeft="10dp"
         android:gravity="start|top"
         android:padding="5dp"
         android:paddingStart="11dp"
         android:textColorHint="#f8f6f7"
-        android:textSize="11sp"/>
+        android:textSize="13sp"/>
+
+    <EditText
+        android:id="@+id/bioId"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/edittex"
+        android:hint="About"
+        android:paddingLeft="10dp"
+        android:gravity="start|top"
+        android:padding="5dp"
+        android:paddingStart="11dp"
+        android:textColorHint="#f8f6f7"
+        android:textSize="13sp"/>
 
 
     <EditText
         android:id="@+id/policiesId"
         android:layout_width="wrap_content"
-        android:layout_height="140dp"
+        android:layout_height="120dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/edittex"
         android:gravity="start|top"
         android:hint="policies"
-        android:inputType="text"
         android:lines="8"
         android:padding="5dp"
         android:paddingStart="11dp"
         android:paddingLeft="10dp"
         android:textColorHint="#f8f6f7"
-        android:textSize="11sp"/>
+        android:textSize="13sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"

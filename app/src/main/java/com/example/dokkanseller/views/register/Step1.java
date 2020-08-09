@@ -48,41 +48,32 @@ public class Step1 extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
-
-        bundle_userID = getArguments();
-        String id = bundle_userID.getString("currentID");
-
-
-
-
         location =  view.findViewById(R.id.locationId);
         phone = view.findViewById(R.id.phoneId);
         instgramLink = view.findViewById(R.id.instgramId);
         facebookLink = view.findViewById(R.id.facebookId);
 
-
-        String loc = location.getText().toString();
-        String number = phone.getText().toString();
-        String face = facebookLink.getText().toString();
-        String insta = instgramLink.getText().toString();
-
-
-
-        Step1Model step1model = new Step1Model(loc ,number,face,insta);
-        Bundle bundle = new Bundle();
-        bundle.putString("user_id2" , id);
-        bundle.putParcelable("step1_model" ,step1model);
-        getNavController().navigate(R.id.action_step1_to_step2 ,bundle );
-
-
-
-
-
         nextBtn= view.findViewById(R.id.nxtbtn);
         nextBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getNavController().navigate(R.id.action_step1_to_step2);
+                bundle_userID = getArguments();
+                String id = bundle_userID.getString("currentID");
+                String name = bundle_userID.getString("shopName");
+
+
+                String loc = location.getText().toString();
+                String number = phone.getText().toString();
+                String face = facebookLink.getText().toString();
+                String insta = instgramLink.getText().toString();
+
+                Step1Model step1model = new Step1Model(loc ,number,face,insta);
+                Bundle bundle = new Bundle();
+                bundle.putString("user_id2" , id);
+                bundle.putString("name2" , name);
+                bundle.putParcelable("step1_model" ,step1model);
+                getNavController().navigate(R.id.action_step1_to_step2 ,bundle );
+
             }
         });
 
