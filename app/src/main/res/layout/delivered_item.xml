@@ -5,52 +5,52 @@
     android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="15dp"
-    android:layout_marginEnd="15dp"
-    android:layout_marginTop="8dp"
-    cardview:cardCornerRadius="4dp"
+    android:layout_marginStart="@dimen/mstar15"
+    android:layout_marginEnd="@dimen/mend15"
+    android:layout_marginTop="@dimen/mtop8"
+    cardview:cardCornerRadius="@dimen/corner4"
     android:foreground="?android:attr/selectableItemBackground"
-    cardview:cardElevation="3dp"
-    android:background="#e6e4e4">
+    cardview:cardElevation="@dimen/elevat3"
+    android:background="@color/color_e6e4e4">
 
 
     <RelativeLayout
         android:id="@+id/top_relative"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp">
+        android:paddingTop="@dimen/padTop5"
+        android:paddingBottom="@dimen/padButtom5">
 
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/product_image_3"
-            android:layout_width="76dp"
-            android:layout_height="76dp"
+            android:layout_width="@dimen/lw76"
+            android:layout_height="@dimen/lh76"
             android:src="@drawable/icon3"
-            app:civ_border_width="2dp"
-            android:layout_marginLeft="35dp"
-            app:civ_border_color="#0000"/>
+            app:civ_border_width="@dimen/board_w2"
+            android:layout_marginLeft="@dimen/margen_left35"
+            app:civ_border_color="@color/white"/>
 
         <View
             android:id="@+id/view"
-            android:layout_width="242dp"
-            android:layout_height="2dp"
-            android:background="#9a7c84"
+            android:layout_width="@dimen/lw242"
+            android:layout_height="@dimen/lhight2"
+            android:background="@color/colors_9a7c84"
             android:layout_below="@id/product_image_3"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="65dp"
+            android:layout_marginTop="@dimen/mar_top19"
+            android:layout_marginBottom="@dimen/marg_buttom10"
+            android:layout_marginLeft="@dimen/marge_lift65"
             />
         <TextView
             android:id="@+id/item_name_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/product_image_3"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="10dp"
-            android:text="Item Name"
-            android:textColor="#6a4e5d"
-            android:textSize="18sp"
+            android:layout_marginTop="@dimen/mtop10"
+            android:layout_marginLeft="@dimen/mleft10"
+            android:text="@string/item_name"
+            android:textColor="@color/color_6a4e5d"
+            android:textSize="@dimen/txt18"
             android:textStyle="bold"
 
             />
@@ -61,21 +61,21 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/item_name_3"
             android:layout_toRightOf="@id/product_image_3"
-            android:layout_marginLeft="10dp"
-            android:text="Quantity :  "
-            android:textSize="17sp"
-            android:textColor="#9a7c84"/>
+            android:layout_marginLeft="@dimen/mleft10"
+            android:text="@string/quantity"
+            android:textSize="@dimen/txt17"
+            android:textColor="@color/colors_9a7c84"/>
 
         <EditText
             android:id="@+id/quantity_number_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/quantity_3"
-            android:layout_marginTop="37dp"
+            android:layout_marginTop="@dimen/mtop37"
             android:text="3"
-            android:textSize="14sp"
+            android:textSize="@dimen/txt_14"
             android:textStyle="normal"
-            android:textColor="#9a7c84"
+            android:textColor="@color/colors_9a7c84"
             android:background="@null"
             />
 
@@ -86,20 +86,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/view"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
+            android:paddingTop="@dimen/padTop5"
+            android:paddingBottom="@dimen/padButtom5"
             >
 
 
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/customer_image_3"
-                android:layout_width="55dp"
-                android:layout_height="55dp"
+                android:layout_width="@dimen/lw55"
+                android:layout_height="@dimen/lh55"
                 android:src="@drawable/icon4"
-                android:layout_marginLeft="60dp"
-                app:civ_border_width="2dp"
-                app:civ_border_color="#0000"
+                android:layout_marginLeft="@dimen/margleft60"
+                app:civ_border_width="@dimen/board_w2"
+                app:civ_border_color="@color/white"
                 />
 
             <TextView
@@ -107,11 +107,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/customer_image_3"
-                android:layout_marginTop="3dp"
-                android:layout_marginLeft="10dp"
-                android:text="Customer Name"
-                android:textColor="#6a4e5d"
-                android:textSize="15sp"
+                android:layout_marginTop="@dimen/mar_top3"
+                android:layout_marginLeft="@dimen/mleft10"
+                android:text="@string/customer_name"
+                android:textColor="@color/color_6a4e5d"
+                android:textSize="@dimen/txt_15"
                 android:textStyle="bold"
 
                 />
@@ -122,21 +122,21 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/customer_name_3"
                 android:layout_toRightOf="@id/customer_image_3"
-                android:layout_marginLeft="10dp"
-                android:text="phone : "
-                android:textSize="13sp"
-                android:textColor="#9a7c84"/>
+                android:layout_marginLeft="@dimen/mleft10"
+                android:text="@string/phone"
+                android:textSize="@dimen/txt_14"
+                android:textColor="@color/colors_9a7c84"/>
 
             <EditText
                 android:id="@+id/customer_phone_num_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/customer_phone_3"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/mtop24"
                 android:text="0123456789"
-                android:textSize="12sp"
+                android:textSize="@dimen/txt_12"
                 android:textStyle="normal"
-                android:textColor="#9a7c84"
+                android:textColor="@color/colors_9a7c84"
                 android:background="@null"
                 />
 
@@ -146,37 +146,37 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/customer_phone_num_3"
                 android:layout_toRightOf="@id/customer_image_3"
-                android:layout_marginLeft="10dp"
-                android:text="Address : "
-                android:textSize="13sp"
-                android:textColor="#9a7c84"/>
+                android:layout_marginLeft="@dimen/mleft10"
+                android:text="@string/address"
+                android:textSize="@dimen/txt_14"
+                android:textColor="@color/colors_9a7c84"/>
 
             <EditText
                 android:id="@+id/customer_address_location_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/customer_address_3"
-                android:layout_marginTop="41dp"
+                android:layout_marginTop="@dimen/mtoop41"
                 android:text="cairo egypt"
-                android:textSize="13sp"
+                android:textSize="@dimen/txt_14"
                 android:textStyle="normal"
-                android:textColor="#9a7c84"
+                android:textColor="@color/colors_9a7c84"
                 android:background="@null"
                 />
 
             <Button
                 android:id="@+id/btn_next_3"
-                android:layout_width="132dp"
-                android:layout_height="35dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="245dp"
+                android:layout_width="@dimen/layw132"
+                android:layout_height="@dimen/layhight35"
+                android:layout_marginTop="@dimen/mtoopp20"
+                android:layout_marginLeft="@dimen/mlift245"
                 android:background="@drawable/button2"
                 android:layout_below="@+id/customer_address_location_3"
-                android:textSize="13sp"
-                android:text="Click if Finish "
+                android:textSize="@dimen/txt_14"
+                android:text="@string/click_if_finish"
                 android:drawableEnd="@drawable/ic_arrow_forward_black_1_24dp"
                 android:textAllCaps="false"
-                android:textColor="#f8f6f7"
+                android:textColor="@color/color_f8f6f7"
                 android:textStyle="bold"
                 />
 
