@@ -1,22 +1,15 @@
 package com.example.dokkanseller.views.base;
 
-
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.dokkanseller.R;
-
-/**
- * A simple {@link Fragment} subclass.
- */
-abstract public class BaseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
 
 
     /*================= must be implemented Methods - start=========================*/
@@ -64,3 +57,4 @@ abstract public class BaseFragment extends Fragment {
         onActivityReady(savedInstanceState);
     }
 }
+
