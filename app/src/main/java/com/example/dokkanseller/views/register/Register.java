@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -35,6 +36,7 @@ public class Register extends BaseFragment {
     FirebaseAuth mFireBaseAuth;
     private DatabaseReference databaseReference;
     private String currentUserID;
+    private CheckBox ckbox ;
 
     public Register() {
         // Required empty public constructor
@@ -58,6 +60,7 @@ public class Register extends BaseFragment {
         Email = view.findViewById(R.id.emailId);
         password = view.findViewById(R.id.passwordId);
         confirmPassword = view.findViewById(R.id.confPassId);
+        ckbox = view.findViewById(R.id.checkbox_reg);
         mFireBaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mProgress = new ProgressDialog(getActivity());
@@ -83,7 +86,13 @@ public class Register extends BaseFragment {
         if (TextUtils.isEmpty(confirmPass)) {
             Toast.makeText(getContext(), "Error!! ConfirmPassWord is Empty", Toast.LENGTH_LONG).show();
 
-        } else if (!pass.equals(confirmPass)) {
+
+        }
+        if (!ckbox.isChecked()) {
+            Toast.makeText(getContext(), " please accept our terms & condition first !!", Toast.LENGTH_LONG).show();
+
+
+        }else if (!pass.equals(confirmPass)) {
             Toast.makeText(getContext(), "Error!! ConfirmPassWord should match PassWord", Toast.LENGTH_LONG).show();
 
         } else {

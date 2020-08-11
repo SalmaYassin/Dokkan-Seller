@@ -1,4 +1,4 @@
-package com.example.dokkanseller.data_model;
+package com.example.dokkanseller.views.register;
 
 import android.os.Parcel;
 import android.os.Parcelable;

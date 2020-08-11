@@ -12,7 +12,7 @@
 
     android:layout_height="match_parent"
 
-    android:background="@color/colorAccent"
+    android:background="@drawable/logobkg"
 
 
 
@@ -30,38 +30,14 @@
 
         android:layout_height="@dimen/layout_dimens_0"
 
-        android:layout_marginTop="@dimen/layout_dimens_mins_20"
-
         android:layout_weight="1"
 
-        android:orientation="vertical"
-
-        >
+        android:orientation="vertical">
 
 
-        <TextView
 
-            android:id="@+id/image_logo"
 
-            android:layout_width="wrap_content"
 
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-
-            android:layout_marginTop="@dimen/layout_dimens_150"
-
-            android:layout_gravity="center_horizontal"
-
-            android:fontFamily="sans-serif-light"
-
-            android:text="@string/Sign_in"
-
-            android:textColor="@color/color_EEE1D2"
-
-            android:textSize="@dimen/text_size_30"
-
-            />
 
 
 
@@ -129,6 +105,8 @@
                 android:textColorHint="@color/color_white"
 
                 android:backgroundTint="@color/color_ecddcd"
+
+                android:textColor="@color/color_ecddcd"
                 />
 
             <EditText
@@ -158,6 +136,8 @@
                 android:textColorHint="@color/color_white"
 
                 android:backgroundTint="@color/color_ecddcd"
+                android:textColor="@color/color_ecddcd"
+
 
 
                 />

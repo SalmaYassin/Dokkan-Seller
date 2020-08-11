@@ -13,7 +13,6 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.dokkanseller.R;
-import com.example.dokkanseller.data_model.Step1Model;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;

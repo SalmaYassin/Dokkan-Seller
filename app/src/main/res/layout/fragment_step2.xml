@@ -85,10 +85,10 @@
 
         <Button
             android:id="@+id/btnDone"
-            android:layout_width="99dp"
-            android:layout_height="38dp"
+            android:layout_width="100dp"
+            android:layout_height="45dp"
             android:background="@drawable/button"
-            android:textSize="11sp"
+            android:textSize="13sp"
             android:text="DONE "
             android:textAllCaps="false"
             android:layout_gravity="center"
