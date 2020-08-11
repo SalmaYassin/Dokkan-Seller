@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/logobkg"
+    android:gravity="center">
+
+
+    <EditText
+        android:id="@+id/shopnameId"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:drawableLeft="@drawable/ic_user_name"
+        android:drawablePadding="60dp"
+        android:hint="Shop Name"
+        android:paddingLeft="10dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/color_ecddcd"
+        android:backgroundTint="@color/color_ecddcd"
+        android:shadowColor="@color/color_ecddcd"
+        android:textColor="@color/color_ecddcd"/>
+
+
+
+
+    <EditText
+        android:id="@+id/emailId"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="60dp"
+        android:hint="E-mail"
+        android:paddingLeft="10dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/color_ecddcd"
+        android:backgroundTint="@color/color_ecddcd"
+        android:shadowColor="@color/color_ecddcd"
+        android:textColor="@color/color_ecddcd"
+        />
+    <EditText
+        android:id="@+id/passwordId"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:drawableLeft="@drawable/ic_pass"
+        android:drawablePadding="60dp"
+        android:hint="Password"
+        android:paddingLeft="10dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/color_ecddcd"
+        android:backgroundTint="@color/color_ecddcd"
+        android:shadowColor="@color/color_ecddcd"
+        android:textColor="@color/color_ecddcd" />
+
+
+
+    <EditText
+        android:id="@+id/confPassId"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:drawableLeft="@drawable/ic_pass"
+        android:drawablePadding="60dp"
+        android:hint="Confirm Password"
+        android:paddingLeft="10dp"
+        android:textSize="15sp"
+        android:textColorHint="@color/color_ecddcd"
+        android:backgroundTint="@color/color_ecddcd"
+        android:shadowColor="@color/color_ecddcd"
+        android:textColor="@color/color_ecddcd"/>
+
+
+    <RelativeLayout
+        android:layout_width="260dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:gravity="center">
+
+        <CheckBox
+            android:id="@+id/checkbox_reg"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/color_ecddcd"
+            android:scaleX="0.60"
+            android:scaleY="0.60"
+            android:layout_marginTop="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_iagree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="i agree to the terms and conditions."
+            android:layout_toRightOf="@id/checkbox_reg"
+            android:textColor="@color/color_ecddcd"
+            android:textSize="13sp"
+            android:layout_marginTop="28dp"
+            android:textColorHint="@color/color_ecddcd"/>
+        <View
+            android:layout_width="130dp"
+            android:layout_height="1dp"
+            android:layout_marginLeft="100dp"
+            android:layout_below="@+id/tv_iagree"
+            android:background="@color/color_ecddcd" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="170dp"
+        android:layout_height="45dp"
+        android:background="@drawable/button"
+        android:text="Register"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:gravity="center"
+
+
+        />
+</LinearLayout>

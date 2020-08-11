@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
+
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent"
+
+    android:background="@color/colorAccent"
+
+
+
+    >
+
+
+
+
+
+    <LinearLayout
+
+        android:id="@+id/logo_linear"
+
+        android:layout_width="match_parent"
+
+        android:layout_height="@dimen/layout_dimens_0"
+
+        android:layout_marginTop="@dimen/layout_dimens_mins_20"
+
+        android:layout_weight="1"
+
+        android:orientation="vertical"
+
+        >
+
+
+        <TextView
+
+            android:id="@+id/image_logo"
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+
+            android:layout_marginTop="@dimen/layout_dimens_150"
+
+            android:layout_gravity="center_horizontal"
+
+            android:fontFamily="sans-serif-light"
+
+            android:text="@string/Sign_in"
+
+            android:textColor="@color/color_EEE1D2"
+
+            android:textSize="@dimen/text_size_30"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+
+        android:layout_height="@dimen/layout_dimens_0"
+
+        android:layout_weight="2"
+
+        android:id="@+id/login_linear"
+
+        android:orientation="vertical"
+
+        android:layout_marginRight="@dimen/layout_dimens_40"
+
+        android:layout_marginLeft="@dimen/layout_dimens_40"
+
+        >
+
+
+
+
+
+
+
+        <LinearLayout
+
+            android:id="@+id/linear1"
+
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+
+            <EditText
+                android:id="@+id/email_login"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:inputType="textEmailAddress"
+
+                android:padding="@dimen/layout_dimens_15"
+
+                android:layout_margin="@dimen/layout_dimens_12"
+
+                android:textSize="@dimen/text_size_15"
+
+                android:drawableLeft="@drawable/ic_email"
+
+                android:drawablePadding="@dimen/layout_dimens_15"
+
+                android:paddingStart="@dimen/layout_dimens_5"
+
+                android:hint="@string/Email"
+
+
+                android:textColorHint="@color/color_white"
+
+                android:backgroundTint="@color/color_ecddcd"
+                />
+
+            <EditText
+                android:id="@+id/password_login"
+
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+
+                android:inputType="textPassword"
+
+                android:padding="@dimen/layout_dimens_15"
+
+                android:hint="@string/password"
+
+
+                android:layout_margin="@dimen/layout_dimens_12"
+
+                android:textSize="@dimen/text_size_15"
+
+                android:drawableLeft="@drawable/ic_pass"
+
+                android:drawablePadding="@dimen/layout_dimens_15"
+
+                android:paddingStart="@dimen/layout_dimens_5"
+
+                android:textColorHint="@color/color_white"
+
+                android:backgroundTint="@color/color_ecddcd"
+
+
+                />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:id="@+id/forget_password"
+
+                android:text="@string/forget_Password"
+
+                android:textSize="@dimen/text_size_18"
+
+                android:textColor="@color/color_ecddcd"
+
+                android:textStyle="bold"
+
+                android:layout_gravity="center_horizontal"
+
+                android:layout_marginTop="@dimen/layout_dimens_20"
+
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical"
+
+            android:layout_gravity="center"
+
+            >
+
+
+
+            <Button
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="@dimen/layout_dimens_40"
+
+                android:id="@+id/but_sing"
+
+                android:gravity="center"
+
+                android:background="@drawable/button"
+
+                android:backgroundTint="@color/color_EEE1D2"
+
+                android:text="@string/Sign_in"
+
+                android:textColor="@color/colorPrimary"
+
+                android:textSize="@dimen/text_size_16"
+
+                android:textAllCaps="false"
+
+                android:fontFamily="sans-serif-medium"
+
+                android:layout_centerHorizontal="true"
+
+                android:paddingRight="@dimen/layout_dimens_60"
+
+                android:paddingLeft="@dimen/layout_dimens_60"
+
+                android:layout_marginTop="@dimen/layout_dimens_55"
+
+
+
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal"
+
+            android:layout_marginTop="@dimen/layout_dimens_20"
+
+            android:layout_gravity="center">
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:text="@string/Dont_have_an_account"
+
+                android:textSize="@dimen/text_size_12"
+
+                android:textColor="@color/color_white"
+
+                />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+
+                android:id="@+id/regester_here"
+
+                android:text="@string/Register_here"
+
+                android:textSize="@dimen/text_size_13"
+
+                android:fontFamily="sans-serif-black"
+
+                android:textStyle="bold"
+
+                android:textColor="@color/color_ecddcd"
+
+                android:layout_marginLeft="@dimen/layout_dimens_2"
+
+                />
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

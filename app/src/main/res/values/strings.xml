@@ -2,6 +2,24 @@
     <string name="app_name">Dokkan Seller</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="products">
+        <item>Embroidery Art</item>
+        <item>Crochet</item>
+        <item>Wedding</item>
+        <item>Accessories</item>
+    </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Sign_in">Sign in</string>
+    <string name="Email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_Password">Forget Password ?</string>
+    <string name="Dont_have_an_account">Dont have an account?</string>
+    <string name="Register_here"> Register here</string>
+    <string name="Forget_Password">Forget Password!!</string>
+    <string name="Don_Worry_we_just_need_your">Don Worry we just need your</string>
+    <string name="registared_email_address_and_its_done"> registared email address and its done</string>
     <string name="made_with_love">Made With Love</string>
+
+
 </resources>
+

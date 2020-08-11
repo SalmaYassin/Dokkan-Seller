@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/welcomPage">
+
+    <fragment
+        android:id="@+id/welcomPage"
+        android:name="com.example.dokkanseller.views.welcom.Welcom"
+        android:label="WelcomPage"
+        tools:layout="@layout/fragment_welcom_page" >
+
+        <action
+            android:id="@+id/action_welcomPage_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_welcomPage_to_login"
+            app:destination="@id/login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.example.dokkanseller.views.register.Register"
+        android:label="Register" >
+        <action
+            android:id="@+id/action_register_to_step1"
+            app:destination="@id/step1" />
+        <argument
+            android:name="currentID"
+            app:argType="string" />
+        <argument
+            android:name="shopName"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/step1"
+        android:name="com.example.dokkanseller.views.register.Step1"
+        android:label="fragment_step1"
+        tools:layout="@layout/fragment_step1" >
+        <action
+            android:id="@+id/action_step1_to_step2"
+            app:destination="@id/step2" />
+        <argument
+            android:name="step1_model"
+            app:argType="com.example.dokkanseller.views.register.Step1Model" />
+        <argument
+            android:name="user_id2"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/step2"
+        android:name="com.example.dokkanseller.views.register.Step2"
+        android:label="fragment_step2"
+        tools:layout="@layout/fragment_step2" />
+
+    <fragment
+        android:id="@+id/login"
+        android:name="com.example.dokkanseller.views.login.Login"
+        android:label="Login" >
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_forgetPassword"
+            app:destination="@id/forgetPassword" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/forgetPassword"
+        android:name="com.example.dokkanseller.views.login.forgetPassword"
+        android:label="forgetPassword" />
+</navigation>

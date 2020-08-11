@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pagebkg"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:gravity="center">
+
+
+    <EditText
+        android:id="@+id/locationId"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:background="@drawable/edittex"
+        android:hint="Location (e.g : Cairo , Egypt)"
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
+        android:textSize="13sp"
+        android:layout_marginTop="70dp"/>
+
+    <EditText
+        android:id="@+id/phoneId"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edittex"
+        android:hint="Phone "
+        android:inputType="phone"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/facebookId"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edittex"
+        android:hint="Facebook "
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
+        android:textSize="13sp"
+        />
+
+    <EditText
+        android:id="@+id/instgramId"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/edittex"
+        android:hint="Instagram "
+        android:inputType="text"
+        android:paddingLeft="10dp"
+        android:textColorHint="@color/color_white"
+        android:textColor="@color/color_white"
+        android:textSize="13sp"/>
+
+
+
+    <Button
+        android:id="@+id/nxtbtn"
+        android:layout_width="120dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/button2"
+        android:textSize="15sp"
+        android:text="NEXT "
+        android:textAllCaps="false"
+        android:textColor="@color/color_white"
+        android:textStyle="bold"/>
+
+
+
+
+</LinearLayout>
