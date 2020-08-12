@@ -4,5 +4,13 @@
     <color name="colorPrimaryDark">#9a7c84</color>
     <color name="colorAccent">#9a7c84</color>
     <color name="color_ecddcd">#ecddcd</color>
+    <color name="indicator_color">#6A4E5D</color>
+    <color name="card_color">#e6e4e4</color>
+    <color name="text_color_fff">#fff</color>
+    <color name="shadow_color_ac9fa6">#ac9fa6</color>
+    <color name="bacground_ac9fa6">#6a4e5d</color>
+    <color name="bacground_fff">#ffff</color>
+    <color name="text_color_6a4e5d">#6a4e5d</color>
+    <color name="color_727878">#727878</color>
 
 </resources>
