@@ -3,4 +3,32 @@
     <dimen name="margin_25">25dp</dimen>
     <dimen name="text_size23">23sp</dimen>
     <dimen name="margin_16">16dp</dimen>
+
+
+    <dimen name="layout_dimen_160">160dp</dimen>
+    <dimen name="layout_dimen_20">20dp</dimen>
+    <dimen name="layout_dimen_50">50dp</dimen>
+    <dimen name="layout_dimen_200">200dp</dimen>
+    <dimen name="layout_dimen_250">250dp</dimen>
+    <dimen name="layout_dimen_8">8dp</dimen>
+    <dimen name="layout_dimen_130">130dp</dimen>
+    <dimen name="layout_dimen_150">130dp</dimen>
+    <dimen name="layout_dimen_6">6dp</dimen>
+    <dimen name="layout_dimen_15">15dp</dimen>
+    <dimen name="layout_dimen_400">400dp</dimen>
+    <dimen name="layout_dimen_180">180dp</dimen>
+    <dimen name="layout_dimen_25">25dp</dimen>
+    <dimen name="layout_dimen_30">30dp</dimen>
+    <dimen name="layout_dimen_5">5dp</dimen>
+    <dimen name="layout_dimen_60">60dp</dimen>
+    <dimen name="layout_dimen_10">10dp</dimen>
+    <dimen name="pageMargin">30dp</dimen>
+    <dimen name="offset">10dp</dimen>
+
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+    <dimen name="text_Size_17">17sp</dimen>
+    <dimen name="text_size_14">14dp</dimen>
+    <dimen name="text_Size_16">16sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
 </resources>

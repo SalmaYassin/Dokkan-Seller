@@ -4,5 +4,10 @@
     <color name="colorPrimaryDark">#9a7c84</color>
     <color name="colorAccent">#9a7c84</color>
     <color name="color_ecddcd">#ecddcd</color>
+    <color name="color_6a4e5d">#6a4e5d</color>
+    <color name="color_9a7c84">#9a7c84</color>
+    <color name="color_white">#ffffff</color>
+    <color name="color_e6e4e4">#e6e4e4</color>
+    <color name="color_f8f6f7">#f8f6f7</color>
 
 </resources>

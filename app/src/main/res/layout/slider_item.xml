@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/layout_dimen_30"
+    android:layout_marginRight="@dimen/layout_dimen_30"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/imageSlide">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/layout_dimen_250"
+        android:layout_height="@dimen/layout_dimen_200"
+        app:cardCornerRadius="@dimen/layout_dimen_20"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/layout_dimen_8"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/color_f8f6f7">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_dimen_150"
+                android:scaleType="centerCrop"
+                android:id="@+id/imageview_slide"
+                android:src="@drawable/embridory_art"/>
+
+            <TextView
+                android:id="@+id/tv_slide"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:paddingTop="@dimen/layout_dimen_5"
+                android:text="Embroidery Art"
+                android:textStyle="bold"
+                android:textColor="@color/color_9a7c84"
+                android:textSize="@dimen/text_size_25"
+                android:fontFamily="cursive"
+                android:layout_below="@id/imageview_slide"
+                />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

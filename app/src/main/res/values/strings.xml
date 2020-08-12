@@ -4,4 +4,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="made_with_love">Made With Love</string>
+    <string name="Add_Item">Add Item</string>
+    <string name="Welcome">Welcome,</string>
+    <string name="user_name">Asmaa Salah</string>
+    <string name="in_your_secound_home">in your secound home</string>
+    <string name="Your_Category">Your Category</string>
+    <string name="item_full_name">item full name</string>
 </resources>

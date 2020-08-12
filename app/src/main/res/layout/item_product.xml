@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/layout_dimen_160"
+        android:layout_height="@dimen/layout_dimen_180"
+        android:elevation="@dimen/layout_dimen_5"
+        app:cardBackgroundColor="@color/color_white"
+        app:cardCornerRadius="@dimen/layout_dimen_6"
+        android:layout_marginRight="@dimen/layout_dimen_15"
+        android:layout_marginBottom="@dimen/layout_dimen_15"
+        android:layout_marginLeft="@dimen/layout_dimen_5">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <ImageView
+                android:id="@+id/itemImage"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_dimen_130"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/product1" />
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/itemImage"
+                android:textColor="@color/color_6a4e5d"
+                android:textSize="@dimen/text_size_14"
+                android:text="@string/item_full_name"
+                android:layout_marginLeft="@dimen/layout_dimen_10"
+                android:layout_marginTop="@dimen/layout_dimen_5"
+                />
+
+            <ImageButton
+                android:id="@+id/share_product"
+                android:layout_width="@dimen/layout_dimen_25"
+                android:layout_height="@dimen/layout_dimen_30"
+                android:background="@android:color/transparent"
+                android:gravity="start|top"
+                android:src="@drawable/icon_more_vert"
+                android:layout_below="@+id/itemImage"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
