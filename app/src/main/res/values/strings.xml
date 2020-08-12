@@ -4,4 +4,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="made_with_love">Made With Love</string>
+    <string name="shop_name">Shop Name</string>
+    <string name="location_name">location</string>
+    <string name="reviews">Reviews</string>
+    <string name="view_more">View more</string>
+    <string name="about">About</string>
+    <string name="instgram">Instgram</string>
+    <string name="policies">Policies</string>
+    <string name="item_name">Item Name</string>
+    <string name="load_more">Load more</string>
 </resources>
