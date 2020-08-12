@@ -19,6 +19,17 @@
     <string name="Don_Worry_we_just_need_your">Don Worry we just need your</string>
     <string name="registared_email_address_and_its_done"> registared email address and its done</string>
     <string name="made_with_love">Made With Love</string>
+    <string name="location_e_g_cairo_egypt">Location (e.g : Cairo , Egypt)</string>
+    <string name="phone">Phone</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+    <string name="next">NEXT</string>
+    <string name="done">DONE</string>
+    <string name="about">About</string>
+    <string name="policies">policies</string>
+    <string name="bio">Bio</string>
+    <string name="select_your_categories">Select Your Categories</string>
+    <string name="reset_password">Reset password</string>
 
 
 </resources>

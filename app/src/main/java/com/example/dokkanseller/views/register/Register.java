@@ -1,13 +1,18 @@
 package com.example.dokkanseller.views.register;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,12 +36,13 @@ import java.util.HashMap;
  */
 public class Register extends BaseFragment {
     private Button register;
+    private TextView terms_condition;
     EditText shopname, Email, password, confirmPassword;
     private ProgressDialog mProgress;
     FirebaseAuth mFireBaseAuth;
     private DatabaseReference databaseReference;
     private String currentUserID;
-    private CheckBox ckbox ;
+    private CheckBox ckbox;
 
     public Register() {
         // Required empty public constructor
@@ -61,6 +67,8 @@ public class Register extends BaseFragment {
         password = view.findViewById(R.id.passwordId);
         confirmPassword = view.findViewById(R.id.confPassId);
         ckbox = view.findViewById(R.id.checkbox_reg);
+        terms_condition = view.findViewById(R.id.tv_terms);
+
         mFireBaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         mProgress = new ProgressDialog(getActivity());
@@ -92,7 +100,7 @@ public class Register extends BaseFragment {
             Toast.makeText(getContext(), " please accept our terms & condition first !!", Toast.LENGTH_LONG).show();
 
 
-        }else if (!pass.equals(confirmPass)) {
+        } else if (!pass.equals(confirmPass)) {
             Toast.makeText(getContext(), "Error!! ConfirmPassWord should match PassWord", Toast.LENGTH_LONG).show();
 
         } else {
@@ -121,10 +129,10 @@ public class Register extends BaseFragment {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         if (task.isSuccessful()) {
                                             Bundle bundle = new Bundle();
-                                            bundle.putString("currentID" , currentUserID);
-                                            bundle.putString("shopName" , nameOfShop);
-                                            Log.d("ID_USER", "current user id : "+ currentUserID );
-                                            getNavController().navigate(R.id.action_register_to_step1 , bundle);
+                                            bundle.putString("currentID", currentUserID);
+                                            bundle.putString("shopName", nameOfShop);
+                                            Log.d("ID_USER", "current user id : " + currentUserID);
+                                            getNavController().navigate(R.id.action_register_to_step1, bundle);
                                         } else {
                                             mProgress.dismiss();
                                             String message = task.getException().toString();
@@ -155,6 +163,42 @@ public class Register extends BaseFragment {
             }
 
         });
+
+        terms_condition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTermsAndCondition();
+            }
+        });
+
+
+    }
+
+    private void showTermsAndCondition() {
+        final AlertDialog.Builder mB = new AlertDialog.Builder(getContext());
+        mB.setTitle("License Agreement");
+        mB.setMessage( "" +
+                        " Welcome to DOKKAN :))\n" +
+        "\n" +
+                "These terms and conditions outline the rules and regulations for the use of Dokkan application.\n" +
+                "\n" +
+                "By accessing this application we assume you accept these terms and conditions. Do not continue to use dokkan if you do not agree to take all of the terms and conditions stated on this page please .\n" +
+                "\n" +
+                "The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: 'Client', 'You' and 'developer of this app',"
+                + "let's be clear with each other , don't be harm for any person on your service." +
+                        "these app Standard Terms and Conditions, Your product shall mean any audio, video text, images or other material you choose to display on this application. " +
+                        "By displaying Your Content, you grant Company Name a non-exclusive, worldwide irrevocable, sub licensable license to use, reproduce, adapt, publish, translate and distribute it in any and all media.\n" +
+                        "\n" +
+                        "Your Content must be your own and must not be invading any third-party's rights. Dokkan developer reserves the right to remove any of Your Content from this application at any time without notice."
+        );
+
+        mB.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+            }
+        });
+        AlertDialog m = mB.create();
+        mB.show();
     }
 
 

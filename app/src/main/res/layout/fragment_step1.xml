@@ -10,39 +10,39 @@
 
     <EditText
         android:id="@+id/locationId"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/width_220"
+        android:layout_height="@dimen/height_40"
         android:background="@drawable/edittex"
-        android:hint="Location (e.g : Cairo , Egypt)"
+        android:hint="@string/location_e_g_cairo_egypt"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingLeft="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
-        android:textSize="13sp"
-        android:layout_marginTop="70dp"/>
+        android:textSize="@dimen/text_size_13"
+        android:layout_marginTop="@dimen/margin_70"/>
 
     <EditText
         android:id="@+id/phoneId"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="17dp"
+        android:layout_width="@dimen/width_220"
+        android:layout_height="@dimen/height_40"
+        android:layout_marginTop="@dimen/margin_17"
         android:background="@drawable/edittex"
-        android:hint="Phone "
+        android:hint="@string/phone"
         android:inputType="phone"
-        android:paddingLeft="10dp"
+        android:paddingLeft="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
-        android:textSize="13sp" />
+        android:textSize="@dimen/text_size_13" />
 
     <EditText
         android:id="@+id/facebookId"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="17dp"
+        android:layout_width="@dimen/width_220"
+        android:layout_height="@dimen/height_40"
+        android:layout_marginTop="@dimen/margin_17"
         android:background="@drawable/edittex"
-        android:hint="Facebook "
+        android:hint="@string/facebook"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingLeft="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
         android:textSize="13sp"
@@ -50,27 +50,27 @@
 
     <EditText
         android:id="@+id/instgramId"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="17dp"
+        android:layout_width="@dimen/width_220"
+        android:layout_height="@dimen/height_40"
+        android:layout_marginTop="@dimen/margin_17"
         android:background="@drawable/edittex"
-        android:hint="Instagram "
+        android:hint="@string/instagram"
         android:inputType="text"
-        android:paddingLeft="10dp"
+        android:paddingLeft="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
-        android:textSize="13sp"/>
+        android:textSize="@dimen/text_size_13"/>
 
 
 
     <Button
         android:id="@+id/nxtbtn"
-        android:layout_width="120dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="35dp"
+        android:layout_width="@dimen/width_120"
+        android:layout_height="@dimen/height_35"
+        android:layout_marginTop="@dimen/margin_35"
         android:background="@drawable/button2"
-        android:textSize="15sp"
-        android:text="NEXT "
+        android:textSize="@dimen/text_size_15"
+        android:text="@string/next"
         android:textAllCaps="false"
         android:textColor="@color/color_white"
         android:textStyle="bold"/>

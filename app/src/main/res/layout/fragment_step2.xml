@@ -8,88 +8,88 @@
     android:layout_gravity="center"
     android:background="#f8f6f7"
     android:gravity="center">
-    <de.hdodenhof.circleimageview.CircleImageView
+
+    <ImageView
         android:id="@+id/profile_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginBottom="2dp"
-        android:src="@drawable/ic_add_a_photo"
-        app:civ_border_color="@color/colorAccent"
-        app:civ_border_width="1dp" />
+        android:layout_width="@dimen/width_130"
+        android:layout_height="@dimen/height_100"
+        android:layout_marginTop="@dimen/margin_45"
+        android:src="@drawable/profilepic" />
 
     <Button
         android:id="@+id/categ_butt"
-        android:layout_width="220dp"
-        android:layout_height="40dp"
+        android:layout_width="@dimen/width_220"
+        android:layout_height="@dimen/height_40"
         android:background="@drawable/edittex"
-        android:layout_marginTop="17dp"
-        android:paddingRight="40dp"
-        android:text="Select Your Categories"
-        android:textSize="11sp"
+        android:layout_marginTop="@dimen/margin_17"
+        android:paddingRight="@dimen/padding_40"
+        android:text="@string/select_your_categories"
+        android:textSize="@dimen/text_size_13"
         android:textColor="@color/color_white"
         />
     <EditText
         android:id="@+id/bioId"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="18dp"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginTop="@dimen/margin_18"
         android:background="@drawable/edittex"
-        android:hint="Bio"
-        android:paddingLeft="10dp"
+        android:hint="@string/bio"
+        android:paddingLeft="@dimen/paddind_10"
         android:gravity="start|top"
-        android:padding="5dp"
-        android:paddingStart="11dp"
+        android:padding="@dimen/padding_5"
+        android:paddingStart="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
-        android:textSize="13sp"/>
+        android:textSize="@dimen/text_size_15"/>
+
     <EditText
         android:id="@+id/aboutId"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginTop="18dp"
+        android:layout_height="@dimen/height_50"
+        android:layout_marginTop="@dimen/margin_18"
         android:background="@drawable/edittex"
-        android:hint="About"
-        android:paddingLeft="10dp"
+        android:hint="@string/about"
+        android:paddingLeft="@dimen/paddind_10"
         android:gravity="start|top"
-        android:padding="5dp"
-        android:paddingStart="11dp"
+        android:padding="@dimen/padding_5"
+        android:paddingStart="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
-        android:textSize="13sp"/>
+        android:textSize="@dimen/text_size_15"/>
 
     <EditText
         android:id="@+id/policiesId"
         android:layout_width="wrap_content"
-        android:layout_height="120dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="@dimen/height_120"
+        android:layout_marginTop="@dimen/margin_20"
         android:background="@drawable/edittex"
         android:gravity="start|top"
-        android:hint="policies"
+        android:hint="@string/policies"
         android:lines="8"
-        android:padding="5dp"
-        android:paddingStart="11dp"
-        android:paddingLeft="10dp"
+        android:padding="@dimen/padding_5"
+        android:paddingStart="@dimen/paddind_10"
+        android:paddingLeft="@dimen/paddind_10"
         android:textColorHint="@color/color_white"
         android:textColor="@color/color_white"
-        android:textSize="13sp"/>
+        android:textSize="@dimen/text_size_15"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp"
+        android:padding="@dimen/padding_5"
         android:orientation="horizontal"
-        android:layout_marginLeft="2dp"
+        android:layout_marginLeft="@dimen/margin_2"
         android:gravity="center"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="@dimen/margin_50">
 
 
         <Button
             android:id="@+id/btnDone"
-            android:layout_width="100dp"
-            android:layout_height="45dp"
-            android:background="@drawable/button"
-            android:textSize="13sp"
-            android:text="DONE "
+            android:layout_width="@dimen/width_120"
+            android:layout_height="@dimen/height_45"
+            android:background="@drawable/button3"
+            android:textSize="@dimen/text_size_13"
+            android:text="@string/done"
             android:textAllCaps="false"
             android:layout_gravity="center"
             android:textColor="@color/colorPrimary"

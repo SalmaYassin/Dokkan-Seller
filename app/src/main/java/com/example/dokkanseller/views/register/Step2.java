@@ -11,6 +11,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,7 +48,7 @@ Step2 extends BaseFragment {
     private Button donebtn, categList;
     private EditText bio, about, policies;
 
-    private CircleImageView vendoerImage;
+    private ImageView vendoerImage;
     private static final int PICK_IMAGE_REQUEST = 1;
     private StorageReference storageReference;
     private ProgressDialog loadingBar;
