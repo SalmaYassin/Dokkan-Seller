@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        >
+
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/Relative_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/layout_dimen_160"
+                android:backgroundTint="@color/color_6a4e5d"
+                android:background="@drawable/background">
+
+                <ImageView
+                    android:id="@+id/welcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/message"
+                    android:layout_margin="@dimen/layout_dimen_20"
+                    android:layout_gravity="top|right"
+                    />
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/layout_dimen_50"
+                    android:layout_marginTop="@dimen/layout_dimen_50">
+                    <TextView
+                        android:id="@+id/welcome_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_white"
+                        android:text="@string/Welcome"
+                        android:fontFamily="sans-serif"
+                        android:textSize="@dimen/text_size_20"
+                        />
+                    <TextView
+                        android:id="@+id/seller_name_id"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/welcome_text"
+                        android:textColor="@color/color_white"
+                        android:text="@string/user_name"
+                        android:textSize="@dimen/text_size_20"
+                        android:fontFamily="cursive"
+
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/in_your_secound_home"
+                        android:layout_marginLeft="@dimen/layout_dimen_15"
+                        android:layout_below="@+id/seller_name_id"
+                        android:textColor="@color/color_white"
+                        android:textSize="@dimen/text_size_15"
+                        />
+                </RelativeLayout>
+
+
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            <LinearLayout
+                android:id="@+id/linear_slider"
+                android:layout_below="@id/Relative_welcome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/color_white">
+
+                <TextView
+                    android:id="@+id/browse_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_dimen_5"
+                    android:text="@string/Your_Category"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_9a7c84"
+                    android:textSize="@dimen/text_Size_17"
+                    android:textStyle="bold" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerSlider"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingStart="@dimen/layout_dimen_60"
+                    android:clipToPadding="false"
+                    android:clipChildren="false"
+                    android:paddingEnd="@dimen/layout_dimen_60">
+
+                </androidx.viewpager2.widget.ViewPager2>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_below="@+id/linear_slider"
+                android:background="@color/color_e6e4e4"
+                >
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerview_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/layout_dimen_400"
+                    android:layout_marginTop="@dimen/layout_dimen_10"
+                    android:paddingLeft="@dimen/layout_dimen_10"
+                    android:paddingRight="@dimen/layout_dimen_15"
+                    >
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+
+        </RelativeLayout>
+        <!-- Main content -->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating_action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="@dimen/layout_dimen_25"
+            android:backgroundTint="@color/color_6a4e5d"
+            android:elevation="@dimen/layout_dimen_60"
+            app:srcCompat="@drawable/ic_plus"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.core.widget.NestedScrollView>
