@@ -19,8 +19,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
-import com.engineering.dokkanseller.R;
+import com.example.dokkanseller.R;
 import com.example.dokkanseller.data_model.ProductitemModel;
 import com.example.dokkanseller.data_model.SliderItemModel;
 import com.example.dokkanseller.views.base.BaseFragment;
@@ -62,7 +61,7 @@ public class HomeFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
         return R.layout.fragment_home;
-        ;
+
     }
 
     @Override
@@ -75,11 +74,6 @@ public class HomeFragment extends BaseFragment {
 
     }
 
-    private void initViewModel() {
-        floatingActionButton= (FloatingActionButton)view.findViewById(R.id.floating_action_button);
-        recyclerView = view.findViewById(R.id.recyclerview_id);
-        data = new ArrayList<>();
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
