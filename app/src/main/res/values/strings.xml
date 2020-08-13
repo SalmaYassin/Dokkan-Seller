@@ -31,7 +31,7 @@
     <string name="Add_Item">Add Item</string>
     <string name="Welcome">Welcome,</string>
     <string name="user_name">Asmaa Salah</string>
-    <string name="in_your_secound_home">in your secound home</string>
+    <string name="in_your_secound_home">in your second home</string>
     <string name="Your_Category">Your Category</string>
     <string name="item_full_name">item full name</string>
     <string name="location_e_g_cairo_egypt">Location (e.g : Cairo , Egypt)</string>
@@ -40,8 +40,6 @@
     <string name="instagram">Instagram</string>
     <string name="next">NEXT</string>
     <string name="done">DONE</string>
-    <string name="about">About</string>
-    <string name="policies">policies</string>
     <string name="bio">Bio</string>
     <string name="select_your_categories">Select Your Categories</string>
     <string name="reset_password">Reset password</string>

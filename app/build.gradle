@@ -19,6 +19,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+
 }
 
 dependencies {
@@ -52,4 +58,8 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.71828'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 
+    implementation 'com.cepheuen.elegant-number-button:lib:1.0.2'
+
+    //navigation button
+    implementation 'com.google.android.material:material:1.0.0'
 }

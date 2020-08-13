@@ -43,6 +43,7 @@ import com.example.dokkanseller.data_model.ProfileReviewModel;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -67,6 +68,9 @@ import static android.app.Activity.RESULT_OK;
  * A simple {@link Fragment} subclass.
  */
 public class ProfileFragment extends BaseFragment {
+    private String currentUserID;
+
+
     ProfileModel profile ;
     //review
     private ArrayList<ProfileReviewModel> reviewList;
@@ -102,12 +106,14 @@ public class ProfileFragment extends BaseFragment {
     @Override
     public void initializeViews(View view) {
         initialization(view);
-        showShopDetails("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+        showShopDetails(currentUserID);
 
     }
 
     private void initialization(View view) {
         storageReference = FirebaseStorage.getInstance().getReference();
+        currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
 
         reviewRecyclerView = view.findViewById(R.id.recyclerview_review);
 
@@ -199,7 +205,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("shopName").setValue( nameET.getText().toString() );
                         shopname.setVisibility(View.VISIBLE);
                         shopname.setText(nameET.getText().toString());
@@ -227,7 +233,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("bio").setValue( descET.getText().toString() );
                         desc.setVisibility(View.VISIBLE);
                         desc.setText(descET.getText().toString());
@@ -255,7 +261,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("location").setValue( locationET.getText().toString() );
                         location.setVisibility(View.VISIBLE);
                         location.setText(locationET.getText().toString());
@@ -284,7 +290,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("phoneNum").setValue( phoneET.getText().toString() );
                         phone_num.setVisibility(View.VISIBLE);
                         phone_num.setText(phoneET.getText().toString());
@@ -310,7 +316,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("about").setValue( aboutET.getText().toString() );
                         about.setVisibility(View.VISIBLE);
                         about.setText(aboutET.getText().toString());
@@ -336,7 +342,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("policies").setValue( policiesET.getText().toString() );
                         policies.setVisibility(View.VISIBLE);
                         policies.setText(aboutET.getText().toString());
@@ -365,7 +371,7 @@ public class ProfileFragment extends BaseFragment {
                     @Override
                     public void onClick(View view) {
                         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                .child(currentUserID);
                         databaseReference.child("fbLink").setValue( fbET.getText().toString() );
                         databaseReference.child("instaLink").setValue( instaET.getText().toString() );
 
@@ -492,7 +498,7 @@ public class ProfileFragment extends BaseFragment {
                                 public void onSuccess(Uri uri) {
                                     url = String.valueOf(uri);
                                     DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("shops")
-                                            .child("UxrniGx84sYuAmIEBMXwU2bYPNp1");
+                                            .child(currentUserID);
                                     databaseReference.child("shopImage").setValue(url);
 
                                 }

@@ -54,26 +54,35 @@
         android:id="@+id/step2"
         android:name="com.example.dokkanseller.views.register.Step2"
         android:label="fragment_step2"
-        tools:layout="@layout/fragment_step2" />
+        tools:layout="@layout/fragment_step2" >
+        <action
+            android:id="@+id/action_step2_to_login"
+            app:destination="@id/login" />
+    </fragment>
 
     <fragment
         android:id="@+id/login"
         android:name="com.example.dokkanseller.views.login.Login"
         android:label="Login" >
         <action
-            android:id="@+id/action_login_to_register"
-            app:destination="@id/register" />
-        <action
             android:id="@+id/action_login_to_forgetPassword"
             app:destination="@id/forgetPassword" />
+        <action
+            android:id="@+id/action_login_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/register" />
     </fragment>
 
     <fragment
         android:id="@+id/forgetPassword"
         android:name="com.example.dokkanseller.views.login.forgetPassword"
         android:label="forgetPassword" />
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_graph"
-    app:startDestination="@id/profileFragment">
+    <fragment
+        android:id="@+id/homeFragment2"
+        android:name="com.example.dokkanseller.views.Home.HomeFragment"
+        android:label="HomeFragment" />
 
     <fragment
         android:id="@+id/profileFragment"

@@ -108,6 +108,8 @@ Step2 extends BaseFragment {
             public void onClick(View v) {
                 uploadFile();
                 Log.d("ID_USER", "image  : "+ url );
+                getNavController().navigate(R.id.action_step2_to_login);
+
             }
         });
 

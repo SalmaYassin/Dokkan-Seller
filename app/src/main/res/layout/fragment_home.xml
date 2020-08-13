@@ -79,7 +79,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:background="@color/color_white">
+                >
 
                 <TextView
                     android:id="@+id/browse_category"

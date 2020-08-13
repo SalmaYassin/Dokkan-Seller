@@ -24,6 +24,8 @@ import com.example.dokkanseller.data_model.ProductitemModel;
 import com.example.dokkanseller.data_model.SliderItemModel;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +40,8 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends BaseFragment {
     //firebase
+    private String currentUserID;
+
     private DatabaseReference dbReference;
    // private FirebaseStorage mstorge;
     private ArrayList<ProductitemModel> data;
@@ -53,6 +57,8 @@ public class HomeFragment extends BaseFragment {
     ProductRecycAdapter productAdapter;
     ProductRecycAdapter.ItemClickListener ListenerProducts;
 
+    ArrayList<String> listofCateg ;
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -66,28 +72,44 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
+        currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        listofCateg = new ArrayList<>();
+        getCategoriesNames();
+
+        SliderWork(view);
+
         floatingActionButton= (FloatingActionButton)view.findViewById(R.id.floating_action_button);
         recyclerView = view.findViewById(R.id.recyclerview_id);
         data = new ArrayList<>();
-        setListeners();
-        SliderWork(view);
 
     }
 
+    private void getCategoriesNames() {
+        dbReference = FirebaseDatabase.getInstance().getReference("shops").child(currentUserID);
+        dbReference.child("listOfcategIDs").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    String name = snapshot.getValue(String.class);
+                    Log.d("getCategoriesNames() " , " name : " + name);
+                    listofCateg.add(name);
+                }
+                showSlider(listofCateg);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
     }
+
 
     //get all product of one category to sow it in recycelerview
     void getProductsByCategoryId(String catID) {
-//        for(int i=0 ;i <data.size();i++) {
-//            if(i==0){
-//                data.add(new ProductitemModel(false,"add Item",R.drawable.ic_add_circle));
-//            }else {
         dbReference = FirebaseDatabase.getInstance().getReference("products");
         Query query = FirebaseDatabase.getInstance().getReference("products")
                 .orderByChild("categoryid").equalTo(catID);
@@ -115,37 +137,42 @@ public class HomeFragment extends BaseFragment {
     }
 
     // get data from firedase to array of slider and show it in viewpager2...
-    private void showSlider(View view) {
+    private void showSlider(ArrayList<String> list ) {
         datasider = new ArrayList<>();
-        //  productAdapter.setOnItemClickListener(ListenerProducts);
-        dbReference = FirebaseDatabase.getInstance().getReference("categories");
-        dbReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+        for ( String name : list){
+            Log.d("LIST CATEGORIES" , " name : " + name);
+            Query query = FirebaseDatabase.getInstance().getReference("categories");
+            query.orderByChild("categoryname").equalTo(name).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        SliderItemModel item = snapshot.getValue(SliderItemModel.class);
+                        datasider.add(item);
+                    }
+                    //set adapter to view pager2
+                    sliderAdapter = new SliderAdapter(datasider, viewPager2);
+                    viewPager2.setAdapter(sliderAdapter);
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    SliderItemModel item = snapshot.getValue(SliderItemModel.class);
-                    datasider.add(item);
                 }
-                //set adapter to view pager2
-                sliderAdapter = new SliderAdapter(datasider, viewPager2);
-                viewPager2.setAdapter(sliderAdapter);
 
-            }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getActivity(), databaseError.getMessage(), Toast.LENGTH_LONG).show();
 
-                Toast.makeText(getActivity(), databaseError.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
+        }
 
-            }
-        });
+        //  productAdapter.setOnItemClickListener(ListenerProducts);
+
 
     }
+
+
     // work the slider
     private void SliderWork(View view) {
         viewPager2 = view.findViewById(R.id.viewPagerSlider);
-        showSlider(view);
         viewPager2.setOffscreenPageLimit(3);
         viewPager2.getChildAt(0).setOverScrollMode(RecyclerView.OVER_SCROLL_NEVER);
         // when slider take action....
@@ -210,6 +237,7 @@ public class HomeFragment extends BaseFragment {
             }
         };
     }
+
     NavController getNavController() {
         return Navigation.findNavController(getActivity(), R.id.my_nav_host);
     }
@@ -219,7 +247,6 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 // Handle the click.
-
                 Toast.makeText(getActivity(), "go to add item product", Toast.LENGTH_SHORT).show();
 
             }

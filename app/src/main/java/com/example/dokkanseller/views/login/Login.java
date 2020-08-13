@@ -119,7 +119,7 @@ public class Login extends BaseFragment {
                             if (task.isSuccessful()) {
                                 if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                                     loadingbar.dismiss();
-                                    getNavController().navigate(R.id.action_login_to_register);
+                                    getNavController().navigate(R.id.action_login_to_homeFragment2);
                                     Toast.makeText(getActivity(), "Logged is succesfully.", Toast.LENGTH_SHORT).show();
 
                                 } else {
@@ -139,13 +139,5 @@ public class Login extends BaseFragment {
     }
 
 
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
-    }
 
 }

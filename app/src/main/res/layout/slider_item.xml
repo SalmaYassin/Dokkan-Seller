@@ -6,11 +6,12 @@
     android:layout_marginRight="@dimen/layout_dimen_30"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/imageSlide">
+    android:id="@+id/imageSlide"
+    >
 
     <androidx.cardview.widget.CardView
-        android:layout_width="@dimen/layout_dimen_250"
-        android:layout_height="@dimen/layout_dimen_200"
+        android:layout_width="@dimen/layout_dimen_180"
+        android:layout_height="@dimen/layout_dimen_190"
         app:cardCornerRadius="@dimen/layout_dimen_20"
         android:layout_gravity="center"
         android:layout_margin="@dimen/layout_dimen_8"
@@ -23,7 +24,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/layout_dimen_150"
+                android:layout_height="@dimen/height_140"
                 android:scaleType="centerCrop"
                 android:id="@+id/imageview_slide"
                 android:src="@drawable/embridory_art"/>
