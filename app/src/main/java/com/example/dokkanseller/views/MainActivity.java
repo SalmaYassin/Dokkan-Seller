@@ -3,6 +3,7 @@ package com.example.dokkanseller.views;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -10,19 +11,23 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.example.dokkanseller.R;
+import com.example.dokkanseller.views.orders.ViewPageAdapter;
+import com.google.android.material.tabs.TabLayout;
 import com.example.dokkanseller.views.Home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ViewPageAdapter viewadapter;
     BottomNavigationView bottomNavigationView;
 
 
@@ -57,11 +62,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
+       tabLayout = findViewById(R.id.tablayout);
+        viewPager = findViewById(R.id.viewpager);
+        viewadapter = new ViewPageAdapter(this.getSupportFragmentManager());
+        viewPager.setAdapter(viewadapter);
+       tabLayout.setupWithViewPager(viewPager);
 
 
 
     }
 
+    }
+}
 
 

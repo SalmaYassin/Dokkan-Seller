@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:cardview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/mstar15"
+    android:layout_marginEnd="@dimen/mend15"
+    android:layout_marginTop="@dimen/mtop8"
+    cardview:cardCornerRadius="@dimen/corner4"
+    android:foreground="?android:attr/selectableItemBackground"
+    cardview:cardElevation="@dimen/elevat3"
+    android:background="@color/color_e6e4e4">
+
+
+    <RelativeLayout
+        android:id="@+id/top_relative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padTop5"
+        android:paddingBottom="@dimen/padButtom5">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/product_image_0"
+            android:layout_width="@dimen/lw76"
+            android:layout_height="@dimen/lh76"
+            android:src="@drawable/icon3"
+            app:civ_border_width="@dimen/board_w2"
+            android:layout_marginLeft="@dimen/margen_left35"
+            app:civ_border_color="@color/white"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="@dimen/lw242"
+            android:layout_height="@dimen/lhight2"
+            android:background="@color/colors_9a7c84"
+            android:layout_below="@id/product_image_0"
+            android:layout_marginTop="@dimen/mar_top19"
+            android:layout_marginBottom="@dimen/marg_buttom10"
+            android:layout_marginLeft="@dimen/marge_lift65"
+            />
+        <TextView
+            android:id="@+id/item_name_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/product_image_0"
+            android:layout_marginTop="@dimen/mtop10"
+            android:layout_marginLeft="@dimen/mleft10"
+            android:text="@string/item_name"
+            android:textColor="@color/color_6a4e5d"
+            android:textSize="@dimen/txt18"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:id="@+id/quantity_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_name_0"
+            android:layout_toRightOf="@id/product_image_0"
+            android:layout_marginLeft="@dimen/mleft10"
+            android:text="@string/quantity"
+            android:textSize="@dimen/txt17"
+            android:textColor="@color/colors_9a7c84"/>
+
+        <EditText
+            android:id="@+id/quantity_number_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/quantity_0"
+            android:layout_marginTop="@dimen/mtop37"
+            android:text="3"
+            android:textSize="@dimen/txt_14"
+            android:textStyle="normal"
+            android:textColor="@color/colors_9a7c84"
+            android:background="@null"
+            />
+
+
+
+        <RelativeLayout
+            android:id="@+id/down_relative"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/view"
+            android:paddingTop="@dimen/padTop5"
+            android:paddingBottom="@dimen/padButtom5"
+            >
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/customer_image_0"
+                android:layout_width="@dimen/lw55"
+                android:layout_height="@dimen/lh55"
+                android:src="@drawable/icon4"
+                android:layout_marginLeft="@dimen/margleft60"
+                app:civ_border_width="@dimen/board_w2"
+                app:civ_border_color="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/customer_name_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/customer_image_0"
+                android:layout_marginTop="@dimen/mar_top3"
+                android:layout_marginLeft="@dimen/mleft10"
+                android:text="@string/customer_name"
+                android:textColor="@color/color_6a4e5d"
+                android:textSize="@dimen/txt_15"
+                android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:id="@+id/customer_phone_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customer_name_0"
+                android:layout_toRightOf="@id/customer_image_0"
+                android:layout_marginLeft="@dimen/mleft10"
+                android:text="@string/phone"
+                android:textSize="@dimen/txt_14"
+                android:textColor="@color/colors_9a7c84"/>
+
+            <EditText
+                android:id="@+id/customer_phone_num_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/customer_phone_0"
+                android:layout_marginTop="@dimen/mtop24"
+                android:text="0123456789"
+                android:textSize="@dimen/txt_12"
+                android:textStyle="normal"
+                android:textColor="@color/colors_9a7c84"
+                android:background="@null"
+                />
+
+            <TextView
+                android:id="@+id/customer_address_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customer_phone_num_0"
+                android:layout_toRightOf="@id/customer_image_0"
+                android:layout_marginLeft="@dimen/mleft10"
+                android:text="@string/address"
+                android:textSize="@dimen/txt_14"
+                android:textColor="@color/colors_9a7c84"/>
+
+            <EditText
+                android:id="@+id/customer_address_location_0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/customer_address_0"
+                android:layout_marginTop="@dimen/mtoop41"
+                android:text="cairo egypt"
+                android:textSize="@dimen/txt_14"
+                android:textStyle="normal"
+                android:textColor="@color/colors_9a7c84"
+                android:background="@null"
+                />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/customer_address_location_0">
+
+                <Button
+                    android:id="@+id/accept_btn"
+                    android:layout_width="@dimen/lw35"
+                    android:layout_height="@dimen/lhight35"
+                    android:background="@drawable/ic_check_box_black_24dp"
+                    android:layout_marginTop="@dimen/mar_top3"
+                    android:layout_marginLeft="@dimen/mlift_290"/>
+
+                <Button
+                    android:id="@+id/reject_btn"
+                    android:layout_width="@dimen/lw35"
+                    android:layout_height="@dimen/lhight35"
+                    android:background="@drawable/ic_close_black_24dp"
+                    android:layout_marginTop="@dimen/mar_top3"
+                    android:layout_marginLeft="@dimen/mlift_5"
+                    android:backgroundTint="@color/color_6a4e5d"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>
