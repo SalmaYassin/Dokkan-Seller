@@ -45,5 +45,12 @@
     <string name="reset_password">Reset password</string>
 
 
+    <string name="add_product">Add Product</string>
+    <string name="post">Post</string>
+    <string name="materials">Materials:</string>
+    <string name="size">Size</string>
+    <string name="quick_description">Quick Description..</string>
+    <string name="item_name">Item Name</string>
+    <string name="_00_00">$ 00.00</string>
 </resources>
 

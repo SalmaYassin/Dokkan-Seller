@@ -88,4 +88,18 @@
         android:id="@+id/profileFragment"
         android:name="com.example.dokkanseller.views.profile.ProfileFragment"
         android:label="ProfileFragment" />
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/add_Product_fragment">
+
+
+    <fragment
+        android:id="@+id/add_Product_fragment"
+        android:name="com.example.dokkanseller.views.Add_Product.Add_Product_fragment"
+        android:label="Add_Product_fragment" >
+    </fragment>
+
 </navigation>
