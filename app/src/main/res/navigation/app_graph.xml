@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/update_Product_Fragment">
+
+    <fragment
+        android:id="@+id/update_Product_Fragment"
+        android:name="com.example.dokkanseller.views.Update_Product.Update_Product_Fragment"
+        android:label="Update_Product_Fragment" />
+</navigation>
