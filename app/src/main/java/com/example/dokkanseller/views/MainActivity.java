@@ -42,20 +42,16 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         NavController navController = Navigation.findNavController(this , R.id.my_nav_host);
+        NavigationUI.setupWithNavController(bottomNavigationView , navController);
 
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-               for( int id : list){
-                   if ( id == destination.getId()){
-                       Log.d("NAV CONTROLLER " , "ID list : " + id);
-                       Log.d("NAV CONTROLLER " , "ID destination: " + destination.getId());
-                       bottomNavigationView.setVisibility(View.GONE);
-                   } else {
-                       bottomNavigationView.setVisibility(View.VISIBLE);
-                       NavigationUI.setupWithNavController(bottomNavigationView , controller);
-                   }
-               }
+                if (list.contains(destination.getId())){
+                    bottomNavigationView.setVisibility(View.GONE);
+                }else {
+                    bottomNavigationView.setVisibility(View.VISIBLE);
+                }
 
 
             }
