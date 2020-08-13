@@ -95,8 +95,6 @@ public class Add_Product_fragment extends BaseFragment {
         addphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission
                         .READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(getActivity(),
