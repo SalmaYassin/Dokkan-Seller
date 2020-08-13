@@ -72,4 +72,11 @@
         android:id="@+id/forgetPassword"
         android:name="com.example.dokkanseller.views.login.forgetPassword"
         android:label="forgetPassword" />
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/app_graph"
+    app:startDestination="@id/profileFragment">
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.dokkanseller.views.profile.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>
