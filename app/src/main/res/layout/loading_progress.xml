@@ -13,6 +13,7 @@
         android:layout_centerInParent="true"
         android:visibility="visible"
         app:indicatorColor="@color/color_727878"
+        app:indicatorColor="#6a4e5d"
         app:indicatorName="BallSpinFadeLoaderIndicator" />
 
 </RelativeLayout>

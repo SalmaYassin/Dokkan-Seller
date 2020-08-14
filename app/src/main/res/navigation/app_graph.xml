@@ -95,4 +95,8 @@
         android:label="Add_Product_fragment" >
     </fragment>
 
+    <fragment
+        android:id="@+id/update_Product_Fragment"
+        android:name="com.example.dokkanseller.views.Update_Product.Update_Product_Fragment"
+        android:label="Update_Product_Fragment" />
 </navigation>
