@@ -5,7 +5,7 @@ import android.view.View;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.views.base.BaseFragment;
 
-class AllOrdersListFragment extends BaseFragment {
+public class AllOrdersListFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
         return R.layout.fragment_all_orders_list;

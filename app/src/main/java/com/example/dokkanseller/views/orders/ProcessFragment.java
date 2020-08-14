@@ -5,7 +5,7 @@ import android.view.View;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.views.base.BaseFragment;
 
-class ProcessFragment extends BaseFragment {
+public class ProcessFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
         return R.layout.fragment_process;

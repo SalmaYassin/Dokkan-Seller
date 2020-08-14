@@ -26,6 +26,7 @@ import com.example.dokkanseller.R;
 import com.example.dokkanseller.views.MainActivity;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -51,6 +52,10 @@ public class Add_Product_fragment extends BaseFragment {
     private static final String TAG = "MainActivity";
     private int finalUploads = 0;
 
+    Bundle bundle_categ ;
+    String categ;
+    String currentUserID;
+
     public Add_Product_fragment() {
         // Required empty public constructor
     }
@@ -66,6 +71,11 @@ public class Add_Product_fragment extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
+        bundle_categ = getArguments();
+        categ = bundle_categ.getString("categId");
+
+        currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         sliderView = view.findViewById(R.id.imageSlider);
         addphoto = view.findViewById(R.id.add_photo);
         itemName =view. findViewById(R.id.Item_name);
@@ -95,12 +105,12 @@ public class Add_Product_fragment extends BaseFragment {
         addphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission
-                        .READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    ActivityCompat.requestPermissions(getActivity(),
-                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
-                    return;
-                }
+//                if (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission
+//                        .READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//                    ActivityCompat.requestPermissions(getActivity(),
+//                            new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 100);
+//                    return;
+//                }
 
                 Intent gallaryIntent = new Intent();
                 gallaryIntent.setType("image/*");
@@ -117,7 +127,10 @@ public class Add_Product_fragment extends BaseFragment {
             public void onClick(View v) {
                 LoadingDialog.showProgress(getActivity());
                 ItemDetails();
-              UploadAndStoreImages();
+                UploadAndStoreImages();
+
+                getNavController().navigate(R.id.action_add_Product_fragment_to_homeFragment2 );
+
 
             }
         });
@@ -133,6 +146,8 @@ public class Add_Product_fragment extends BaseFragment {
         databaseReference.child("size").setValue(itemSize.getText().toString());
         databaseReference.child("materials").setValue(itemMaterials.getText().toString());
         databaseReference.child("productId").setValue(productId);
+        databaseReference.child("categoryid").setValue(categ);
+        databaseReference.child("shopId").setValue(currentUserID);
 
     }
 
@@ -174,8 +189,8 @@ public class Add_Product_fragment extends BaseFragment {
     //===========================================================================//
     private void UploadAndStoreImages() {
 
-//upload images on firebase Storage
 
+        //upload images on firebase Storage
         // to saveURL
         final List<String> imagesURL = new ArrayList<>();
         final StorageReference ImageFolder = FirebaseStorage.getInstance().getReference().child("ImageFolder");

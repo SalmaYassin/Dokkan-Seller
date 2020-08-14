@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.views.base.BaseFragment;
 
-class DeliveredFragment extends BaseFragment {
+public class DeliveredFragment extends BaseFragment {
     @Override
     public int getLayoutId() {
         return R.layout.fragment_delivered;

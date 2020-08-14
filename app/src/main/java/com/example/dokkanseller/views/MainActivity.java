@@ -25,9 +25,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private ViewPageAdapter viewadapter;
+
     BottomNavigationView bottomNavigationView;
 
 
@@ -62,17 +60,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       tabLayout = findViewById(R.id.tablayout);
-        viewPager = findViewById(R.id.viewpager);
-        viewadapter = new ViewPageAdapter(this.getSupportFragmentManager());
-        viewPager.setAdapter(viewadapter);
-       tabLayout.setupWithViewPager(viewPager);
 
 
 
     }
 
     }
-}
+
 
 

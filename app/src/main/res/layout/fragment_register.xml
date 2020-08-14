@@ -114,7 +114,7 @@
         android:layout_height="@dimen/height_45"
         android:background="@drawable/button"
         android:text="Register"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="@dimen/margin_50"
         android:textStyle="bold"
         android:gravity="center"

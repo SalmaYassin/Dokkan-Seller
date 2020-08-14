@@ -11,7 +11,7 @@
         android:id="@+id/recyclerview_id_all_product_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/mtot_2"
+        android:layout_marginTop="@dimen/margin_2"
         android:scrollbars="vertical">
 
     </androidx.recyclerview.widget.RecyclerView>

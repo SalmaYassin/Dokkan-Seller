@@ -4,7 +4,6 @@ package com.example.dokkanseller.views.Home;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -15,9 +14,7 @@ import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.data_model.ProductitemModel;
@@ -25,7 +22,6 @@ import com.example.dokkanseller.data_model.SliderItemModel;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,8 +35,9 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends BaseFragment {
-    //firebase
     private String currentUserID;
+
+    private String categID ;
 
     private DatabaseReference dbReference;
    // private FirebaseStorage mstorge;
@@ -48,7 +45,7 @@ public class HomeFragment extends BaseFragment {
     //slider
     private ArrayList<SliderItemModel> datasider;
     private ViewPager2 viewPager2;
-    private SliderAdapter sliderAdapter;
+    private SliderHomeAdapter sliderHomeAdapter;
     //ProductRecycAdapter.onItemClickListener ListenerProducts;
     FloatingActionButton floatingActionButton;
 
@@ -110,22 +107,23 @@ public class HomeFragment extends BaseFragment {
 
     //get all product of one category to sow it in recycelerview
     void getProductsByCategoryId(String catID) {
-        dbReference = FirebaseDatabase.getInstance().getReference("products");
-        Query query = FirebaseDatabase.getInstance().getReference("products")
-                .orderByChild("categoryid").equalTo(catID);
-        query.addValueEventListener(new ValueEventListener() {
+
+        final Query query = FirebaseDatabase.getInstance().getReference("products");
+        query.orderByChild("categoryid").equalTo(catID).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 data.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     ProductitemModel categ = snapshot.getValue(ProductitemModel.class);
-                    // categ.setKey(snapshot.getKey());
-                    data.add(categ);
+                    if ( categ.getShopId().equals(currentUserID) ) {
+                        data.add(categ);
+                    }
                 }
                 productAdapter = new ProductRecycAdapter(getContext() ,data, ListenerProducts);
                 recyclerView.setAdapter(productAdapter);
                 //  productAdapter.setOnItemClickListener(ListenerProducts);
                 Log.d("STEP", "adapter: " + "done" );
+
             }
 
             @Override
@@ -150,8 +148,8 @@ public class HomeFragment extends BaseFragment {
                         datasider.add(item);
                     }
                     //set adapter to view pager2
-                    sliderAdapter = new SliderAdapter(datasider, viewPager2);
-                    viewPager2.setAdapter(sliderAdapter);
+                    sliderHomeAdapter = new SliderHomeAdapter(datasider, viewPager2);
+                    viewPager2.setAdapter(sliderHomeAdapter);
 
                 }
 
@@ -187,6 +185,7 @@ public class HomeFragment extends BaseFragment {
                 super.onPageSelected(position);
                 // floating();
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                categID = datasider.get(position).getKey();
                 getProductsByCategoryId(datasider.get(position).getKey());
                 Log.d("PAGE_SELECTED", "onPageSelected: " + position);
                 Log.d("SET CATID", "categoriesKEY: " + datasider.get(position).getKey());
@@ -235,21 +234,36 @@ public class HomeFragment extends BaseFragment {
             public void onItemClick(final ProductitemModel item) {
                 Toast.makeText(getActivity(), "item clicked", Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void onUpdateClick(int position, ProductitemModel productitemModel) {
+                Bundle bundle = new Bundle();
+                bundle.putString("productId", productitemModel.getProductId() );
+              //  Log.d("CATEG_ID" , " ID:" + categID);
+                getNavController().navigate(R.id.action_homeFragment2_to_update_Product_Fragment , bundle);
+            }
+
+            @Override
+            public void onDeleteClick(int position, ProductitemModel productitemModel) {
+
+            }
         };
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("categId", categID );
+                Log.d("CATEG_ID" , " ID:" + categID);
+                getNavController().navigate(R.id.action_homeFragment2_to_add_Product_fragment , bundle);
+
+            }
+        });
     }
 
     NavController getNavController() {
         return Navigation.findNavController(getActivity(), R.id.my_nav_host);
     }
 
-    public void floating(){
-        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle the click.
-                Toast.makeText(getActivity(), "go to add item product", Toast.LENGTH_SHORT).show();
 
-            }
-        });
-    }
 }

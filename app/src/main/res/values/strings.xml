@@ -52,10 +52,6 @@
     <string name="quick_description">Quick Description..</string>
     <string name="_00_00">$ 00.00</string>
     <string name="update">update</string>
-    <string name="item_name">item_name</string>
-    <string name="quick_description">quick_description</string>
-    <string name="size">size</string>
-    <string name="materials">materials</string>
     <string name="_0_0">0.0 $</string>
 </resources>
 

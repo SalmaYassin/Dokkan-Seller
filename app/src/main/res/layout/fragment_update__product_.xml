@@ -65,22 +65,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_left_25"
                 android:layout_marginStart="@dimen/margin_start_25"
-                android:layout_margin="@dimen/margin_20"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_17"
+                    android:layout_marginTop="@dimen/margin_17"
+                    android:layout_marginLeft="@dimen/margin_17"
                     android:text="Update product:"
                     android:textColor="@color/text_color_6a4e5d"
                     android:textSize="@dimen/text_size_20"
                     android:textStyle="bold" />
+
                 <RelativeLayout
                     android:layout_width="@dimen/width_50"
                     android:layout_height="@dimen/height_50"
-                    android:layout_marginStart="@dimen/margin_start_100"
                     android:layout_marginTop="@dimen/margin_top_3"
+                    android:layout_marginStart="@dimen/margin_120"
                     android:background="@drawable/back_add_photo">
 
                     <ImageView
@@ -102,14 +103,14 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_120"
-                    android:layout_marginTop="@dimen/margin_top_30"
+                    android:layout_marginTop="@dimen/margin_10"
                     android:orientation="horizontal">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="@dimen/width_140"
                         android:layout_height="@dimen/height_40"
-                        android:layout_marginLeft="@dimen/margin_right_40"
                         android:layout_marginStart="@dimen/margin_start_40"
+                        android:layout_marginLeft="@dimen/margin_right_40"
                         android:layout_marginTop="@dimen/margin_top_62"
                         android:background="@color/bacgroun_color_ffff"
                         app:cardCornerRadius="@dimen/card_radius_12">
@@ -121,16 +122,16 @@
                             android:background="@color/bacgroun_color_ffff"
                             android:hint="@string/item_name"
                             android:padding="@dimen/padding_10"
-                            android:textStyle="bold"
                             android:textColor="@color/bacground_ac9fa6"
-                            android:textSize="@dimen/text_size_15" />
+                            android:textSize="@dimen/text_size_15"
+                            android:textStyle="bold" />
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="@dimen/width_120"
                         android:layout_height="@dimen/height_40"
-                        android:layout_marginLeft="@dimen/margin_left_18"
                         android:layout_marginStart="@dimen/margin_start_18"
+                        android:layout_marginLeft="@dimen/margin_left_18"
                         android:layout_marginTop="@dimen/margin_top_62"
                         android:background="@color/bacgroun_color_ffff"
                         app:cardCornerRadius="@dimen/card_radius_12">
@@ -141,8 +142,8 @@
                             android:layout_height="wrap_content"
                             android:background="@color/bacgroun_color_ffff"
                             android:hint="@string/_0_0"
-                            android:padding="@dimen/padding_10"
                             android:inputType="number"
+                            android:padding="@dimen/padding_10"
                             android:textColor="@color/text_color_6a4e5d"
                             android:textSize="@dimen/text_size_15"
                             android:textStyle="bold" />
@@ -152,7 +153,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_70"
+                    android:layout_height="@dimen/height_50"
                     android:layout_marginLeft="@dimen/margin_left_40"
                     android:layout_marginTop="@dimen/margin_top_1"
                     android:layout_marginRight="@dimen/margin_right_40"
@@ -162,7 +163,7 @@
                     <EditText
                         android:id="@+id/description"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_70"
+                        android:layout_height="@dimen/height_50"
                         android:background="@color/bacgroun_color_ffff"
                         android:hint="@string/quick_description"
                         android:padding="@dimen/padding_10"
@@ -177,7 +178,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_50"
                     android:layout_marginLeft="@dimen/margin_left_40"
-                    android:layout_marginTop="@dimen/margin_top_20"
+                    android:layout_marginTop="@dimen/margin_10"
                     android:layout_marginRight="@dimen/margin_right_40"
                     android:background="@color/bacgroun_color_ffff"
                     app:cardCornerRadius="@dimen/card_radius_12">
@@ -199,7 +200,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_70"
                     android:layout_marginLeft="@dimen/margin_left_40"
-                    android:layout_marginTop="@dimen/margin_top_20"
+                    android:layout_marginTop="@dimen/margin_10"
                     android:layout_marginRight="@dimen/margin_right_40"
                     android:background="@color/bacgroun_color_ffff"
                     app:cardCornerRadius="@dimen/card_radius_12">

@@ -48,7 +48,7 @@ public class ProductRecycAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
         final ProductitemModel itemList = productsList.get(position);
         final favouriteHolder favourite = (favouriteHolder) holder;
-        Picasso.get().load(itemList.getImage()).into(favourite.Item_Image);
+        Picasso.get().load(itemList.getImage1()).into(favourite.Item_Image);
         favourite.Item_Name.setText(itemList.getName());
         favourite.moreBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,11 +61,11 @@ public class ProductRecycAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 //                               int position = getAdapterPosition();
                         switch (item.getItemId()) {
                             case R.id.update_opition_id:
-//                                onItemClickListener.onUpdateClick(position);
+                                onItemClickListener.onUpdateClick(position , productsList.get(position) );
                                 Toast.makeText(c, "update", Toast.LENGTH_SHORT).show();
                                 return true;
                             case R.id.delete_opition_id:
-//                                onItemClickListener.onDeleteClick(position);
+                                onItemClickListener.onDeleteClick(position , productsList.get(position));
                                 Toast.makeText(c, "delete", Toast.LENGTH_SHORT).show();
                                 return true;
 
@@ -122,8 +122,13 @@ public class ProductRecycAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 }
 //inner class
     interface ItemClickListener {
+
         void onItemClick(ProductitemModel item);
-    }
+
+        void onUpdateClick(int position, ProductitemModel productitemModel);
+
+        void onDeleteClick(int position, ProductitemModel productitemModel);
+}
 
 }
 

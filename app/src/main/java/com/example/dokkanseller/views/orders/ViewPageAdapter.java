@@ -29,7 +29,6 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0) {
             AllOrdersListFragment allOrdersListFragment = new AllOrdersListFragment();
-
             return allOrdersListFragment;
 
         } else if (position == 1) {
@@ -67,7 +66,7 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             case 2:
                 return "Done";
             case 3:
-                return "Delivere";
+                return "Delivered";
         }
         return null;
     }

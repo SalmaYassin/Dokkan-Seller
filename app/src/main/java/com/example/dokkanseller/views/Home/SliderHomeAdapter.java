@@ -16,11 +16,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderViewHolder>{
+public class SliderHomeAdapter extends RecyclerView.Adapter<SliderHomeAdapter.SliderViewHolder>{
     private ArrayList<SliderItemModel> sliderList ;
     private ViewPager2 viewPager2 ;
 
-    public SliderAdapter(ArrayList<SliderItemModel> sliderList, ViewPager2 viewPager2) {
+    public SliderHomeAdapter(ArrayList<SliderItemModel> sliderList, ViewPager2 viewPager2) {
         this.sliderList = sliderList;
         this.viewPager2 = viewPager2;
     }
@@ -34,7 +34,7 @@ public class SliderAdapter extends RecyclerView.Adapter<SliderAdapter.SliderView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull SliderAdapter.SliderViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SliderHomeAdapter.SliderViewHolder holder, int position) {
         Picasso.get().load(sliderList.get(position).getImage()).into(holder.imageView);
         holder.slidename.setText(sliderList.get(position).getCategoryname());
 

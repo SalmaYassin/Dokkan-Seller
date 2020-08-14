@@ -1,8 +1,19 @@
 package com.example.dokkanseller.views.orders;
 
-public class ProductItemModel {
+public class OrderItemModel {
+    private int item_image;
+    private String item_name;
+    private String item_quantity;
+    private String item_quantity_number;
+    private int customer_image;
+    private String customer_name;
+    private String customer_address;
+    private String customer_address_details;
+    private String customer_phone;
+    private String customer_phone_number;
 
-    public ProductItemModel() {
+
+    public OrderItemModel() {
     }
 
     public int getItem_image() {
@@ -84,19 +95,6 @@ public class ProductItemModel {
     public void setCustomer_phone_number(String customer_phone_number) {
         this.customer_phone_number = customer_phone_number;
     }
-
-    private int item_image;
-    private String item_name;
-    private String item_quantity;
-    private String item_quantity_number;
-
-    private int customer_image;
-    private String customer_name;
-    private String customer_address;
-    private String customer_address_details;
-    private String customer_phone;
-    private String customer_phone_number;
-
 
 
 }

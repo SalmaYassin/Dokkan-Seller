@@ -113,11 +113,21 @@
                 android:background="@color/color_e6e4e4"
                 >
 
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floating_action_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:backgroundTint="@color/color_6a4e5d"
+                    android:elevation="@dimen/layout_dimen_60"
+                    app:srcCompat="@drawable/ic_plus"/>
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview_id"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/layout_dimen_400"
-                    android:layout_marginTop="@dimen/layout_dimen_10"
+                    android:layout_marginTop="@dimen/margin_5"
                     android:paddingLeft="@dimen/layout_dimen_10"
                     android:paddingRight="@dimen/layout_dimen_15"
                     >
@@ -126,15 +136,7 @@
 
         </RelativeLayout>
         <!-- Main content -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_action_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="@dimen/layout_dimen_25"
-            android:backgroundTint="@color/color_6a4e5d"
-            android:elevation="@dimen/layout_dimen_60"
-            app:srcCompat="@drawable/ic_plus"/>
+
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

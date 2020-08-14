@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import com.example.dokkanseller.R;
+import com.example.dokkanseller.views.Add_Product.LoadingDialog;
+import com.example.dokkanseller.views.Add_Product.SliderAdapter;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -47,15 +50,18 @@ import static android.app.Activity.RESULT_OK;
 public class Update_Product_Fragment extends BaseFragment {
     SliderView sliderView;
     ImageView addphoto;
-    TextView itemName, itemPrice, itemDescryption, itemSize, itemMaterials;
+    EditText itemName, itemPrice, itemDescryption, itemSize, itemMaterials;
     Button up;
     ArrayList<Uri> mArrayUri;
-    private   String productId ;
     int PICK_IMAGE_MULTIPLE = 0;
     private DatabaseReference databaseReference;
     private FirebaseDatabase firebaseDatabase;
     private static final String TAG = "MainActivity";
     private int finalUploads = 0;
+
+    private  String productId ;
+    private Bundle bundle_prodID;
+
 
     public Update_Product_Fragment() {
         // Required empty public constructor
@@ -71,6 +77,10 @@ NavController getNavController(){
 
     @Override
     public void initializeViews(View view) {
+        bundle_prodID = getArguments();
+        productId = bundle_prodID.getString("productId");
+        Log.d("product id " , " id : " + productId);
+
         sliderView =view. findViewById(R.id.imageSlider);
         addphoto = view.findViewById(R.id.add_photo);
         itemName =view. findViewById(R.id.Item_name);
@@ -80,6 +90,8 @@ NavController getNavController(){
         itemMaterials = view.findViewById(R.id.materials);
         up = view.findViewById(R.id.update);
         createInstance();
+
+        ShowProductDetails();
 
     }
 
@@ -147,17 +159,14 @@ NavController getNavController(){
 
     //==============================================================================//
     private void ItemDetails() {
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("products").push();
-        productId = databaseReference.child("products").push().getKey();
-        Log.i("pp", productId);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("products").child(productId);
+
+      //  Log.i("pp", productId);
         databaseReference.child("name").setValue(itemName.getText().toString());
-        databaseReference.child("price").setValue(itemPrice.getText().toString()+ " $");
+        databaseReference.child("price").setValue(itemPrice.getText().toString()+ " L.E");
         databaseReference.child("description").setValue(itemDescryption.getText().toString());
         databaseReference.child("size").setValue(itemSize.getText().toString());
         databaseReference.child("materials").setValue(itemMaterials.getText().toString());
-        databaseReference.child("productId").setValue(productId);
-
-
 
     }
 
@@ -193,6 +202,7 @@ NavController getNavController(){
                                 LoadingDialog.hideProgress();
                                 // Intent GoToHome = new Intent(MainActivity.this, HomeActivity.class);
                                 //  startActivity(GoToHome);
+                                getNavController().navigate(R.id.action_update_Product_Fragment_to_homeFragment2);
                             }
                         }
                     });
@@ -206,32 +216,35 @@ NavController getNavController(){
     //==============================================================================//
     private void storeLink(List<String> urlList) {
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("products");
-        HashMap<String,Object> hashMap = new HashMap<>();
-        hashMap.put("Image1",urlList.get(0));
-        hashMap.put("Image2", urlList.get(1));
-        hashMap.put("Image3", urlList.get(2));
+//        HashMap<String,Object> hashMap = new HashMap<>();
+//        hashMap.put("Image1",urlList.get(0));
+//        hashMap.put("Image2", urlList.get(1));
+//        hashMap.put("Image3", urlList.get(2));
         databaseReference.child(productId).child("image1").setValue(urlList.get(0));
         databaseReference.child(productId).child("image2").setValue(urlList.get(1));
         databaseReference.child(productId).child("image3").setValue(urlList.get(2));
     }
     //==============================================================================//
-    private void ShowProductDetails(String id) {
+    private void ShowProductDetails() {
 
-        final Query query = FirebaseDatabase.getInstance().getReference("products").orderByChild("productId").equalTo(id);
-        query.addValueEventListener(new ValueEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        databaseReference.child(productId).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                String pName = dataSnapshot.child("name").getValue(String.class);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String pName = snapshot.child("name").getValue(String.class);
+                Log.d("SHOW PRODUCT" , " name " + pName);
                 itemName.setText(pName);
-                String pPrice = dataSnapshot.child("price").getValue(String.class);
+                String pPrice = snapshot.child("price").getValue(String.class);
+                Log.d("SHOW PRODUCT" , " price " + pPrice);
+
                 itemPrice.setText(pPrice);
-                String pDescription = dataSnapshot.child("Description").getValue(String.class);
+                String pDescription = snapshot.child("description").getValue(String.class);
                 itemDescryption.setText(pDescription);
-                String pMaterial=dataSnapshot.child("Material").getValue(String.class);
-                itemMaterials.setText(""+ pMaterial);
-                String pSize=dataSnapshot.child("Size").getValue(String.class);
+                String pMaterial=snapshot.child("materials").getValue(String.class);
+                itemMaterials.setText(pMaterial);
+                String pSize=snapshot.child("size").getValue(String.class);
                 itemSize.setText(pSize);
+
             }
 
             @Override
@@ -239,6 +252,7 @@ NavController getNavController(){
 
             }
         });
+
 
 
     }

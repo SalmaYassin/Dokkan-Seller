@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".views.MainActivity"
+    android:id="@+id/linear_tablayout"
+    android:orientation="vertical">
+
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_70"
+        android:background="@color/color_6a4e5d"
+        app:tabIndicatorColor="@color/color_white"
+        app:tabRippleColor="@color/color_white"
+        app:tabTextColor="@color/color_white"
+
+        >
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/all_item"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="New Orders"
+            />
+
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/processing"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Process"/>
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/done_work"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/done"
+            />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/delivered"
+            android:layout_width="25dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Delivered"
+
+            />
+
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_below="@id/linear_tablayout"
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+
+        />
+
+
+
+</LinearLayout>

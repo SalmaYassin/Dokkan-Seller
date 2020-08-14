@@ -15,4 +15,11 @@
         android:title="Profile"/>
 
 
+
+    <item
+        android:id="@+id/orderFragment"
+        android:icon="@drawable/ic_shopping_cart_black_24dp"
+        android:title="Order"/>
+
+
 </menu>

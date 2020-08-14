@@ -114,11 +114,10 @@ public class Register extends BaseFragment {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         currentUserID = mFireBaseAuth.getCurrentUser().getUid();
-                        databaseReference.child("shops").child(currentUserID).setValue(mail);
-
                         HashMap<String, String> map = new HashMap<>();
                         map.put("key", currentUserID);
                         map.put("shopName", nameOfShop);
+                        map.put("email", mail);
                         databaseReference.child("shops").child(currentUserID).setValue(map);
                         mProgress.dismiss();
                         Toast.makeText(getContext(), "Registered Successful :) Please, Check your E-mail for Verifications", Toast.LENGTH_LONG).show();

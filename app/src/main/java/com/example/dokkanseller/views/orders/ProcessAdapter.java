@@ -16,23 +16,23 @@ import com.example.dokkanseller.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProcessAdopter extends RecyclerView.Adapter<ProcessAdopter.ProcessHolder> {
+public class ProcessAdapter extends RecyclerView.Adapter<ProcessAdapter.ProcessHolder> {
 
-    private List<ProductItemModel> itemList;
+    private List<OrderItemModel> itemList;
 
-    public ProcessAdopter(ArrayList<ProductItemModel> data) {
+    public ProcessAdapter(ArrayList<OrderItemModel> data) {
 
     }
 
     @NonNull
     @Override
-    public ProcessAdopter.ProcessHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProcessAdapter.ProcessHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.process_item, parent, false);
         return new ProcessHolder(v);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProcessAdopter.ProcessHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProcessAdapter.ProcessHolder holder, int position) {
         holder.product_Image.setImageResource(itemList.get(position).getItem_image());
         holder.product_name.setText(itemList.get(position).getItem_name());
         holder.product_quantity.setText(itemList.get(position).getItem_quantity());
