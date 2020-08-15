@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_fff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            tools:context=".MainActivity">
+
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/imageSlider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_300"
+                app:sliderAutoCycleEnabled="false"
+                app:sliderIndicatorGravity="center_horizontal|center"
+                app:sliderIndicatorMarginTop="@dimen/margin_110"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorRadius="@dimen/radius_2"
+                app:sliderIndicatorSelectedColor="@color/color_6a4e5d"
+                app:sliderIndicatorUnselectedColor="@color/color_E6E4E4"
+                app:sliderStartAutoCycle="false" />
+
+            <Button
+                android:id="@+id/email_button"
+                android:layout_width="@dimen/width_20"
+                android:layout_height="@dimen/height_20"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_16"
+                android:layout_marginEnd="@dimen/margin_16"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/ic_email_black_24dp" />
+            <Button
+                android:id="@+id/back_button"
+                android:layout_width="@dimen/width_27"
+                android:layout_height="@dimen/height_27"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="@dimen/margin_10"
+                android:background="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/margin_8"
+                android:layout_marginTop="@dimen/margin_263"
+                android:elevation="@dimen/elevation_7"
+                android:layout_marginStart="@dimen/margin_5"
+                android:layout_marginEnd="@dimen/margin_5"
+                app:cardBackgroundColor="@color/color_F1EDED"
+                app:cardCornerRadius="@dimen/radius_10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageSlider"
+                app:layout_constraintVertical_bias="0.0">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+
+
+                    <TextView
+                        android:id="@+id/item_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:text="@string/_19"
+                        android:layout_gravity="center"
+                        android:textColor="@color/color_000"
+                        android:textSize="@dimen/text_size_18" />
+
+                    <RatingBar
+                        android:id="@+id/rate_bar_Item"
+                        style="?android:attr/ratingBarStyleSmall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/item_price"
+                        android:layout_centerHorizontal="true"
+                        android:layout_gravity="center"
+                        android:numStars="5"
+                        android:progressTint="@color/color_FFC107"
+                        android:rating="3"
+                        android:stepSize="1.5" />
+
+                    <TextView
+                        android:id="@+id/item_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rate_bar_Item"
+
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/margin_11"
+                        android:layout_marginBottom="@dimen/margin_11"
+                        android:text="@string/weading_candle_holder"
+                        android:textColor="@color/color_000"
+                        android:textSize="@dimen/text_size_18"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_9"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_9"
+                            android:text="@string/description"
+                            android:textColor="@color/color_000"
+                            android:textSize="@dimen/text_size_20"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_23"
+                            android:ems="20"
+                            android:id="@+id/item_descroption"
+                            android:text="@string/cooper_wire_decor_that_has_ashape_of_crystal_is_totally">
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_9"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_9"
+                            android:text="@string/size"
+                            android:textColor="@color/color_000"
+                            android:textSize="@dimen/text_size_20"
+                            android:textStyle="bold">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_23"
+                            android:id="@+id/item_size"
+                            android:text="@string/hight_30cm">
+
+                        </TextView>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/margin_9"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_9"
+                            android:text="@string/materials"
+                            android:textColor="@color/color_000"
+                            android:textSize="@dimen/text_size_20"
+                            android:textStyle="bold">
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/margin_23"
+                            android:ems="7"
+                            android:id="@+id/item_material"
+                            android:text="@string/coper_wire_we_use_a_good_material">
+                        </TextView>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_40"
+                    android:layout_marginTop="@dimen/margin_4"
+                    android:layout_marginRight="@dimen/margin_4"
+                    app:cardCornerRadius="@dimen/radius_4"
+                    android:elevation="@dimen/elevation_5"
+                    android:layout_gravity="right"
+                    app:cardBackgroundColor="@color/color_F1EDED"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.494"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintVertical_bias="0.0">
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_40"
+                        android:background="@color/color_fff"
+                        android:id="@+id/Edit_butt"
+                        android:textStyle="bold"
+                        android:drawableEnd="@drawable/ic_edit_black_24dp"
+                        android:text="@string/edit">
+
+                    </Button>
+                </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/cardView"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/expandable"
+                android:layout_width="@dimen/width_350"
+                android:layout_height="@dimen/height_40"
+                android:layout_marginTop="@dimen/margin_4"
+                android:layout_marginBottom="@dimen/margin_8"
+                app:cardCornerRadius="@dimen/radius_4"
+                android:elevation="@dimen/elevation_5"
+                app:cardBackgroundColor="@color/color_F1EDED"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <TextView
+                    android:id="@+id/review"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_13"
+                    android:layout_marginTop="@dimen/margin_10"
+                    android:text="@string/reviews"
+                    android:textSize="@dimen/text_size_17"
+                    android:textColor="@color/color_6a4e5d">
+
+                </TextView>
+
+                <Button
+                    android:id="@+id/expand_more"
+                    android:layout_width="@dimen/width_30"
+                    android:layout_height="@dimen/height_30"
+                    android:layout_marginLeft="@dimen/margin_290"
+                    android:layout_marginTop="@dimen/margin_5"
+                    android:background="@drawable/ic_arrow_drop_down_black_24dp">
+
+                </Button>
+            </androidx.cardview.widget.CardView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="@dimen/width_350"
+                android:layout_height="@dimen/height_250"
+                android:layout_gravity="center"
+                android:visibility="visible" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
+
