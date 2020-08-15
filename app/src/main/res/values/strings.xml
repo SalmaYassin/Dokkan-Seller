@@ -4,4 +4,16 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="made_with_love">Made With Love</string>
+    <string name="reviews">Reviews</string>
+    <string name="edit">edit</string>
+    <string name="coper_wire_we_use_a_good_material">coper wire, we use a good material</string>
+    <string name="materials">Materials</string>
+    <string name="hight_30cm">hight~30cm</string>
+    <string name="size">Size</string>
+    <string name="cooper_wire_decor_that_has_ashape_of_crystal_is_totally">Cooper Wire decor that has ashape of Crystal is totally</string>
+    <string name="description">Description</string>
+    <string name="weading_candle_holder">Weading Candle holder</string>
+    <string name="_19">$19</string>
+    <string name="israa_nour">israa nour</string>
+    <string name="_6_days_ago">6 Days ago</string>
 </resources>
