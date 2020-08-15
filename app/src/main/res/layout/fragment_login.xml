@@ -74,14 +74,14 @@
 
                 android:drawableLeft="@drawable/ic_email"
 
-                android:drawablePadding="@dimen/layout_dimens_15"
+                android:drawablePadding="@dimen/layout_dimens_5"
 
                 android:paddingStart="@dimen/layout_dimens_5"
 
                 android:hint="@string/Email"
 
 
-                android:textColorHint="@color/color_white"
+                android:textColorHint="@color/color_ecddcd"
 
                 android:backgroundTint="@color/color_ecddcd"
 
@@ -108,13 +108,14 @@
 
                 android:drawableLeft="@drawable/ic_pass"
 
-                android:drawablePadding="@dimen/layout_dimens_15"
+                android:drawablePadding="@dimen/layout_dimens_5"
 
                 android:paddingStart="@dimen/layout_dimens_5"
 
-                android:textColorHint="@color/color_white"
+                android:textColorHint="@color/color_ecddcd"
 
                 android:backgroundTint="@color/color_ecddcd"
+
                 android:textColor="@color/color_ecddcd"
 
 
@@ -237,7 +238,7 @@
 
                 android:text="@string/Register_here"
 
-                android:textSize="@dimen/text_size_13"
+                android:textSize="@dimen/text_size_14"
 
                 android:fontFamily="sans-serif-black"
 
@@ -248,8 +249,6 @@
                 android:layout_marginLeft="@dimen/layout_dimens_2"
 
                 />
-
-
 
 
 

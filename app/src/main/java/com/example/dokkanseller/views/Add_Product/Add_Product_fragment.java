@@ -95,7 +95,7 @@ public class Add_Product_fragment extends BaseFragment {
             @Override
             public void onClick(View v) {
 
-       // getNavController().navigate(R.id.action_add_Product_fragment_to_emptyFragment);
+                // getNavController().navigate(R.id.action_add_Product_fragment_to_emptyFragment);
             }
         });
 
@@ -239,5 +239,3 @@ public class Add_Product_fragment extends BaseFragment {
     }
 //==============================================================================//
 }
-
-

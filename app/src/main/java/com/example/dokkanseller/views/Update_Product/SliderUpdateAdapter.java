@@ -30,9 +30,14 @@ public class SliderUpdateAdapter extends SliderViewAdapter<SliderUpdateAdapter.S
     String productId;
     ArrayList<Uri> mArrayUri;
 
-    public SliderUpdateAdapter(Context context, ArrayList<Uri> mArrayUri) {
+    public SliderUpdateAdapter(Context context, ArrayList<Uri> mArrayUri , String productId) {
         this.context = context;
         this.mArrayUri = mArrayUri;
+        this.productId = productId;
+    }
+
+    public SliderUpdateAdapter(String productId) {
+        this.productId = productId;
     }
 
     public SliderUpdateAdapter(Context context) {
@@ -47,7 +52,7 @@ public class SliderUpdateAdapter extends SliderViewAdapter<SliderUpdateAdapter.S
     @Override
     public void onBindViewHolder(final SliderAdapterVH viewHolder, final int position) {
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("products").child( productId);
+        databaseReference = FirebaseDatabase.getInstance().getReference("products").child(productId);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
 

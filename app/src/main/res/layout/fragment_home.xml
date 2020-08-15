@@ -126,10 +126,11 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview_id"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/layout_dimen_400"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_5"
                     android:paddingLeft="@dimen/layout_dimen_10"
                     android:paddingRight="@dimen/layout_dimen_15"
+                    android:layout_marginBottom="@dimen/margin_20"
                     >
                 </androidx.recyclerview.widget.RecyclerView>
             </LinearLayout>

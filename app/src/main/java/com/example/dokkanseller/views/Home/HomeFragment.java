@@ -1,6 +1,9 @@
 package com.example.dokkanseller.views.Home;
 
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -37,24 +40,23 @@ import java.util.ArrayList;
 public class HomeFragment extends BaseFragment {
     private String currentUserID;
 
-    private String categID ;
+    private String categID;
 
     private DatabaseReference dbReference;
-   // private FirebaseStorage mstorge;
+    //private StorageReference storageReference;
     private ArrayList<ProductitemModel> data;
     //slider
     private ArrayList<SliderItemModel> datasider;
     private ViewPager2 viewPager2;
     private SliderHomeAdapter sliderHomeAdapter;
-    //ProductRecycAdapter.onItemClickListener ListenerProducts;
+    ProductRecycAdapter.ItemClickListener ListenerProducts;
     FloatingActionButton floatingActionButton;
 
     //recyclerview
     private RecyclerView recyclerView;
     ProductRecycAdapter productAdapter;
-    ProductRecycAdapter.ItemClickListener ListenerProducts;
 
-    ArrayList<String> listofCateg ;
+    ArrayList<String> listofCateg;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -69,27 +71,27 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
-        currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         listofCateg = new ArrayList<>();
         getCategoriesNames();
-
         SliderWork(view);
-
         floatingActionButton= (FloatingActionButton)view.findViewById(R.id.floating_action_button);
         recyclerView = view.findViewById(R.id.recyclerview_id);
         data = new ArrayList<>();
 
     }
 
+
+
     private void getCategoriesNames() {
         dbReference = FirebaseDatabase.getInstance().getReference("shops").child(currentUserID);
         dbReference.child("listOfcategIDs").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     String name = snapshot.getValue(String.class);
-                    Log.d("getCategoriesNames() " , " name : " + name);
+                    Log.d("getCategoriesNames() ", " name : " + name);
                     listofCateg.add(name);
                 }
                 showSlider(listofCateg);
@@ -115,14 +117,14 @@ public class HomeFragment extends BaseFragment {
                 data.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     ProductitemModel categ = snapshot.getValue(ProductitemModel.class);
-                    if ( categ.getShopId().equals(currentUserID) ) {
+                    //if (categ.getShopId().equals(currentUserID)) {
                         data.add(categ);
-                    }
+                   // }
                 }
-                productAdapter = new ProductRecycAdapter(getContext() ,data, ListenerProducts);
+                productAdapter = new ProductRecycAdapter(getContext(), data, ListenerProducts);
                 recyclerView.setAdapter(productAdapter);
                 //  productAdapter.setOnItemClickListener(ListenerProducts);
-                Log.d("STEP", "adapter: " + "done" );
+                Log.d("STEP", "adapter: " + "done");
 
             }
 
@@ -135,10 +137,10 @@ public class HomeFragment extends BaseFragment {
     }
 
     // get data from firedase to array of slider and show it in viewpager2...
-    private void showSlider(ArrayList<String> list ) {
+    private void showSlider(ArrayList<String> list) {
         datasider = new ArrayList<>();
-        for ( String name : list){
-            Log.d("LIST CATEGORIES" , " name : " + name);
+        for (String name : list) {
+            Log.d("LIST CATEGORIES", " name : " + name);
             Query query = FirebaseDatabase.getInstance().getReference("categories");
             query.orderByChild("categoryname").equalTo(name).addValueEventListener(new ValueEventListener() {
                 @Override
@@ -179,6 +181,7 @@ public class HomeFragment extends BaseFragment {
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
             }
+
             // if slider selected sow data of itis category in recyclerview ...
             @Override
             public void onPageSelected(int position) {
@@ -224,31 +227,62 @@ public class HomeFragment extends BaseFragment {
         });
         viewPager2.setPageTransformer(compositePageTransformer);
     }
-
-    ///hen you add to item product of recyclerview
     @Override
     public void setListeners() {
-
-        ListenerProducts = new ProductRecycAdapter.ItemClickListener() {
+        ListenerProducts=new ProductRecycAdapter.ItemClickListener() {
             @Override
-            public void onItemClick(final ProductitemModel item) {
+            public void onItemClick(ProductitemModel item) {
                 Toast.makeText(getActivity(), "item clicked", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onUpdateClick(int position, ProductitemModel productitemModel) {
                 Bundle bundle = new Bundle();
-                bundle.putString("productId", productitemModel.getProductId() );
-              //  Log.d("CATEG_ID" , " ID:" + categID);
-                getNavController().navigate(R.id.action_homeFragment2_to_update_Product_Fragment , bundle);
+                bundle.putString("productId", productitemModel.getProductId());
+                //  Log.d("CATEG_ID" , " ID:" + categID);
+                getNavController().navigate(R.id.action_homeFragment2_to_update_Product_Fragment, bundle);
             }
 
             @Override
-            public void onDeleteClick(int position, ProductitemModel productitemModel) {
+            public void onDeleteClick(int position,final ProductitemModel item) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setTitle("Delete");
+                builder.setMessage("Are you sure to delete this product?");
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dbReference = FirebaseDatabase.getInstance().getReference("products");
+                        dbReference.child(item.getProductId()).removeValue();
+//                       mQuery.orderByChild("productId").equalTo(item.getProductId())
+//                               .addChildEventListener(new ValueEventListener() {
+//                                   @Override
+//                                   public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                                       for (DataSnapshot snap : snapshot.getChildren()) {
+//                                           snap.getRef().removeValue();
+//                                        }
+//                                       Toast.makeText(getActivity(), "product deleted", Toast.LENGTH_SHORT).show();
+//                                   }
+//
+//                                   @Override
+//                                   public void onCancelled(@NonNull DatabaseError error) {
+//                                       Toast.makeText(getActivity(),error.getMessage(), Toast.LENGTH_LONG).show();
+//                                   }
+//                               });
+//
+//
 
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+
+                    }
+                });
+                builder.create().show();
             }
         };
-
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -261,9 +295,11 @@ public class HomeFragment extends BaseFragment {
         });
     }
 
-    NavController getNavController() {
+    private NavController getNavController() {
         return Navigation.findNavController(getActivity(), R.id.my_nav_host);
     }
+
+
 
 
 }

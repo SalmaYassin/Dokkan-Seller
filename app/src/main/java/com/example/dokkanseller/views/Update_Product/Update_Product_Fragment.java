@@ -21,9 +21,9 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import com.bumptech.glide.Glide;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.views.Add_Product.LoadingDialog;
-import com.example.dokkanseller.views.Add_Product.SliderAdapter;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
@@ -51,11 +51,12 @@ public class Update_Product_Fragment extends BaseFragment {
     SliderView sliderView;
     ImageView addphoto;
     EditText itemName, itemPrice, itemDescryption, itemSize, itemMaterials;
+
+
     Button up;
     ArrayList<Uri> mArrayUri;
     int PICK_IMAGE_MULTIPLE = 0;
     private DatabaseReference databaseReference;
-    private FirebaseDatabase firebaseDatabase;
     private static final String TAG = "MainActivity";
     private int finalUploads = 0;
 
@@ -89,11 +90,18 @@ NavController getNavController(){
         itemSize = view.findViewById(R.id.size);
         itemMaterials = view.findViewById(R.id.materials);
         up = view.findViewById(R.id.update);
+
+
         createInstance();
 
         ShowProductDetails();
+        SliderUpdateAdapter adapter = new SliderUpdateAdapter(productId);
+        sliderView.setSliderAdapter(adapter);
+
 
     }
+
+
 
     @Override
     public void setListeners() {
@@ -110,8 +118,6 @@ NavController getNavController(){
         addphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 Intent gallaryIntent = new Intent();
                 gallaryIntent.setType("image/*");
                 gallaryIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
@@ -149,7 +155,7 @@ NavController getNavController(){
                 }
             }
 
-            SliderAdapter adapter2 = new SliderAdapter(getActivity() ,mArrayUri);
+            SliderUpdateAdapter adapter2 = new SliderUpdateAdapter(getActivity() ,mArrayUri , productId);
             sliderView.setSliderAdapter(adapter2);
         } else {
             Toast.makeText(getActivity(), "You haven't picked Image", Toast.LENGTH_LONG).show();
@@ -167,6 +173,7 @@ NavController getNavController(){
         databaseReference.child("description").setValue(itemDescryption.getText().toString());
         databaseReference.child("size").setValue(itemSize.getText().toString());
         databaseReference.child("materials").setValue(itemMaterials.getText().toString());
+
 
     }
 
@@ -200,6 +207,7 @@ NavController getNavController(){
                                 storeLink(imagesURL);
                                 Toast.makeText(getActivity(), " upload success..", Toast.LENGTH_LONG).show();
                                 LoadingDialog.hideProgress();
+
                                 // Intent GoToHome = new Intent(MainActivity.this, HomeActivity.class);
                                 //  startActivity(GoToHome);
                                 getNavController().navigate(R.id.action_update_Product_Fragment_to_homeFragment2);
@@ -244,7 +252,6 @@ NavController getNavController(){
                 itemMaterials.setText(pMaterial);
                 String pSize=snapshot.child("size").getValue(String.class);
                 itemSize.setText(pSize);
-
             }
 
             @Override

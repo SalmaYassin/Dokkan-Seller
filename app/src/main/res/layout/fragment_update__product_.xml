@@ -81,7 +81,7 @@
                     android:layout_width="@dimen/width_50"
                     android:layout_height="@dimen/height_50"
                     android:layout_marginTop="@dimen/margin_top_3"
-                    android:layout_marginStart="@dimen/margin_120"
+                    android:layout_marginStart="@dimen/margin_start_100"
                     android:background="@drawable/back_add_photo">
 
                     <ImageView
