@@ -66,6 +66,26 @@ public class Show_ProductFragment extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
+        intialize(view);
+        bundle_prodID = getArguments();
+        productId = bundle_prodID.getString("productId");
+        Log.d("product id " , " id : " + productId);
+
+        ShowProductDetails(productId);
+        //ShowReviews();
+        SliderShowAdapter adapter = new SliderShowAdapter(getContext());
+        sliderView.setSliderAdapter(adapter);
+        sliderView.setIndicatorSelectedColor(Color.WHITE);
+        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+
+
+
+        SliderShowAdapter adapter2 = new SliderShowAdapter(productId);
+        sliderView.setSliderAdapter(adapter2);
+
+    }
+
+    private void intialize(View view) {
         //slider
         sliderView = view.findViewById(R.id.imageSlider);
 //Expand Review
@@ -86,21 +106,6 @@ public class Show_ProductFragment extends BaseFragment {
         productSize =view. findViewById(R.id.item_size);
         edit=view.findViewById(R.id.Edit_butt);
         back=view.findViewById(R.id.back_button);
-
-        ShowProductDetails();
-        //ShowReviews();
-        SliderShowAdapter adapter = new SliderShowAdapter(getContext());
-        sliderView.setSliderAdapter(adapter);
-        sliderView.setIndicatorSelectedColor(Color.WHITE);
-        sliderView.setIndicatorUnselectedColor(Color.GRAY);
-
-        bundle_prodID = getArguments();
-        productId = bundle_prodID.getString("productId");
-        Log.d("product id " , " id : " + productId);
-
-        SliderShowAdapter adapter2 = new SliderShowAdapter(productId);
-        sliderView.setSliderAdapter(adapter2);
-
     }
 
     @Override
@@ -147,25 +152,23 @@ public class Show_ProductFragment extends BaseFragment {
     }
 
     //===================================================================================//
-    private void ShowProductDetails() {
+    private void ShowProductDetails(String pID) {
         //Retrive all data about product
 
-          final Query query = FirebaseDatabase.getInstance().getReference("products").orderByChild("productId").equalTo(productId);
-          query.addValueEventListener(new ValueEventListener() {
-       // databaseReference = FirebaseDatabase.getInstance().getReference("products");
-        //databaseReference.child(productId).addValueEventListener(new ValueEventListener() {
-            @Override
+        databaseReference = FirebaseDatabase.getInstance().getReference("products").child(pID);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+           @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 String pName = dataSnapshot.child("name").getValue(String.class);
                 ProductName.setText(pName);
                 String pPrice = dataSnapshot.child("price").getValue(String.class);
                 productPrice.setText(pPrice);
-                String pDescription = dataSnapshot.child("Description").getValue(String.class);
+                String pDescription = dataSnapshot.child("description").getValue(String.class);
                 productDescription.setText(pDescription);
-                String pMaterial=dataSnapshot.child("Material").getValue(String.class);
-                ProductMaterial.setText(""+ pMaterial);
-                String pSize=dataSnapshot.child("Size").getValue(String.class);
+                String pMaterial=dataSnapshot.child("materials").getValue(String.class);
+                ProductMaterial.setText( pMaterial);
+                String pSize=dataSnapshot.child("size").getValue(String.class);
                 productSize.setText(pSize);
             }
 
@@ -205,6 +208,7 @@ public class Show_ProductFragment extends BaseFragment {
         });
 
     }
+
     private NavController getNavController() {
         return Navigation.findNavController(getActivity(), R.id.my_nav_host);
     }

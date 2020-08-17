@@ -93,7 +93,6 @@ public class HomeFragment extends BaseFragment {
                     listofCateg.add(name);
                 }
                 showSlider(listofCateg);
-
             }
 
             @Override
@@ -115,9 +114,11 @@ public class HomeFragment extends BaseFragment {
                 data.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     ProductitemModel categ = snapshot.getValue(ProductitemModel.class);
-                    //if (categ.getShopId().equals(currentUserID)) {
-                        data.add(categ);
-                   // }
+                    if( categ != null && categ.getShopId() != null){
+                        if (categ.getShopId().equals(currentUserID)) {
+                            data.add(categ);
+                        }
+                    }
                 }
                 productAdapter = new ProductRecycAdapter(getContext(), data, ListenerProducts);
                 recyclerView.setAdapter(productAdapter);
