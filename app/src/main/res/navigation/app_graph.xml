@@ -95,6 +95,9 @@
         <action
             android:id="@+id/action_homeFragment2_to_update_Product_Fragment"
             app:destination="@id/update_Product_Fragment" />
+        <action
+            android:id="@+id/action_homeFragment2_to_show_ProductFragment"
+            app:destination="@id/show_ProductFragment" />
     </fragment>
 
     <fragment
@@ -122,5 +125,13 @@
         <action
             android:id="@+id/action_update_Product_Fragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/show_ProductFragment"
+        android:name="com.example.dokkanseller.views.Show_Product.Show_ProductFragment"
+        android:label="Show_ProductFragment" >
+        <action
+            android:id="@+id/action_show_ProductFragment_to_update_Product_Fragment"
+            app:destination="@id/update_Product_Fragment" />
     </fragment>
 </navigation>

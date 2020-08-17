@@ -232,8 +232,11 @@ public class HomeFragment extends BaseFragment {
         ListenerProducts=new ProductRecycAdapter.ItemClickListener() {
             @Override
             public void onItemClick(ProductitemModel item) {
-                Toast.makeText(getActivity(), "item clicked", Toast.LENGTH_SHORT).show();
-            }
+
+                Bundle bundle = new Bundle();
+                bundle.putString("productId", item.getProductId());
+                //Log.d("CATEG_ID" , " ID:" + categID);
+                getNavController().navigate(R.id.action_homeFragment2_to_show_ProductFragment , bundle);                }
 
             @Override
             public void onUpdateClick(int position, ProductitemModel productitemModel) {
