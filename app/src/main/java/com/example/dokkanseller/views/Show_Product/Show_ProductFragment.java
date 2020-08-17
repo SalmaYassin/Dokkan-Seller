@@ -121,7 +121,7 @@ public class Show_ProductFragment extends BaseFragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("productId",productId);
                 Log.d("CATEG_ID" , " ID:" + productId);
-                getNavController().navigate(R.id.action_show_ProductFragment_to_update_Product_Fragment);
+                getNavController().navigate(R.id.action_show_ProductFragment_to_update_Product_Fragment,bundle);
 
 
             }
@@ -150,10 +150,10 @@ public class Show_ProductFragment extends BaseFragment {
     private void ShowProductDetails() {
         //Retrive all data about product
 
-        //  final Query query = FirebaseDatabase.getInstance().getReference("products").orderByChild("productId").equalTo(productId);
-        //  query.addValueEventListener(new ValueEventListener() {
-        databaseReference = FirebaseDatabase.getInstance().getReference("products");
-        databaseReference.child(productId).addValueEventListener(new ValueEventListener() {
+          final Query query = FirebaseDatabase.getInstance().getReference("products").orderByChild("productId").equalTo(productId);
+          query.addValueEventListener(new ValueEventListener() {
+       // databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        //databaseReference.child(productId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

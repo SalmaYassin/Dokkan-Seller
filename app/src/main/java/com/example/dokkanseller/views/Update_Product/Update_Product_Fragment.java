@@ -78,9 +78,11 @@ NavController getNavController(){
 
     @Override
     public void initializeViews(View view) {
+
         bundle_prodID = getArguments();
         productId = bundle_prodID.getString("productId");
         Log.d("product id " , " id : " + productId);
+
 
         sliderView =view. findViewById(R.id.imageSlider);
         addphoto = view.findViewById(R.id.add_photo);
