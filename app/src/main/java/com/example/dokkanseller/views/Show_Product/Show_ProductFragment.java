@@ -1,15 +1,15 @@
 package com.example.dokkanseller.views.Show_Product;
 
-
 import android.graphics.Color;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +17,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.data_model.ReviewModel;
 import com.example.dokkanseller.views.base.BaseFragment;
@@ -27,8 +26,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 import com.smarteist.autoimageslider.SliderView;
-
 import java.util.ArrayList;
 
 
@@ -50,8 +49,10 @@ public class Show_ProductFragment extends BaseFragment {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     //private FirebaseStorage storage;
-   // private StorageReference mStorageRef;
+    // private StorageReference mStorageRef;
     String productId;
+    private Bundle bundle_prodID;
+
 
     public Show_ProductFragment() {
         // Required empty public constructor
@@ -88,11 +89,18 @@ public class Show_ProductFragment extends BaseFragment {
 
         ShowProductDetails();
         //ShowReviews();
-        SliderShowAdapter adapter2 = new SliderShowAdapter(getContext());
-
-        sliderView.setSliderAdapter(adapter2);
+        SliderShowAdapter adapter = new SliderShowAdapter(getContext());
+        sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
         sliderView.setIndicatorUnselectedColor(Color.GRAY);
+
+        bundle_prodID = getArguments();
+        productId = bundle_prodID.getString("productId");
+        Log.d("product id " , " id : " + productId);
+
+        SliderShowAdapter adapter2 = new SliderShowAdapter(productId);
+        sliderView.setSliderAdapter(adapter2);
+
     }
 
     @Override
@@ -110,6 +118,12 @@ public class Show_ProductFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 //go to update Activity
+                Bundle bundle = new Bundle();
+                bundle.putString("productId",productId);
+                Log.d("CATEG_ID" , " ID:" + productId);
+                getNavController().navigate(R.id.action_show_ProductFragment_to_update_Product_Fragment);
+
+
             }
         });
         //=====================================================================================//
@@ -136,8 +150,10 @@ public class Show_ProductFragment extends BaseFragment {
     private void ShowProductDetails() {
         //Retrive all data about product
 
-        final Query query = FirebaseDatabase.getInstance().getReference("products").orderByChild("productId").equalTo(productId);
-        query.addValueEventListener(new ValueEventListener() {
+        //  final Query query = FirebaseDatabase.getInstance().getReference("products").orderByChild("productId").equalTo(productId);
+        //  query.addValueEventListener(new ValueEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference("products");
+        databaseReference.child(productId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
@@ -189,10 +205,8 @@ public class Show_ProductFragment extends BaseFragment {
         });
 
     }
+    private NavController getNavController() {
+        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
+    }
 
 }
-
-
-
-
-

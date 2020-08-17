@@ -39,9 +39,7 @@ import java.util.ArrayList;
  */
 public class HomeFragment extends BaseFragment {
     private String currentUserID;
-
     private String categID;
-
     private DatabaseReference dbReference;
     //private StorageReference storageReference;
     private ArrayList<ProductitemModel> data;

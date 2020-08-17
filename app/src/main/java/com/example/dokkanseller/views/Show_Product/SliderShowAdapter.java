@@ -29,6 +29,9 @@ public class SliderShowAdapter extends SliderViewAdapter<SliderShowAdapter.Slide
     public SliderShowAdapter(Context context) {
         this.context = context;
     }
+    public SliderShowAdapter(String productId) {
+        this.productId = productId;
+    }
 
     @Override
     public SliderAdapterVH onCreateViewHolder(ViewGroup parent) {
@@ -74,7 +77,7 @@ public class SliderShowAdapter extends SliderViewAdapter<SliderShowAdapter.Slide
         //slider view count could be dynamic size
         return 3;
     }
-//=====================================================================//
+    //=====================================================================//
     class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
 
         View itemView;
