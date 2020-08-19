@@ -62,11 +62,11 @@ public class ProductRecycAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         switch (item.getItemId()) {
                             case R.id.update_opition_id:
                                 onItemClickListener.onUpdateClick(position , productsList.get(position) );
-                                Toast.makeText(c, "update", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(c, "update", Toast.LENGTH_SHORT).show();
                                 return true;
                             case R.id.delete_opition_id:
                                 onItemClickListener.onDeleteClick(position , productsList.get(position));
-                                Toast.makeText(c, "delete", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(c, "delete", Toast.LENGTH_SHORT).show();
                                 return true;
 
                         }

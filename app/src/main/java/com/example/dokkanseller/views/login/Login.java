@@ -15,10 +15,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dokkanseller.R;
+import com.example.dokkanseller.SharedPreference;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -35,6 +37,7 @@ public class Login extends BaseFragment {
     ProgressDialog loadingbar;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+    private ImageView back ;
 
 
 
@@ -56,6 +59,7 @@ public class Login extends BaseFragment {
         firebaseAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference();
         firebaseAuth = FirebaseAuth.getInstance();
+        back = view.findViewById(R.id.arrow_back);
         Email = (EditText) view.findViewById(R.id.email_login);
         Password = (EditText) view.findViewById(R.id.password_login);
         forgetPassword_btn = (TextView) view.findViewById(R.id.forget_password);
@@ -68,6 +72,14 @@ public class Login extends BaseFragment {
 
     @Override
     public void setListeners() {
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getNavController().navigate(R.id.action_login_to_welcomPage);
+            }
+        });
+
         btn_sing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +131,9 @@ public class Login extends BaseFragment {
                             if (task.isSuccessful()) {
                                 if (firebaseAuth.getCurrentUser().isEmailVerified()) {
                                     loadingbar.dismiss();
+                                    if (FirebaseAuth.getInstance().getCurrentUser() != null)
+                                        SharedPreference.getInstance(getContext())
+                                                .saveUser(FirebaseAuth.getInstance().getCurrentUser().getUid());
                                     getNavController().navigate(R.id.action_login_to_homeFragment2);
                                     Toast.makeText(getActivity(), "Logged is succesfully.", Toast.LENGTH_SHORT).show();
 
@@ -128,9 +143,8 @@ public class Login extends BaseFragment {
                                 }
 
                             } else {
-
                                 loadingbar.dismiss();
-                                String error = task.getException().toString();
+                                String error = task.getException().getMessage();
                                 Toast.makeText(getActivity(), error, Toast.LENGTH_SHORT).show();
                             }
                         }

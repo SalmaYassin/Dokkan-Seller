@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.dokkanseller.R;
@@ -25,6 +28,7 @@ public class forgetPassword extends BaseFragment {
     private EditText registeredEmail;
     private Button resetPassword_btn;
     private FirebaseAuth firebaseAuth;
+    private ImageView back ;
 
 
     public forgetPassword() {
@@ -39,16 +43,11 @@ public class forgetPassword extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
+        back = view.findViewById(R.id.arrow_back);
         registeredEmail = view.findViewById(R.id.rest_email);
         resetPassword_btn = view.findViewById(R.id.reset_btn);
         firebaseAuth=FirebaseAuth.getInstance();
-        resetPassword_btn.setOnClickListener(
-                new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ResetEmail();
-            }
-        });
+
 
     }
     private void ResetEmail(){
@@ -75,9 +74,27 @@ public class forgetPassword extends BaseFragment {
 
 
     }
+    NavController getNavController() {
+        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
+    }
+
 
     @Override
     public void setListeners() {
+
+        resetPassword_btn.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ResetEmail();
+                    }
+                });
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getNavController().navigate(R.id.action_forgetPassword_to_login);
+            }
+        });
 
     }
 
