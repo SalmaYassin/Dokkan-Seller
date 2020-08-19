@@ -522,14 +522,6 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
-        <Button
-            android:id="@+id/load_more"
-            android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="@string/load_more"
-            android:background="@drawable/button"/>
-
 
 
 

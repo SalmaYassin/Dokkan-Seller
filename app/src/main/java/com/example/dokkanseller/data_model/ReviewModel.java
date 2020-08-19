@@ -1,52 +1,28 @@
 package com.example.dokkanseller.data_model;
 
 public class ReviewModel {
-    private String comment;
-    private String image;
-    private String name;
-    private float rate;
-    private Boolean Fav_comment;
-    private int likesOfComment;
-   private String time;
-    private String Key;
+    private String comment ;
+    private String productID ;
+    private String rate;
+    private String reviewID ;
+    private String shopID ;
+    private String userID;
+    private String  date ;
+
 
 
     public ReviewModel() {
 
     }
 
-    public ReviewModel(String comment, String image, String name, float rate,Boolean Fav_comment, String time) {
+    public ReviewModel(String comment, String productID, String rate, String reviewID, String shopID, String userID, String date) {
         this.comment = comment;
-        this.image = image;
-        this.name = name;
+        this.productID = productID;
         this.rate = rate;
-        this.Fav_comment =Fav_comment;
-        this.time = time;
-
-    }
-
-    public int getLikesOfComment() {
-        return likesOfComment;
-    }
-
-    public void setLikesOfComment(int likesOfComment) {
-        this.likesOfComment = likesOfComment;
-    }
-
-    public Boolean getFav_comment() {
-        return Fav_comment;
-    }
-
-    public void setFav_comment(Boolean fav_comment) {
-        Fav_comment = fav_comment;
-    }
-
-    public String getKey() {
-        return Key;
-    }
-
-    public void setKey(String key) {
-        Key = key;
+        this.reviewID = reviewID;
+        this.shopID = shopID;
+        this.userID = userID;
+        this.date = date;
     }
 
     public String getComment() {
@@ -57,37 +33,51 @@ public class ReviewModel {
         this.comment = comment;
     }
 
-    public String getImage() {
-        return image;
+    public String getProductID() {
+        return productID;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setProductID(String productID) {
+        this.productID = productID;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getRate() {
+    public String getRate() {
         return rate;
     }
 
-    public void setRate(float rate) {
+    public void setRate(String rate) {
         this.rate = rate;
     }
 
-    public String getTime() {
-        return time;
+    public String getReviewID() {
+        return reviewID;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setReviewID(String reviewID) {
+        this.reviewID = reviewID;
     }
 
+    public String getShopID() {
+        return shopID;
+    }
 
+    public void setShopID(String shopID) {
+        this.shopID = shopID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 }

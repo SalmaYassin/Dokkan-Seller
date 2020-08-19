@@ -3,6 +3,7 @@ package com.example.dokkanseller.views.Show_Product;
 import android.graphics.Color;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -52,6 +53,7 @@ public class Show_ProductFragment extends BaseFragment {
     // private StorageReference mStorageRef;
     String productId;
     private Bundle bundle_prodID;
+    private CardView review ;
 
 
     public Show_ProductFragment() {
@@ -72,7 +74,7 @@ public class Show_ProductFragment extends BaseFragment {
         Log.d("product id " , " id : " + productId);
 
         ShowProductDetails(productId);
-        //ShowReviews();
+        ShowReviews(productId);
         SliderShowAdapter adapter = new SliderShowAdapter(getContext());
         sliderView.setSliderAdapter(adapter);
         sliderView.setIndicatorSelectedColor(Color.WHITE);
@@ -86,6 +88,7 @@ public class Show_ProductFragment extends BaseFragment {
     }
 
     private void intialize(View view) {
+        review = view.findViewById(R.id.expandable);
         //slider
         sliderView = view.findViewById(R.id.imageSlider);
 //Expand Review
@@ -179,33 +182,40 @@ public class Show_ProductFragment extends BaseFragment {
         });
     }
     //===================================================================================//
-    private void ShowReviews() {
+    private void ShowReviews(String productId) {
         //Retrive RecyclerView
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Reviews").child("customer1");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        Query query = FirebaseDatabase.getInstance().getReference("Reviews")
+                .orderByChild("productID").equalTo(productId);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 reviewList = new ArrayList<>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    reviewModel = snapshot.getValue(ReviewModel.class);
 
-                    reviewList.add(reviewModel);
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        reviewModel = snapshot.getValue(ReviewModel.class);
+                        reviewList.add(reviewModel);
+                    }
+                    adapter = new ReviewAdapter(reviewList);
+                    RecyclerView.LayoutManager lm = new LinearLayoutManager(getActivity());
+                    rv.setLayoutManager(lm);
+                    rv.setAdapter(adapter);
+                    DividerItemDecoration dv;
+                    dv = new DividerItemDecoration(rv.getContext(), ((LinearLayoutManager) lm).getOrientation());
+                    rv.addItemDecoration(dv);
+                } else {
+                    review.setVisibility(View.GONE);
+                    rv.setVisibility(View.GONE);
                 }
-
-                adapter = new ReviewAdapter(reviewList);
-                RecyclerView.LayoutManager lm = new LinearLayoutManager(getActivity());
-                rv.setLayoutManager(lm);
-                rv.setAdapter(adapter);
-                DividerItemDecoration dv;
-                dv = new DividerItemDecoration(rv.getContext(), ((LinearLayoutManager) lm).getOrientation());
-                rv.addItemDecoration(dv);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
+
+
+
 
     }
 

@@ -20,17 +20,29 @@ import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.ArrayList;
 
-public class SliderUpdateAdapter extends SliderViewAdapter<SliderUpdateAdapter.SliderAdapterVH> {
 
+public class SliderShowAdapter extends SliderViewAdapter<SliderShowAdapter.SliderAdapterVH> {
+
+    private FirebaseDatabase firebaseDatabase;
+     private DatabaseReference databaseReference;
     private Context context;
+    String image1,image2,image3;
+    String productId;
     ArrayList<Uri> mArrayUri;
 
-
-    public SliderUpdateAdapter(Context context, ArrayList<Uri> mArrayUri) {
+    public SliderShowAdapter(Context context, ArrayList<Uri> mArrayUri , String productId) {
         this.context = context;
         this.mArrayUri = mArrayUri;
+        this.productId = productId;
     }
 
+    public SliderShowAdapter(String productId) {
+        this.productId = productId;
+    }
+
+    public SliderShowAdapter(Context context) {
+        this.context = context;
+    }
     @Override
     public SliderAdapterVH onCreateViewHolder(ViewGroup parent) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.image_slider_layout_item, null);
@@ -40,21 +52,38 @@ public class SliderUpdateAdapter extends SliderViewAdapter<SliderUpdateAdapter.S
     @Override
     public void onBindViewHolder(final SliderAdapterVH viewHolder, final int position) {
 
-        switch (position) {
-            case 1:
-                Glide.with(viewHolder.itemView).load(mArrayUri.get(1)).into(viewHolder.imageViewBackground);
-                break;
-            case 2:
+        databaseReference = FirebaseDatabase.getInstance().getReference("products").child(productId);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
 
-                Glide.with(viewHolder.itemView).load(mArrayUri.get(2)).into(viewHolder.imageViewBackground);
-                break;
-            default:
-                Glide.with(viewHolder.itemView).load(mArrayUri.get(0)).into(viewHolder.imageViewBackground);
-                break;
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                image1 = dataSnapshot.child("image1").getValue(String.class);
+                image2 = dataSnapshot.child("image2").getValue(String.class);
+                image3 = dataSnapshot.child("image3").getValue(String.class);
+                switch (position) {
+                    case 1:
+                        Glide.with(viewHolder.itemView).load(image1).into(viewHolder.imageViewBackground);
+                        break;
+                    case 2:
+                        Glide.with(viewHolder.itemView).load(image2).into(viewHolder.imageViewBackground);
+                        break;
+                    default:
+                        Glide.with(viewHolder.itemView).load(image3).into(viewHolder.imageViewBackground);
+                        break;
 
-        }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
+
+
 
     //================================
     @Override

@@ -84,7 +84,7 @@ public class ProfileFragment extends BaseFragment {
     String url ;
 
     private TextView shopname , location , desc ,about , policies , phone_num ;
-    private Button fblink , instalink , loadmore  , done;
+    private Button fblink , instalink  , done;
     private ImageView shopimg  , edit_name , edit_phone , edit_bio , edit_location , edit_about , edit_policies , edit_link , edit_img;
     private RatingBar ratingBar ;
     private String fb_link , insta_link  ;
@@ -107,6 +107,7 @@ public class ProfileFragment extends BaseFragment {
     public void initializeViews(View view) {
         initialization(view);
         showShopDetails(currentUserID);
+        showShopReviews(currentUserID);
 
     }
 
@@ -114,11 +115,12 @@ public class ProfileFragment extends BaseFragment {
         storageReference = FirebaseStorage.getInstance().getReference();
         currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
-
+        reviewList = new ArrayList<>();
         reviewRecyclerView = view.findViewById(R.id.recyclerview_review);
 
         shopimg = view.findViewById(R.id.img_shop) ;
-            shopname = view.findViewById(R.id.name_shop);
+
+        shopname = view.findViewById(R.id.name_shop);
             location = view.findViewById(R.id.location);
             desc = view.findViewById(R.id.shop_desc);
             ratingBar = view.findViewById(R.id.rating_bar) ;
@@ -128,7 +130,6 @@ public class ProfileFragment extends BaseFragment {
             instalink = view.findViewById(R.id.tv_insta);
             phone_num = view.findViewById(R.id.phone_num);
             review_relative = view.findViewById(R.id.relative_review);
-            loadmore = view.findViewById(R.id.load_more);
 
             edit_name = view.findViewById(R.id.edit_shopname);
             edit_phone = view.findViewById(R.id.edit_phone);
@@ -410,22 +411,6 @@ public class ProfileFragment extends BaseFragment {
                     fb_link = profile.getFbLink();
                     insta_link = profile.getInstaLink();
 
-                    //show shop Reviews
-                    HashMap<String , String> mapReview = profile.getReviews();
-                    if ( mapReview != null ) {
-                        Collection<String> valuesReview = mapReview.values();
-                        //Creating an ArrayList of values in the HashMap  ( HashMap >> ArrayList )
-                        ArrayList<String> listOfReviewsIDs = new ArrayList<String>(valuesReview);
-                        reviewList = new ArrayList<>();
-                        for (String id : listOfReviewsIDs) {
-                            showShopReviews(id);
-                        }
-                    } else {
-                        review_relative.setVisibility(View.GONE);
-                        reviewRecyclerView.setVisibility(View.GONE);
-                        loadmore.setVisibility(View.GONE);
-
-                    }
                     
                 }
             }
@@ -438,25 +423,32 @@ public class ProfileFragment extends BaseFragment {
         });
     }
 
-    private void showShopReviews(String id) {
+    private void showShopReviews(String shopid) {
+
         Query query = FirebaseDatabase.getInstance().getReference("Reviews")
-                .orderByChild("Key").equalTo(id);
+                .orderByChild("shopID").equalTo(shopid);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    ProfileReviewModel reviewModel = snapshot.getValue(ProfileReviewModel.class);
-                    reviewList.add(reviewModel);
+                if (dataSnapshot.exists()) {
+                    review_relative.setVisibility(View.VISIBLE);
+                    reviewRecyclerView.setVisibility(View.VISIBLE);
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        ProfileReviewModel reviewModel = snapshot.getValue(ProfileReviewModel.class);
+                        reviewList.add(reviewModel);
+                    }
+                    ReviewsRecyclerAdapter adapter = new ReviewsRecyclerAdapter(reviewList);
+                    reviewRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    reviewRecyclerView.setAdapter(adapter);
+                    DividerItemDecoration dv;
+                    dv = new DividerItemDecoration(reviewRecyclerView.getContext(),
+                            ((LinearLayoutManager)new LinearLayoutManager(getActivity()) ).getOrientation());
+                    reviewRecyclerView.addItemDecoration(dv);
+
+                } else{
+                    review_relative.setVisibility(View.GONE);
+                    reviewRecyclerView.setVisibility(View.GONE);
                 }
-                ReviewsRecyclerAdapter adapter = new ReviewsRecyclerAdapter(reviewList);
-                reviewRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                reviewRecyclerView.setAdapter(adapter);
-                DividerItemDecoration dv;
-                dv = new DividerItemDecoration(reviewRecyclerView.getContext(),
-                        ((LinearLayoutManager)new LinearLayoutManager(getActivity()) ).getOrientation());
-                reviewRecyclerView.addItemDecoration(dv);
-
-
             }
 
             @Override
