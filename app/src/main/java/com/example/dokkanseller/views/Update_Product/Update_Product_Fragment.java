@@ -163,7 +163,7 @@ NavController getNavController(){
 
       //  Log.i("pp", productId);
         databaseReference.child("name").setValue(itemName.getText().toString());
-        databaseReference.child("price").setValue(itemPrice.getText().toString());
+        databaseReference.child("price").setValue(itemPrice.getText().toString()+" L.E");
         databaseReference.child("description").setValue(itemDescryption.getText().toString());
         databaseReference.child("size").setValue(itemSize.getText().toString());
         databaseReference.child("materials").setValue(itemMaterials.getText().toString());
