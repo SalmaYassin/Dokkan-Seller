@@ -181,5 +181,6 @@
 
     <dimen name="width_86">86dp</dimen>
     <dimen name="padding_4">4dp</dimen>
+    <dimen name="separator_height">1dp</dimen>
 
 </resources>
