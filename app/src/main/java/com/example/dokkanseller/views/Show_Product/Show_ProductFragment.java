@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import com.example.dokkanseller.R;
+import com.example.dokkanseller.data_model.RateModel;
 import com.example.dokkanseller.data_model.ReviewModel;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.firebase.database.DataSnapshot;
@@ -55,6 +56,8 @@ public class Show_ProductFragment extends BaseFragment {
     private Bundle bundle_prodID;
     private CardView review ;
 
+    private ArrayList<RateModel> rateList ;
+    private double rateAverage = 0 ;
 
     public Show_ProductFragment() {
         // Required empty public constructor
@@ -88,6 +91,8 @@ public class Show_ProductFragment extends BaseFragment {
     }
 
     private void intialize(View view) {
+        rateList = new ArrayList<>();
+
         review = view.findViewById(R.id.expandable);
         //slider
         sliderView = view.findViewById(R.id.imageSlider);
@@ -173,7 +178,38 @@ public class Show_ProductFragment extends BaseFragment {
                 ProductMaterial.setText( pMaterial);
                 String pSize=dataSnapshot.child("size").getValue(String.class);
                 productSize.setText(pSize);
-            }
+
+               DatabaseReference dbreference = FirebaseDatabase.getInstance().getReference("RatedList")
+                       .child(productId).child("ListOfRated");
+               dbreference.addValueEventListener(new ValueEventListener() {
+                   @Override
+                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                       rateList.clear();
+                       if ( dataSnapshot.exists()){
+                           for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+                               RateModel rateModel = snapshot.getValue(RateModel.class);
+                               rateAverage = rateAverage + rateModel.getRate() ;
+                               rateList.add(rateModel);
+                           }
+                           ratingBar.setRating( (float)(rateAverage / rateList.size() ) );
+//
+//                           DatabaseReference databaseReference = FirebaseDatabase.getInstance()
+//                                   .getReference("products").child(productId);
+//                           databaseReference.child("rate").setValue(  (float)(rateAverage / rateList.size() )  );
+//
+                       }
+
+                   }
+
+                   @Override
+                   public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                   }
+               });
+
+
+
+           }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

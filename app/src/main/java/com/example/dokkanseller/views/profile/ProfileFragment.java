@@ -40,6 +40,7 @@ import android.widget.Toast;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.data_model.ProfileModel;
 import com.example.dokkanseller.data_model.ProfileReviewModel;
+import com.example.dokkanseller.data_model.RateModel;
 import com.example.dokkanseller.views.base.BaseFragment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -91,6 +92,8 @@ public class ProfileFragment extends BaseFragment {
     private EditText nameET , phoneET , locationET , descET  , aboutET , policiesET , fbET , instaET ;
 
     RelativeLayout review_relative ;
+    private ArrayList<RateModel> rateList ;
+    private  double rateAverage = 0 ;
 
 
     public ProfileFragment() {
@@ -118,12 +121,14 @@ public class ProfileFragment extends BaseFragment {
         reviewList = new ArrayList<>();
         reviewRecyclerView = view.findViewById(R.id.recyclerview_review);
 
+        rateList = new ArrayList<>();
+
         shopimg = view.findViewById(R.id.img_shop) ;
 
         shopname = view.findViewById(R.id.name_shop);
             location = view.findViewById(R.id.location);
             desc = view.findViewById(R.id.shop_desc);
-            ratingBar = view.findViewById(R.id.rating_bar) ;
+            ratingBar = view.findViewById(R.id.rating_barprofile) ;
             about = view.findViewById(R.id.about_tv);
             policies = view.findViewById(R.id.policies_tv);
             fblink = view.findViewById(R.id.tv_fb);
@@ -391,7 +396,7 @@ public class ProfileFragment extends BaseFragment {
 
     }
 
-    private void showShopDetails(String id) {
+    private void showShopDetails(final String id) {
         final Query query = FirebaseDatabase.getInstance().getReference("shops")
                 .orderByChild("key").equalTo(id);
         query.addValueEventListener(new ValueEventListener() {
@@ -411,7 +416,32 @@ public class ProfileFragment extends BaseFragment {
                     fb_link = profile.getFbLink();
                     insta_link = profile.getInstaLink();
 
-                    
+                    DatabaseReference dbreference = FirebaseDatabase.getInstance().getReference("RatedList")
+                            .child(id).child("ListOfRated");
+                    dbreference.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            rateList.clear();
+                            if ( dataSnapshot.exists()){
+                                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+                                    RateModel rateModel = snapshot.getValue(RateModel.class);
+                                    rateAverage = rateAverage + rateModel.getRate() ;
+                                    rateList.add(rateModel);
+                                }
+                                ratingBar.setRating( (float)(rateAverage / rateList.size() ) );
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+
+
                 }
             }
 
