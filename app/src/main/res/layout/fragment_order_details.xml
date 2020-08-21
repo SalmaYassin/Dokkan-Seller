@@ -152,6 +152,7 @@
             android:layout_below="@id/separator"
             tools:listitem="@layout/layout_order_product"
             android:paddingTop="@dimen/padding_5"
+            cardview:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:paddingBottom="@dimen/padding_5" />
     </RelativeLayout>
 

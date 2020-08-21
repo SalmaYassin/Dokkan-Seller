@@ -67,4 +67,10 @@ public class CartItem implements Serializable {
         this.productQuanitity = productQuanitity;
     }
 
+    @Override
+    public String toString() {
+        return "CartItem{" +
+                "shopId='" + shopId + '\'' +
+                '}';
+    }
 }

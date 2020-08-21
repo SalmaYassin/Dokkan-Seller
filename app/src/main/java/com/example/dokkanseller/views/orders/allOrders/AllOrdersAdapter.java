@@ -22,6 +22,18 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.AllO
 
     private List<OrderItemModel> orderItemModels = new ArrayList<>();
 
+    public interface  OnItemClickListner{
+        void onItemClick(int pos, OrderItemModel orderItemModel);
+    }
+
+    OnItemClickListner onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListner onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
+
+
 
     @NonNull
     @Override
@@ -32,17 +44,27 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.AllO
 
 
     @Override
-    public void onBindViewHolder(@NonNull AllOrdersVHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AllOrdersVHolder holder, final int position) {
 
 
          // picaso for orderDate
-        Picasso.get().load(""/*todo add customer photo*/).placeholder(R.drawable.icon4).into(holder.customerImage);
+        //Picasso.get().load(orderItemModels.get(position).getAddress().).placeholder(R.drawable.icon4).into(holder.customerImage);
         holder.customerName.setText(orderItemModels.get(position).getAddress().getCustomerName());
         holder.customerPhoneNum.setText(orderItemModels.get(position).getAddress().getCustomerNumber());
         String address = orderItemModels.get(position).getAddress().getCustomerCountry() + orderItemModels.get(position).getAddress().customerAddress ;
         holder.customerAddressLocation.setText(address);
-        holder.orderDate.setText(""/*todo add order date*/);
+       //holder.orderDate.setText(""/*todo add order date*/);
         Log.e("a",orderItemModels.get(position).getCartItem().size()+"");
+
+        if(onItemClickListener!=null)
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onItemClickListener.onItemClick(position,orderItemModels.get(position));
+                }
+            });
+
+
 
 
     }
@@ -66,7 +88,6 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.AllO
         private TextView customerName;
         private TextView customerPhoneNum;
         private TextView customerAddressLocation;
-
 
         public AllOrdersVHolder(@NonNull View itemView) {
             super(itemView);

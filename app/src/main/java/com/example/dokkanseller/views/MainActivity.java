@@ -17,9 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.dokkanseller.R;
-import com.example.dokkanseller.views.orders.ViewPageAdapter;
-import com.google.android.material.tabs.TabLayout;
-import com.example.dokkanseller.views.Home.HomeFragment;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;

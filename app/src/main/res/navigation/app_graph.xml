@@ -113,10 +113,21 @@
             android:id="@+id/action_add_Product_fragment_to_homeFragment2"
             app:destination="@id/homeFragment2" />
     </fragment>
+
     <fragment
         android:id="@+id/orderFragment"
-        android:name="com.example.dokkanseller.views.orders.OrderFragment"
-        android:label="OrderFragment" />
+        android:name="com.example.dokkanseller.views.orders.allOrders.AllOrdersListFragment"
+        android:label="OrderFragment" >
+        <action
+            android:id="@+id/action_orderFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+        <argument
+            android:name="order"
+            app:argType="com.example.dokkanseller.data_model.OrderItemModel" />
+    </fragment>
+
+
+
 
     <fragment
         android:id="@+id/update_Product_Fragment"
@@ -133,5 +144,11 @@
         <action
             android:id="@+id/action_show_ProductFragment_to_update_Product_Fragment"
             app:destination="@id/update_Product_Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.example.dokkanseller.views.orders.OrderDetailsFragment.OrderDetailsFragment"
+        android:label="OrderDetailsFragment" >
+
     </fragment>
 </navigation>
