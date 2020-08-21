@@ -13,6 +13,7 @@ import com.example.dokkanseller.R;
 import com.example.dokkanseller.data_model.CartItem;
 import com.example.dokkanseller.utils.Constants;
 import com.example.dokkanseller.utils.OnItemClickListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +22,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
-     List<CartItem> cartItemList = new ArrayList<>();
-OnItemClickListener<CartItem> onItemClickListener;
+    List<CartItem> cartItemList = new ArrayList<>();
+    OnItemClickListener<CartItem> onItemClickListener;
 
     public CartAdapter(List<CartItem> cartItemList, OnItemClickListener<CartItem> onItemClickListener) {
         this.cartItemList = cartItemList;
@@ -40,13 +41,14 @@ OnItemClickListener<CartItem> onItemClickListener;
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem cartItem = cartItemList.get(position);
         holder.itemName.setText(cartItemList.get(position).getProductName());
+        Picasso.get().load(cartItem.productImage).placeholder(R.drawable.icon3).into(holder.productImage);
         holder.numberOfQuantity.setText(String.format("%d ", cartItemList.get(position).getProductQuanitity()));
         if (!cartItem.status.equals(Constants.PENDING)) {
             holder.acceptBtn.setVisibility(View.GONE);
             holder.rejectBtn.setVisibility(View.GONE);
             holder.statusBtn.setVisibility(View.VISIBLE);
             holder.statusBtn.setText(cartItem.status);
-        }else {
+        } else {
             holder.acceptBtn.setVisibility(View.VISIBLE);
             holder.rejectBtn.setVisibility(View.VISIBLE);
             holder.statusBtn.setVisibility(View.GONE);
@@ -93,7 +95,7 @@ OnItemClickListener<CartItem> onItemClickListener;
 
         @Override
         public void onClick(View v) {
-            onItemClickListener.onItemClicked(v,cartItemList.get(getLayoutPosition()));
+            onItemClickListener.onItemClicked(v, cartItemList.get(getLayoutPosition()));
         }
     }
 }
