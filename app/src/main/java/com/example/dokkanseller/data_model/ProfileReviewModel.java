@@ -2,25 +2,25 @@ package com.example.dokkanseller.data_model;
 
 public class ProfileReviewModel {
 
-    private String comment;
-    private String image;
-    private String name;
-    private float rate;
-    private String time;
-    private String Key;
+    private String comment ;
     private String productID ;
+    private String rate;
+    private String reviewID ;
+    private String shopID ;
+    private String userID;
+    private String  date ;
 
     public ProfileReviewModel() {
     }
 
-    public ProfileReviewModel(String comment, String image, String name, float rate, String time, String key, String productID) {
+    public ProfileReviewModel(String comment, String productID, String rate, String reviewID, String shopID, String userID, String date) {
         this.comment = comment;
-        this.image = image;
-        this.name = name;
-        this.rate = rate;
-        this.time = time;
-        Key = key;
         this.productID = productID;
+        this.rate = rate;
+        this.reviewID = reviewID;
+        this.shopID = shopID;
+        this.userID = userID;
+        this.date = date;
     }
 
     public String getComment() {
@@ -31,51 +31,51 @@ public class ProfileReviewModel {
         this.comment = comment;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public float getRate() {
-        return rate;
-    }
-
-    public void setRate(float rate) {
-        this.rate = rate;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public String getKey() {
-        return Key;
-    }
-
-    public void setKey(String key) {
-        Key = key;
-    }
-
     public String getProductID() {
         return productID;
     }
 
     public void setProductID(String productID) {
         this.productID = productID;
+    }
+
+    public String getRate() {
+        return rate;
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+    }
+
+    public String getReviewID() {
+        return reviewID;
+    }
+
+    public void setReviewID(String reviewID) {
+        this.reviewID = reviewID;
+    }
+
+    public String getShopID() {
+        return shopID;
+    }
+
+    public void setShopID(String shopID) {
+        this.shopID = shopID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class Register extends BaseFragment {
     private DatabaseReference databaseReference;
     private String currentUserID;
     private CheckBox ckbox;
+    private ImageView back ;
 
     public Register() {
         // Required empty public constructor
@@ -58,6 +60,7 @@ public class Register extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
+        back = view.findViewById(R.id.arrow_back);
         register = view.findViewById(R.id.registerBtn);
         shopname = view.findViewById(R.id.shopnameId);
         Email = view.findViewById(R.id.emailId);
@@ -131,14 +134,15 @@ public class Register extends BaseFragment {
                                             getNavController().navigate(R.id.action_register_to_step1, bundle);
                                         } else {
                                             mProgress.dismiss();
-                                            String message = task.getException().toString();
+                                            String message = task.getException().getMessage();
                                             Toast.makeText(getContext(), "Exception:" + message, Toast.LENGTH_LONG).show();
 
                                         }
                                     }
                                 });
                     } else {
-                        String message = task.getException().toString();
+                        mProgress.dismiss();
+                        String message = task.getException().getMessage();
                         Toast.makeText(getContext(), "Exception:" + message, Toast.LENGTH_LONG).show();
                     }
                 }
@@ -167,6 +171,13 @@ public class Register extends BaseFragment {
             }
         });
 
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getNavController().navigate(R.id.action_register_to_welcomPage);
+            }
+        });
 
     }
 

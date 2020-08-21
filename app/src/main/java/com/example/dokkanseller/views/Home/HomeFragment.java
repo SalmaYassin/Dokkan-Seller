@@ -18,6 +18,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.data_model.ProductitemModel;
@@ -55,6 +56,7 @@ public class HomeFragment extends BaseFragment {
     ProductRecycAdapter productAdapter;
 
     ArrayList<String> listofCateg;
+    private TextView userName ;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -71,13 +73,38 @@ public class HomeFragment extends BaseFragment {
     public void initializeViews(View view) {
         currentUserID = getUserIdWrapper();
 
+        userName = view.findViewById(R.id.seller_name_id);
         listofCateg = new ArrayList<>();
         getCategoriesNames();
         SliderWork(view);
         floatingActionButton= (FloatingActionButton)view.findViewById(R.id.floating_action_button);
         recyclerView = view.findViewById(R.id.recyclerview_id);
         data = new ArrayList<>();
+        showName();
 
+    }
+
+    private void showName() {
+        final Query query = FirebaseDatabase.getInstance().getReference("shops")
+                .orderByChild("key").equalTo(currentUserID);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    if( snapshot.child("shopName").exists()) {
+                        userName.setText( snapshot.child("shopName").getValue(String.class) );
+                    }
+
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
 

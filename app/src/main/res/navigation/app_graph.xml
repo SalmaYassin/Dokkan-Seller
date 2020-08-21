@@ -17,6 +17,9 @@ Z
         <action
             android:id="@+id/action_welcomPage_to_login"
             app:destination="@id/login" />
+        <action
+            android:id="@+id/action_welcomPage_to_homeFragment2"
+            app:destination="@id/homeFragment2" />
     </fragment>
 
     <fragment
@@ -32,6 +35,9 @@ Z
         <argument
             android:name="shopName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_register_to_welcomPage"
+            app:destination="@id/welcomPage" />
     </fragment>
 
     <fragment
@@ -73,12 +79,22 @@ Z
         <action
             android:id="@+id/action_login_to_register"
             app:destination="@id/register" />
+        <action
+            android:id="@+id/action_login_to_welcomPage"
+            app:destination="@id/welcomPage" />
+        <action
+            android:id="@+id/action_login_to_register2"
+            app:destination="@id/register" />
     </fragment>
 
     <fragment
         android:id="@+id/forgetPassword"
         android:name="com.example.dokkanseller.views.login.forgetPassword"
-        android:label="forgetPassword" />
+        android:label="forgetPassword" >
+        <action
+            android:id="@+id/action_forgetPassword_to_login"
+            app:destination="@id/login" />
+    </fragment>
     <fragment
         android:id="@+id/homeFragment2"
         android:name="com.example.dokkanseller.views.Home.HomeFragment"

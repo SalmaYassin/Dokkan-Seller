@@ -17,7 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.example.dokkanseller.R;
-
+import com.example.dokkanseller.SharedPreference;
+import com.example.dokkanseller.views.orders.ViewPageAdapter;
+import com.google.android.material.tabs.TabLayout;
+import com.example.dokkanseller.views.Home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -40,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
         list.add(R.id.step2);
         list.add(R.id.login);
         list.add(R.id.forgetPassword);
+
+
+        if (SharedPreference.getInstance(this).isUserSaved()) {
+            Navigation.findNavController(this, R.id.my_nav_host).navigate(R.id.action_welcomPage_to_homeFragment2);
+        }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         NavController navController = Navigation.findNavController(this , R.id.my_nav_host);

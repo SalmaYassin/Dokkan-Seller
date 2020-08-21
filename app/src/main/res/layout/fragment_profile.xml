@@ -131,11 +131,12 @@
 
 
             <RatingBar
-                android:id="@+id/rating_bar"
+                android:id="@+id/rating_barprofile"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/phone_num_et"
+                android:progressTint="@color/colorPrimary"
                 android:layout_toEndOf="@id/img_shop"
                 android:numStars="5"
                 android:isIndicator="false"
@@ -148,7 +149,7 @@
                 android:id="@+id/location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/rating_bar"
+                android:layout_below="@id/rating_barprofile"
                 android:layout_toEndOf="@id/img_shop"
                 android:drawableStart="@drawable/ic_location"
                 android:text="@string/location_name"
@@ -165,7 +166,7 @@
                 android:layout_gravity="end"
                 android:textColor="@color/colorPrimary"
                 android:src="@drawable/ic_edit_black_24dp"
-                android:layout_below="@id/rating_bar"
+                android:layout_below="@id/rating_barprofile"
                 android:layout_toEndOf="@id/location"
                 android:layout_marginStart="@dimen/margin_5"
                 android:layout_marginTop="@dimen/margin_5"
@@ -177,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/ic_location"
                 android:layout_toEndOf="@id/img_shop"
-                android:layout_below="@id/rating_bar"
+                android:layout_below="@id/rating_barprofile"
                 android:paddingStart="@dimen/padding_15"
                 android:textSize="@dimen/textsize_10"
                 android:hint="@string/location_name"
@@ -521,14 +522,6 @@
             >
 
         </androidx.recyclerview.widget.RecyclerView>
-
-        <Button
-            android:id="@+id/load_more"
-            android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"
-            android:text="@string/load_more"
-            android:background="@drawable/button"/>
 
 
 

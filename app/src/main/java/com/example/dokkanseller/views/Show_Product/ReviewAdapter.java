@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
@@ -26,7 +27,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 
 public class ReviewAdapter  extends RecyclerView.Adapter<ReviewAdapter.ReviewViewHolder>{
-    private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
     ArrayList<ReviewModel> reviewList;
     RatingBar ratingBar;
@@ -47,66 +47,41 @@ public class ReviewAdapter  extends RecyclerView.Adapter<ReviewAdapter.ReviewVie
 
     @Override
     public void onBindViewHolder(@NonNull final ReviewViewHolder holder, final int position) {
-        ReviewModel ReviewModel = reviewList.get(position);
-        holder.rate.setRating(ReviewModel.getRate());
-        holder.customer_name.setText(ReviewModel.getName());
-        holder.comment.setText(ReviewModel.getComment());
-        Picasso.get().load(reviewList.get(position).getImage()).into(holder.CImage);
-        holder.time_of_comment.setText(ReviewModel.getTime());
-        //=======================================================//
-        //   holder.rate.setRating(ReviewModel.getRate());
-        holder.rate.setOnClickListener(new View.OnClickListener() {
+        ReviewModel review_model = reviewList.get(position);
+
+        holder.time_of_comment.setText(review_model.getDate());
+
+        holder.rate.setRating( Float.parseFloat( review_model.getRate() ) );
+        holder.rate.setIsIndicator(true);
+
+        holder.comment.setText(review_model.getComment());
+
+        String  userid = review_model.getUserID()  ;
+        final Query query = FirebaseDatabase.getInstance().getReference("Users")
+                .orderByChild("uid").equalTo(userid);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                float ratingValue = ratingBar.getRating();
-            }
-        });
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for ( DataSnapshot snapshot : dataSnapshot.getChildren()){
 
+                    if( snapshot.child("name").exists()) {
+                        holder.customer_name.setText(  snapshot.child("name").getValue(String.class) );
+                    }
+                    if ( snapshot.child("userImage").exists()){
+                        String url = snapshot.child("userImage").getValue(String.class);
+                        Picasso.get().load(url).into(holder.CImage);
+                    }
 
-        //=================================================================//
-        //Favourite
-        isFavourite(reviewList.get(position).getKey(), holder.Fav_comment, reviewList.get(position));
-        holder.Fav_comment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!reviewList.get(position).getFav_comment()) { //  if it was false
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("reviews");
-                    databaseReference.child(reviewList.get(position).getKey()).child("Fav_comment").setValue(true)
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                             }
-                            });
-                   reviewList.get(position).setFav_comment(true);
-
-                } else { //if it was already true
-                    databaseReference = FirebaseDatabase.getInstance().getReference().child("reviews");
-                    databaseReference.child(reviewList.get(position).getKey()).child("Fav_comment").removeValue()
-                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                   }
-                            });
-                    reviewList.get(position).setFav_comment(false);
                 }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
-        //==================================================================================//
-     databaseReference = FirebaseDatabase.getInstance().getReference().child("reviews");
-         databaseReference.child("likesOfComment").addValueEventListener(new ValueEventListener() {
-             @Override
-             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                 if ( dataSnapshot.exists()){
-     holder.num_of_like.setText(((int) dataSnapshot.getChildrenCount()));
 
-                 }
-             }
-
-             @Override
-             public void onCancelled(@NonNull DatabaseError databaseError) {
-
-             }
-         });
 
 
     }
@@ -117,34 +92,9 @@ public class ReviewAdapter  extends RecyclerView.Adapter<ReviewAdapter.ReviewVie
         return reviewList.size();
     }
 
-//=============================================================================//
-
-    private void isFavourite(String key, final ImageView favourite, final ReviewModel reviewModel) {
-
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("reviews");
-        databaseReference.child(key).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if ( dataSnapshot.child("Fav_comment").exists()){
-                    favourite.setImageResource(R.drawable.ic_favorite_red_24dp);
-                    reviewModel.setFav_comment(true);
-                } else  {
-                    favourite.setImageResource(R.drawable.ic_favorite_black_24dp);
-                    reviewModel.setFav_comment(true);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-     }
-
  //=================================================================================================//
     class ReviewViewHolder extends RecyclerView.ViewHolder {
-        TextView comment, num_of_like, customer_name,time_of_comment;
-       ImageView Fav_comment;
+        TextView comment, customer_name,time_of_comment;
         CircleImageView CImage;
         RatingBar rate;
         public ReviewViewHolder(@NonNull View itemView) {
@@ -152,9 +102,7 @@ public class ReviewAdapter  extends RecyclerView.Adapter<ReviewAdapter.ReviewVie
            customer_name = itemView.findViewById(R.id.tv_customer_name);
            comment = itemView.findViewById(R.id.tv_comment);
             time_of_comment = itemView.findViewById(R.id.tv_date);
-            num_of_like = itemView.findViewById(R.id.num_of_like);
              rate=itemView.findViewById(R.id.ratingBar);
-           Fav_comment=itemView.findViewById(R.id.fav_comment);
             CImage = itemView.findViewById(R.id.circimage);
 
 

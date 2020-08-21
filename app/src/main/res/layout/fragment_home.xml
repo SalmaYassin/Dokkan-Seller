@@ -44,6 +44,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/color_white"
                         android:text="@string/Welcome"
+                        android:layout_marginRight="@dimen/margin_5"
                         android:fontFamily="sans-serif"
                         android:textSize="@dimen/text_size_20"
                         />

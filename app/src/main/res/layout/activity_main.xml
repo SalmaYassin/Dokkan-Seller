@@ -19,12 +19,11 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     <com.google.android.material.bottomnavigation.BottomNavigationView
     android:id="@+id/bottom_navigation"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/layout_dimen_60"
+    android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
     android:background="?android:attr/windowBackground"
     app:itemIconTint="@color/colorPrimary"
     app:itemTextColor="@color/colorPrimary"
-        android:visibility="gone"
     app:menu="@menu/nav_bottom"
     >
 </com.google.android.material.bottomnavigation.BottomNavigationView>
