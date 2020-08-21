@@ -46,7 +46,7 @@
                 android:layout_height="@dimen/height_30"
                 android:src="@drawable/ic_add_circle_black_24dp"
                 android:layout_below="@id/phone_num_et"
-                android:layout_toStartOf="@id/rating_bar"
+                android:layout_toStartOf="@id/rating_barprofile"
                 android:layout_marginTop="@dimen/margin_15"
                 android:layout_marginEnd="@dimen/margin_10"
                 />

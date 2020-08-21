@@ -61,8 +61,6 @@ public class AllOrdersListFragment extends BaseFragment {
 
 
     private void fetchOrders() {
-        Log.e("a", LoginFragment.USERID);
-        Toast.makeText(getContext(), LoginFragment.USERID, Toast.LENGTH_LONG).show();
 
         databaseReference.child("Orders").addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,13 +71,18 @@ public class AllOrdersListFragment extends BaseFragment {
 
                     Log.e("a", orderModel.toString());
 
-                    for (CartItem x : orderModel.getCartItem())
+                    if (orderModel.getCartItem()!=null){
+                        for (CartItem x : orderModel.getCartItem()){
+                            if ((getUserIdWrapper()).equals(x.shopId))
+                                orderItemModelList.add(orderModel);
+                        }
+                        adapter.setList(orderItemModelList);
+                    }
 
-                        if ((getUserIdWrapper()).equals(x.shopId))
-                            orderItemModelList.add(orderModel);
+
                 }
 
-                adapter.setList(orderItemModelList);
+
                 //Log.e("a",orderItemModelList.get(0).getCartItem().);
                 //Toast.makeText(getContext(),orderItemModelList.size()+"",Toast.LENGTH_LONG).show();
             }

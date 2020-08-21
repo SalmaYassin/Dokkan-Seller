@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -62,6 +63,13 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        if (getActivity() != null)
+            getActivity().getOnBackPressedDispatcher().addCallback(new OnBackPressedCallback(true) {
+                @Override
+                public void handleOnBackPressed() {
+                    navigateUp();
+                }
+            });
 
         setListeners();
         onActivityReady(savedInstanceState);

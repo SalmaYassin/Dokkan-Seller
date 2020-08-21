@@ -74,9 +74,6 @@ public class forgetPassword extends BaseFragment {
 
 
     }
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
 
 
     @Override

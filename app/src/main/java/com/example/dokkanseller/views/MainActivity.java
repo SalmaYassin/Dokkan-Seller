@@ -1,26 +1,18 @@
 package com.example.dokkanseller.views;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
 
 import com.example.dokkanseller.R;
 import com.example.dokkanseller.SharedPreference;
-import com.example.dokkanseller.views.orders.ViewPageAdapter;
-import com.google.android.material.tabs.TabLayout;
-import com.example.dokkanseller.views.Home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
@@ -28,7 +20,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
-
 
 
     @Override
@@ -51,15 +42,15 @@ public class MainActivity extends AppCompatActivity {
         }
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-        NavController navController = Navigation.findNavController(this , R.id.my_nav_host);
-        NavigationUI.setupWithNavController(bottomNavigationView , navController);
+        NavController navController = Navigation.findNavController(this, R.id.my_nav_host);
+        NavigationUI.setupWithNavController(bottomNavigationView, navController);
 
         navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
             @Override
             public void onDestinationChanged(@NonNull NavController controller, @NonNull NavDestination destination, @Nullable Bundle arguments) {
-                if (list.contains(destination.getId())){
+                if (list.contains(destination.getId())) {
                     bottomNavigationView.setVisibility(View.GONE);
-                }else {
+                } else {
                     bottomNavigationView.setVisibility(View.VISIBLE);
                 }
 
@@ -68,11 +59,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
     }
 
-    }
+}
 
 
 
