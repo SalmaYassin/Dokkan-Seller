@@ -5,17 +5,26 @@ import java.util.List;
 
 public class OrderItemModel implements Serializable {
 
-    public viewAddressModel getAddress() {
+    public AddressModel getAddress() {
         return address;
     }
 
-    public void setAddress(viewAddressModel address) {
+    public void setAddress(AddressModel address) {
         this.address = address;
     }
 
-    List <CartItem> cartItem ;
-    String status   , key ;
-    viewAddressModel address;
+    List<CartItem> cartItem;
+    String status, key;
+    AddressModel address;
+    String date;
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getDate() {
+        return date;
+    }
 
     public List<CartItem> getCartItem() {
         return cartItem;

@@ -40,9 +40,7 @@ public class Step1 extends BaseFragment {
     public int getLayoutId() {
         return R.layout.fragment_step1;
     }
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
+
 
     @Override
     public void initializeViews(View view) {

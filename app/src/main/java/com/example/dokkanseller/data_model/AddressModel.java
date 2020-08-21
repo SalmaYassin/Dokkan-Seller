@@ -2,7 +2,7 @@ package com.example.dokkanseller.data_model;
 
 import java.io.Serializable;
 
-public class viewAddressModel implements Serializable {
+public class AddressModel implements Serializable {
     public String customerID , customerName , customerAddress ,  customerCountry , customerNumber;
 
     public String getCustomerID() {
@@ -45,10 +45,10 @@ public class viewAddressModel implements Serializable {
         this.customerNumber = customerNumber;
     }
 
-    public viewAddressModel() {
+    public AddressModel() {
     }
 
-    public viewAddressModel(String customerName, String customerAddress, String customerCountry, String customerNumber) {
+    public AddressModel(String customerName, String customerAddress, String customerCountry, String customerNumber) {
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.customerCountry = customerCountry;

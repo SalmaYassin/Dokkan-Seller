@@ -79,9 +79,6 @@ Step2 extends BaseFragment {
         return R.layout.fragment_step2;
     }
 
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
 
     @Override
     public void initializeViews(View view) {

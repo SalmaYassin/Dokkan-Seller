@@ -31,12 +31,12 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/message"
                     android:layout_margin="@dimen/layout_dimen_20"
-                    android:layout_gravity="top|right"
+                    android:layout_gravity="top|end"
                     />
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/layout_dimen_50"
+                    android:layout_marginStart="@dimen/layout_dimen_50"
                     android:layout_marginTop="@dimen/layout_dimen_50">
                     <TextView
                         android:id="@+id/welcome_text"
@@ -51,7 +51,7 @@
                         android:id="@+id/seller_name_id"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/welcome_text"
+                        android:layout_toEndOf="@+id/welcome_text"
                         android:textColor="@color/color_white"
                         android:text="@string/user_name"
                         android:textSize="@dimen/text_size_20"
@@ -63,7 +63,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/in_your_secound_home"
-                        android:layout_marginLeft="@dimen/layout_dimen_15"
+                        android:layout_marginStart="@dimen/layout_dimen_15"
                         android:layout_below="@+id/seller_name_id"
                         android:textColor="@color/color_white"
                         android:textSize="@dimen/text_size_15"
@@ -128,8 +128,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/margin_5"
-                    android:paddingLeft="@dimen/layout_dimen_10"
-                    android:paddingRight="@dimen/layout_dimen_15"
+                    android:paddingStart="@dimen/layout_dimen_10"
+                    android:paddingEnd="@dimen/layout_dimen_15"
                     android:layout_marginBottom="@dimen/margin_20"
                     >
                 </androidx.recyclerview.widget.RecyclerView>

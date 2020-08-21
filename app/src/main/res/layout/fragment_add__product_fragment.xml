@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/margin_top_10"
             android:layout_marginRight="@dimen/margin_right_15"
             android:layout_marginEnd="15dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/ic_email_black_24dp" />
         <Button
             android:id="@+id/back_button"
@@ -38,7 +38,7 @@
             android:layout_height="@dimen/height_27"
             android:layout_marginTop="@dimen/margin_top_10"
             android:layout_marginLeft="@dimen/margin_left_10"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_marginStart="@dimen/margin_start_10"
             android:background="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
@@ -71,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_17"
-                    android:layout_marginLeft="@dimen/margin_17"
+                    android:layout_marginStart="@dimen/margin_17"
                     android:text="@string/add_product"
                     android:textColor="@color/text_color_6a4e5d"
                     android:textSize="@dimen/text_size_20"
@@ -154,9 +154,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_50"
-                    android:layout_marginLeft="@dimen/margin_left_40"
+                    android:layout_marginStart="@dimen/margin_left_40"
                     android:layout_marginTop="@dimen/margin_top_1"
-                    android:layout_marginRight="@dimen/margin_right_40"
+                    android:layout_marginEnd="@dimen/margin_right_40"
                     android:background="@color/bacground_fff"
                     app:cardCornerRadius="@dimen/card_radius_12">
 
@@ -177,9 +177,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_50"
-                    android:layout_marginLeft="@dimen/margin_left_40"
+                    android:layout_marginStart="@dimen/margin_left_40"
                     android:layout_marginTop="@dimen/margin_10"
-                    android:layout_marginRight="@dimen/margin_right_40"
+                    android:layout_marginEnd="@dimen/margin_right_40"
                     android:background="@color/bacground_fff"
                     app:cardCornerRadius="@dimen/card_radius_12">
 
@@ -199,9 +199,9 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_70"
-                    android:layout_marginLeft="@dimen/margin_left_40"
+                    android:layout_marginStart="@dimen/margin_left_40"
                     android:layout_marginTop="@dimen/margin_10"
-                    android:layout_marginRight="@dimen/margin_right_40"
+                    android:layout_marginEnd="@dimen/margin_right_40"
                     android:background="@color/bacground_fff"
                     app:cardCornerRadius="@dimen/card_radius_12">
 

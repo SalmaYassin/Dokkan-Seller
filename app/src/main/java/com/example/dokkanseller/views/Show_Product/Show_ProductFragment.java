@@ -209,8 +209,6 @@ public class Show_ProductFragment extends BaseFragment {
 
     }
 
-    private NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
+
 
 }

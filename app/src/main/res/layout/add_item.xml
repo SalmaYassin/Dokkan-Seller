@@ -13,9 +13,9 @@
         android:elevation="@dimen/layout_dimen_5"
         app:cardBackgroundColor="#ffff"
         app:cardCornerRadius="@dimen/layout_dimen_6"
-        android:layout_marginRight="@dimen/layout_dimen_15"
+        android:layout_marginEnd="@dimen/layout_dimen_15"
         android:layout_marginBottom="@dimen/layout_dimen_15"
-        android:layout_marginLeft="@dimen/layout_dimen_5">
+        android:layout_marginStart="@dimen/layout_dimen_5">
 
         <LinearLayout
             android:orientation="vertical"

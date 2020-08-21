@@ -69,7 +69,7 @@ public class HomeFragment extends BaseFragment {
 
     @Override
     public void initializeViews(View view) {
-        currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentUserID = getUserIdWrapper();
 
         listofCateg = new ArrayList<>();
         getCategoriesNames();
@@ -295,10 +295,6 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
-    }
-
-    private NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
     }
 
 

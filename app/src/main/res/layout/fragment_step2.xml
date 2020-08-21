@@ -22,7 +22,7 @@
         android:layout_height="@dimen/height_40"
         android:background="@drawable/edittex"
         android:layout_marginTop="@dimen/margin_17"
-        android:paddingRight="@dimen/padding_40"
+        android:paddingEnd="@dimen/padding_40"
         android:text="@string/select_your_categories"
         android:textSize="@dimen/text_size_13"
         android:textColor="@color/color_white"
@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_5"
         android:orientation="horizontal"
-        android:layout_marginLeft="@dimen/margin_2"
+        android:layout_marginStart="@dimen/margin_2"
         android:gravity="center"
         android:layout_marginTop="@dimen/margin_50">
 

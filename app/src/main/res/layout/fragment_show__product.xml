@@ -37,7 +37,7 @@
                 android:layout_marginTop="@dimen/margin_10"
                 android:layout_marginRight="@dimen/margin_16"
                 android:layout_marginEnd="@dimen/margin_16"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:background="@drawable/ic_email_black_24dp" />
             <Button
                 android:id="@+id/back_button"
@@ -45,7 +45,7 @@
                 android:layout_height="@dimen/height_27"
                 android:layout_marginTop="@dimen/margin_10"
                 android:layout_marginLeft="@dimen/margin_10"
-                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/margin_10"
                 android:background="@drawable/ic_keyboard_arrow_left_black_24dp" />
 
@@ -123,7 +123,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_9"
+                            android:layout_marginStart="@dimen/margin_9"
                             android:text="@string/description"
                             android:textColor="@color/color_000"
                             android:textSize="@dimen/text_size_20"
@@ -133,7 +133,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_23"
+                            android:layout_marginStart="@dimen/margin_23"
                             android:ems="20"
                             android:id="@+id/item_descroption"
                             android:text="@string/cooper_wire_decor_that_has_ashape_of_crystal_is_totally">
@@ -148,7 +148,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_9"
+                            android:layout_marginStart="@dimen/margin_9"
                             android:text="@string/size"
                             android:textColor="@color/color_000"
                             android:textSize="@dimen/text_size_20"
@@ -159,7 +159,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_23"
+                            android:layout_marginStart="@dimen/margin_23"
                             android:id="@+id/item_size"
                             android:text="@string/hight_30cm">
 
@@ -175,7 +175,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_9"
+                            android:layout_marginStart="@dimen/margin_9"
                             android:text="@string/materials"
                             android:textColor="@color/color_000"
                             android:textSize="@dimen/text_size_20"
@@ -185,7 +185,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_23"
+                            android:layout_marginStart="@dimen/margin_23"
                             android:ems="7"
                             android:id="@+id/item_material"
                             android:text="@string/coper_wire_we_use_a_good_material">
@@ -199,10 +199,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/height_40"
                     android:layout_marginTop="@dimen/margin_4"
-                    android:layout_marginRight="@dimen/margin_4"
+                    android:layout_marginEnd="@dimen/margin_4"
                     app:cardCornerRadius="@dimen/radius_4"
                     android:elevation="@dimen/elevation_5"
-                    android:layout_gravity="right"
+                    android:layout_gravity="end"
                     app:cardBackgroundColor="@color/color_F1EDED"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.494"
@@ -246,7 +246,7 @@
                     android:id="@+id/review"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/margin_13"
+                    android:layout_marginStart="@dimen/margin_13"
                     android:layout_marginTop="@dimen/margin_10"
                     android:text="@string/reviews"
                     android:textSize="@dimen/text_size_17"
@@ -258,7 +258,7 @@
                     android:id="@+id/expand_more"
                     android:layout_width="@dimen/width_30"
                     android:layout_height="@dimen/height_30"
-                    android:layout_marginLeft="@dimen/margin_290"
+                    android:layout_marginStart="@dimen/margin_290"
                     android:layout_marginTop="@dimen/margin_5"
                     android:background="@drawable/ic_arrow_drop_down_black_24dp">
 

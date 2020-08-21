@@ -33,9 +33,7 @@ public class Welcom extends BaseFragment {
     }
 
 
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
+
 
     @Override
     public void initializeViews(View view) {

@@ -60,9 +60,7 @@ public class Add_Product_fragment extends BaseFragment {
         // Required empty public constructor
     }
 
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
+
 
     @Override
     public int getLayoutId() {
@@ -74,7 +72,7 @@ public class Add_Product_fragment extends BaseFragment {
         bundle_categ = getArguments();
         categ = bundle_categ.getString("categId");
 
-        currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        currentUserID= getUserIdWrapper();
 
         sliderView = view.findViewById(R.id.imageSlider);
         addphoto = view.findViewById(R.id.add_photo);

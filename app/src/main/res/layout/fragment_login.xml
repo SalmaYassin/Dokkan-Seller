@@ -34,9 +34,9 @@
 
         android:orientation="vertical"
 
-        android:layout_marginRight="@dimen/layout_dimens_40"
+        android:layout_marginEnd="@dimen/layout_dimens_40"
 
-        android:layout_marginLeft="@dimen/layout_dimens_40"
+        android:layout_marginStart="@dimen/layout_dimens_40"
 
         >
 
@@ -72,7 +72,7 @@
 
                 android:textSize="@dimen/text_size_15"
 
-                android:drawableLeft="@drawable/ic_email"
+                android:drawableStart="@drawable/ic_email"
 
                 android:drawablePadding="@dimen/layout_dimens_5"
 
@@ -106,7 +106,7 @@
 
                 android:textSize="@dimen/text_size_15"
 
-                android:drawableLeft="@drawable/ic_pass"
+                android:drawableStart="@drawable/ic_pass"
 
                 android:drawablePadding="@dimen/layout_dimens_5"
 
@@ -190,9 +190,9 @@
 
                 android:layout_centerHorizontal="true"
 
-                android:paddingRight="@dimen/layout_dimens_60"
+                android:paddingEnd="@dimen/layout_dimens_60"
 
-                android:paddingLeft="@dimen/layout_dimens_60"
+                android:paddingStart="@dimen/layout_dimens_60"
 
                 android:layout_marginTop="@dimen/layout_dimens_55"
 
@@ -246,7 +246,7 @@
 
                 android:textColor="@color/color_ecddcd"
 
-                android:layout_marginLeft="@dimen/layout_dimens_2"
+                android:layout_marginStart="@dimen/layout_dimens_2"
 
                 />
 

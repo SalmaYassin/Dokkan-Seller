@@ -67,9 +67,7 @@ public class Update_Product_Fragment extends BaseFragment {
     public Update_Product_Fragment() {
         // Required empty public constructor
     }
-NavController getNavController(){
-        return Navigation.findNavController(getActivity(),R.id.my_nav_host);
-}
+
 
     @Override
     public int getLayoutId() {

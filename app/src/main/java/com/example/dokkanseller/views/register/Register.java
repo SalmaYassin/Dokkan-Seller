@@ -54,9 +54,6 @@ public class Register extends BaseFragment {
         return R.layout.fragment_register;
     }
 
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
-    }
 
 
     @Override
@@ -113,7 +110,7 @@ public class Register extends BaseFragment {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
-                        currentUserID = mFireBaseAuth.getCurrentUser().getUid();
+                        currentUserID = getUserIdWrapper();
                         HashMap<String, String> map = new HashMap<>();
                         map.put("key", currentUserID);
                         map.put("shopName", nameOfShop);

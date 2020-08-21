@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/israa_nour"
-            android:layout_marginLeft="@dimen/margin_5"
+            android:layout_marginStart="@dimen/margin_5"
             android:textColor="@color/color_000"
             android:textSize="@dimen/text_size_18" />
 
@@ -68,7 +68,7 @@
                 android:layout_width="@dimen/width_25"
                 android:layout_height="@dimen/height_25"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginStart="@dimen/margin_10"
                 android:background="@drawable/ic_favorite_black_24dp" />
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="@dimen/margin_100"
+                android:layout_marginStart="@dimen/margin_100"
                 android:text="@string/_6_days_ago" />
         </LinearLayout>
     </LinearLayout>

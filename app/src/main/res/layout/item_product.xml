@@ -12,9 +12,9 @@
         android:elevation="@dimen/layout_dimen_5"
         app:cardBackgroundColor="@color/color_white"
         app:cardCornerRadius="@dimen/layout_dimen_6"
-        android:layout_marginRight="@dimen/layout_dimen_15"
+        android:layout_marginEnd="@dimen/layout_dimen_15"
         android:layout_marginBottom="@dimen/layout_dimen_15"
-        android:layout_marginLeft="@dimen/layout_dimen_5">
+        android:layout_marginStart="@dimen/layout_dimen_5">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 android:textColor="@color/color_6a4e5d"
                 android:textSize="@dimen/text_size_14"
                 android:text="@string/item_full_name"
-                android:layout_marginLeft="@dimen/layout_dimen_10"
+                android:layout_marginStart="@dimen/layout_dimen_10"
                 android:layout_marginTop="@dimen/layout_dimen_5"
                 />
 
@@ -48,7 +48,7 @@
                 android:gravity="start|top"
                 android:src="@drawable/icon_more_vert"
                 android:layout_below="@+id/itemImage"
-                android:layout_alignParentRight="true"/>
+                android:layout_alignParentEnd="true"/>
 
         </RelativeLayout>
 

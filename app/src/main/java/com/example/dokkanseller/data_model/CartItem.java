@@ -3,12 +3,28 @@ package com.example.dokkanseller.data_model;
 import java.io.Serializable;
 
 public class CartItem implements Serializable {
-    public String productImage, productName , shopName  , productId, shopId ;
+    public String productImage, productName , shopName  , productId, shopId,status , key;
 
     int productQuanitity , productPrice  ;
 
     public  CartItem(){
 
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getProductImage() {

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/app_graph"
     app:startDestination="@id/welcomPage">
-
+Z
     <fragment
         android:id="@+id/welcomPage"
         android:name="com.example.dokkanseller.views.welcom.Welcom"
@@ -62,7 +62,7 @@
 
     <fragment
         android:id="@+id/login"
-        android:name="com.example.dokkanseller.views.login.Login"
+        android:name="com.example.dokkanseller.views.login.LoginFragment"
         android:label="Login" >
         <action
             android:id="@+id/action_login_to_forgetPassword"
@@ -151,4 +151,10 @@
         android:label="OrderDetailsFragment" >
 
     </fragment>
+
+    <action
+        android:id="@+id/action_global_to_loginFragment"
+        app:popUpTo="@id/app_graph"
+        app:popUpToInclusive="true"
+        app:destination="@id/login" />
 </navigation>
