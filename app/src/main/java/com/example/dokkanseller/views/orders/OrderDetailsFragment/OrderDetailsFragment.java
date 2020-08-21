@@ -100,7 +100,7 @@ public class OrderDetailsFragment extends Fragment implements OnItemClickListene
     void setOrderStatus(CartItem cartItem, String status) {
         Query query = FirebaseDatabase.getInstance().getReference("Orders").child(orderId).child("cartItem").orderByChild("productId").equalTo(cartItem.productId);
 
-        query.addValueEventListener(new ValueEventListener() {
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.getKey() != null) {

@@ -40,17 +40,17 @@ OnItemClickListener<CartItem> onItemClickListener;
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
         CartItem cartItem = cartItemList.get(position);
         holder.itemName.setText(cartItemList.get(position).getProductName());
-        holder.numberOfQuantity.setText(cartItemList.get(position).getProductQuanitity() + " ");
+        holder.numberOfQuantity.setText(String.format("%d ", cartItemList.get(position).getProductQuanitity()));
         if (!cartItem.status.equals(Constants.PENDING)) {
             holder.acceptBtn.setVisibility(View.GONE);
             holder.rejectBtn.setVisibility(View.GONE);
             holder.statusBtn.setVisibility(View.VISIBLE);
             holder.statusBtn.setText(cartItem.status);
+        }else {
+            holder.acceptBtn.setVisibility(View.VISIBLE);
+            holder.rejectBtn.setVisibility(View.VISIBLE);
+            holder.statusBtn.setVisibility(View.GONE);
         }
-
-
-
-
     }
 
     @Override

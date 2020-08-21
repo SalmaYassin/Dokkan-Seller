@@ -8,7 +8,7 @@ public class Constants {
     public static String SHARED_PREF_KEY="SHARED_KEY";
     public static String USER_KEY="USER_KEY";
     public static String PENDING="Pending";
-    public static String PROCESSING="rocessing";
+    public static String PROCESSING="Processing";
     public static String READY="Ready";
     public static String DELIVERED="Delivered";
     public static String REJECTED="Rejected";

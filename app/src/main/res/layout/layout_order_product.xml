@@ -72,8 +72,11 @@
 
             <Button
                 android:id="@+id/status_btn"
-                android:layout_width="80dp"
+                android:layout_width="wrap_content"
                 android:layout_height="35dp"
+                android:paddingStart="@dimen/margin_5"
+                android:paddingEnd="@dimen/margin_5"
+                tools:text="Processing"
                 android:layout_marginTop="@dimen/margin_3"
                 android:layout_marginEnd="@dimen/margin_10"
                 android:background="@drawable/bg_round_btn"
