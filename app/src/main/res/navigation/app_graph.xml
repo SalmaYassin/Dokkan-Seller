@@ -119,7 +119,11 @@ Z
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.dokkanseller.views.profile.ProfileFragment"
-        android:label="ProfileFragment" />
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_welcomPage"
+            app:destination="@id/welcomPage" />
+    </fragment>
 
     <fragment
         android:id="@+id/add_Product_fragment"

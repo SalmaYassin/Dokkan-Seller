@@ -9,8 +9,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cutomer_image"
         android:layout_margin="5dp"
-        android:layout_width="@dimen/width_40"
-        android:layout_height="@dimen/height_40"
+        android:layout_width="@dimen/width_50"
+        android:layout_height="@dimen/height_50"
         app:civ_border_color="@color/color_c09e9e"
         android:src="@drawable/icon5"
         app:civ_border_width="1dp" />
@@ -62,7 +62,6 @@
         android:layout_height="@dimen/height_50"
         android:src="@drawable/sim_two"
         android:layout_marginStart="@dimen/margin_10"
-        android:layout_marginTop="@dimen/margin_10"
         android:layout_marginBottom="@dimen/margin_5"
         android:layout_marginEnd="@dimen/margin_5"
         android:layout_below="@id/tv_comment"
@@ -75,10 +74,10 @@
         android:layout_height="wrap_content"
         android:text="@string/item_name"
         android:textStyle="bold"
+        android:layout_marginTop="@dimen/margin_10"
         android:textColor="@color/colorPrimary"
         android:layout_below="@id/tv_comment"
         android:layout_toEndOf="@id/item_image"
-        android:layout_marginTop="@dimen/margin_15"
         android:textSize="@dimen/textSize_13"/>
 
     <TextView
@@ -86,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Item Description"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimaryDark"
         android:layout_below="@id/item_name"
         android:layout_toEndOf="@id/item_image"
         android:textSize="@dimen/textsize_10"/>

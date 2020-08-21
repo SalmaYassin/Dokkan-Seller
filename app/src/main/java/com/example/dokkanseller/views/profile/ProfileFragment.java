@@ -19,6 +19,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -95,6 +97,8 @@ public class ProfileFragment extends BaseFragment {
     private ArrayList<RateModel> rateList ;
     private  double rateAverage = 0 ;
 
+    private Button signout ;
+
 
     public ProfileFragment() {
         // Required empty public constructor
@@ -114,10 +118,12 @@ public class ProfileFragment extends BaseFragment {
 
     }
 
+
     private void initialization(View view) {
         storageReference = FirebaseStorage.getInstance().getReference();
         currentUserID= FirebaseAuth.getInstance().getCurrentUser().getUid();
 
+        signout = view.findViewById(R.id.signout_btn);
         reviewList = new ArrayList<>();
         reviewRecyclerView = view.findViewById(R.id.recyclerview_review);
 
@@ -159,6 +165,15 @@ public class ProfileFragment extends BaseFragment {
 
     @Override
     public void setListeners() {
+        signout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                getNavController().navigate(R.id.action_profileFragment_to_welcomPage);
+
+            }
+        });
+
 
         edit_img.setOnClickListener(new View.OnClickListener() {
             @Override

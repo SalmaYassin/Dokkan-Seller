@@ -523,7 +523,33 @@
 
         </androidx.recyclerview.widget.RecyclerView>
 
+        <androidx.cardview.widget.CardView
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/recyclerview_review"
+            android:layout_gravity="center"
+            android:id="@+id/signout"
+            android:layout_width="@dimen/width_150"
+            android:layout_height="@dimen/height_50"
+            android:layout_marginStart="@dimen/margin_8"
+            android:layout_marginEnd="@dimen/margin_8"
+            android:elevation="@dimen/elevation_5"
+            app:cardBackgroundColor="@color/color_6a4e5d"
+            app:cardCornerRadius="@dimen/layout_dimen_20"
+            >
 
+
+            <Button
+                android:id="@+id/signout_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@android:color/transparent"
+                android:text="@string/sign_out"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/text_size_15"
+                android:textStyle="bold" />
+
+        </androidx.cardview.widget.CardView>
 
 
 
