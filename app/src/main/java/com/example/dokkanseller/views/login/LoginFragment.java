@@ -20,8 +20,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class LoginFragment extends BaseFragment {
@@ -31,9 +35,7 @@ public class LoginFragment extends BaseFragment {
     ProgressDialog loadingbar;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
-    private ImageView back ;
-
-
+    private ImageView back;
 
 
     public LoginFragment() {
@@ -59,7 +61,6 @@ public class LoginFragment extends BaseFragment {
         loadingbar = new ProgressDialog(getActivity());
         btn_sing = view.findViewById(R.id.but_sing);
     }
-
 
 
     @Override
@@ -97,6 +98,9 @@ public class LoginFragment extends BaseFragment {
             }
         });
 
+        Email.setText("salmayassin.1997@gmail.com");
+        Password.setText("123456");
+
     }
 
     // allow user to sing in
@@ -121,18 +125,15 @@ public class LoginFragment extends BaseFragment {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                if (firebaseAuth.getCurrentUser().isEmailVerified()) {
-                                    loadingbar.dismiss();
-                                    if (FirebaseAuth.getInstance().getCurrentUser() != null)
-                                        SharedPreference.getInstance(getContext())
-                                                .saveUser(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                    getNavController().navigate(R.id.action_login_to_homeFragment2);
-                                    Toast.makeText(getActivity(), "Logged is succesfully.", Toast.LENGTH_SHORT).show();
-                                    Log.e("a",getUserIdWrapper());
-                                } else {
-                                    loadingbar.dismiss();
-                                    Toast.makeText(getActivity(), "please verify your email address", Toast.LENGTH_SHORT).show();
-                                }
+                                if (firebaseAuth.getCurrentUser() != null)
+                                    if (firebaseAuth.getCurrentUser().isEmailVerified()) {
+                                        getUserData(firebaseAuth.getCurrentUser().getUid());
+                                    } else {
+                                        loadingbar.dismiss();
+                                        Toast.makeText(getActivity(), "please verify your email address", Toast.LENGTH_SHORT).show();
+                                    }
+                                else
+                                    Toast.makeText(getActivity(), getString(R.string.somethingWentWrong), Toast.LENGTH_SHORT).show();
 
                             } else {
                                 loadingbar.dismiss();
@@ -144,6 +145,34 @@ public class LoginFragment extends BaseFragment {
         }
     }
 
+    void getUserData(String uuID) {
+        final Query query = FirebaseDatabase.getInstance().getReference("shops")
+                .orderByChild("key").equalTo(uuID);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if (snapshot.getValue()!=null) {
+                    loadingbar.dismiss();
+                    if (FirebaseAuth.getInstance().getCurrentUser() != null)
+                        SharedPreference.getInstance(getContext())
+                                .saveUser(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    getNavController().navigate(R.id.action_login_to_homeFragment2);
+                    Toast.makeText(getActivity(), "Logged is succesfully.", Toast.LENGTH_SHORT).show();
+                    Log.e("a", getUserIdWrapper());
+                } else {
+                    loadingbar.dismiss();
+                    Toast.makeText(getActivity(), getString(R.string.shop_not_found), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 
 }

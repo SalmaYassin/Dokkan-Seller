@@ -62,5 +62,7 @@
     <string name="_19">$19</string>
     <string name="israa_nour">israa nour</string>
     <string name="_6_days_ago">6 Days ago</string>
+    <string name="shop_not_found">Shop not found, please register with another mail</string>
+    <string name="somethingWentWrong">Something went wrong</string>
 </resources>
 
