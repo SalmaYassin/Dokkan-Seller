@@ -97,9 +97,7 @@ public class LoginFragment extends BaseFragment {
 
             }
         });
-
-        Email.setText("salmayassin.1997@gmail.com");
-        Password.setText("123456");
+        
 
     }
 
