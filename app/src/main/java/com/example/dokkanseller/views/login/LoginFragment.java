@@ -29,7 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class Login extends BaseFragment {
+public class LoginFragment extends BaseFragment {
     private Button btn_sing;
     private EditText Email, Password;
     private TextView newAccount, forgetPassword_btn;
@@ -41,11 +41,8 @@ public class Login extends BaseFragment {
 
 
 
-    public Login() {
+    public LoginFragment() {
         // Required empty public constructor
-    }
-    NavController getNavController() {
-        return Navigation.findNavController(getActivity(), R.id.my_nav_host);
     }
 
 
@@ -124,8 +121,8 @@ public class Login extends BaseFragment {
                                     loadingbar.dismiss();
                                     getNavController().navigate(R.id.action_login_to_homeFragment2);
                                     Toast.makeText(getActivity(), "Logged is succesfully.", Toast.LENGTH_SHORT).show();
-                                    Log.e("a",firebaseAuth.getCurrentUser().getUid());
-                                    USERID = firebaseAuth.getCurrentUser().getUid();
+                                    Log.e("a",getUserIdWrapper());
+                                    USERID = getUserIdWrapper();
                                 } else {
                                     loadingbar.dismiss();
                                     Toast.makeText(getActivity(), "please verify your email address", Toast.LENGTH_SHORT).show();
