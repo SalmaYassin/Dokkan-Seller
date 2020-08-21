@@ -10,6 +10,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +36,8 @@ public class Login extends BaseFragment {
     ProgressDialog loadingbar;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference databaseReference;
+
+    public static String USERID;
 
 
 
@@ -121,7 +124,8 @@ public class Login extends BaseFragment {
                                     loadingbar.dismiss();
                                     getNavController().navigate(R.id.action_login_to_homeFragment2);
                                     Toast.makeText(getActivity(), "Logged is succesfully.", Toast.LENGTH_SHORT).show();
-
+                                    Log.e("a",firebaseAuth.getCurrentUser().getUid());
+                                    USERID = firebaseAuth.getCurrentUser().getUid();
                                 } else {
                                     loadingbar.dismiss();
                                     Toast.makeText(getActivity(), "please verify your email address", Toast.LENGTH_SHORT).show();

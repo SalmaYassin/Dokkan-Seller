@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.dokkanseller.views.orders.allOrders.AllOrdersListFragment;
+
 import java.util.ArrayList;
 
 public class ViewPageAdapter extends FragmentPagerAdapter {
@@ -62,9 +64,9 @@ public class ViewPageAdapter extends FragmentPagerAdapter {
             case 0:
                 return "New Orders";
             case 1:
-                return "Process";
+                return "Confirmed";
             case 2:
-                return "Done";
+                return "Shipped";
             case 3:
                 return "Delivered";
         }
