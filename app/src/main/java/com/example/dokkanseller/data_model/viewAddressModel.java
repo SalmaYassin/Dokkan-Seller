@@ -3,7 +3,21 @@ package com.example.dokkanseller.data_model;
 import java.io.Serializable;
 
 public class viewAddressModel implements Serializable {
-    public String customerID , customerName , customerAddress ,  customerCountry , customerNumber;
+    public String customerID;
+    public String customerName;
+    public String customerAddress;
+    public String customerCountry;
+    public String customerNumber;
+
+    public String getCustomerImage() {
+        return customerImage;
+    }
+
+    public void setCustomerImage(String customerImage) {
+        this.customerImage = customerImage;
+    }
+
+    public String customerImage;
 
     public String getCustomerID() {
         return customerID;

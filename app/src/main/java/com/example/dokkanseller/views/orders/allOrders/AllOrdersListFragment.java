@@ -53,12 +53,9 @@ public class AllOrdersListFragment extends Fragment {
 
         initRecView();
         fetchOrders();
-
         return view;
     }
-
     private void fetchOrders() {
-        Log.e("a", Login.USERID);
         Toast.makeText(getContext(),Login.USERID,Toast.LENGTH_LONG).show();
 
         databaseReference.child("Orders").addValueEventListener(new ValueEventListener() {
@@ -68,18 +65,16 @@ public class AllOrdersListFragment extends Fragment {
                         for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
                             OrderItemModel orderModel = dataSnapshot1.getValue(OrderItemModel.class);
 
-                               Log.e("a", orderModel.toString());
-
-                               for (CartItem x : orderModel.getCartItem())
-
-                                   if((Login.USERID).equals(x.shopId))
-                                orderItemModelList.add(orderModel);
+                            if (orderModel.getCartItem() != null) {
+                                for (CartItem cartItem : orderModel.getCartItem()) {
+                                    if ((Login.USERID).equals(cartItem.shopId)) {
+                                        orderItemModelList.add(orderModel);
+                                        break;
+                                    }
+                                }
+                            }
                         }
-                        Toast.makeText(getContext(),orderItemModelList.size()+"",Toast.LENGTH_LONG).show();
-
                         adapter.setList(orderItemModelList);
-                        //Log.e("a",orderItemModelList.get(0).getCartItem().);
-                        //Toast.makeText(getContext(),orderItemModelList.size()+"",Toast.LENGTH_LONG).show();
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -97,14 +92,9 @@ public class AllOrdersListFragment extends Fragment {
         adapter.setOnItemClickListener(new AllOrdersAdapter.OnItemClickListner() {
             @Override
             public void onItemClick(int pos, OrderItemModel orderItemModel) {
-
-
               ORDERPOS=pos;
-                // HomeFragmentDirections.actionNavExploreToDetailsFragment(item);
-
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("order", orderItemModel);
-
                 getNavController().navigate(R.id.action_orderFragment_to_orderDetailsFragment,bundle);
             }
         });

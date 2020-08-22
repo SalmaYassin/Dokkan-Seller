@@ -14,8 +14,16 @@ public class OrderItemModel implements Serializable {
     }
 
     List <CartItem> cartItem ;
-    String status   , key ;
+    String     key  , time;
     viewAddressModel address;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public List<CartItem> getCartItem() {
         return cartItem;
@@ -34,13 +42,6 @@ public class OrderItemModel implements Serializable {
     }
 
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 
     @Override
     public String toString() {

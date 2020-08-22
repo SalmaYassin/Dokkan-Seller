@@ -2,6 +2,7 @@ package com.example.dokkanseller.views.orders.OrderDetailsFragment;
 
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,7 @@ List <CartItem> cartItems = new ArrayList<>();
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_order_details, container, false);
-
+databaseReference =FirebaseDatabase.getInstance().getReference();
          assert getArguments() != null;
         orderItemModel = (OrderItemModel) getArguments().getSerializable("order");
 
@@ -73,18 +74,71 @@ List <CartItem> cartItems = new ArrayList<>();
 
     private void fetchCarts() {
 
+        databaseReference.child("Orders").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                cartItemList = new ArrayList<CartItem>();
+                for (DataSnapshot dataSnapshot1 : snapshot.getChildren()) {
+                    OrderItemModel orderModel = dataSnapshot1.getValue(OrderItemModel.class);
+                    Log.e("a", orderModel.toString());
+                    if (orderModel.getCartItem() != null) {
+                        for (CartItem cartItem : orderModel.getCartItem()) {
+                            if ((Login.USERID).equals(cartItem.shopId)) {
+                                cartItemList.add(cartItem);
+                                break;
+                            }
+                        }
+                        adapter.setList(cartItemList);
+                    }
+                }
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
 
-            //adapter.setList(AllOrdersListFragment.orderItemModelList.get(AllOrdersListFragment.ORDERPOS).getCartItem());
 
-        for(CartItem cartItem : orderItemModel.getCartItem())
+
+
+        /*databaseReference.child("Orders").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                cartItemList = new ArrayList<CartItem>();
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    OrderItemModel orderModel = dataSnapshot1.getValue(OrderItemModel.class);
+                    Log.e("a", orderModel.toString());
+                    if (orderModel.getCartItem() != null) {
+                        for (CartItem cartItem : orderModel.getCartItem()) {
+                            if ((Login.USERID).equals(cartItem.shopId)) {
+                                cartItemList.add(cartItem);
+                                break;
+                            }
+                        }
+                        adapter.setList(cartItemList);
+                    }
+                }
+
+
+                // adapter.setList(cartItemList.get(0).getCartItem());
+
+
+                //adapter.setList(AllOrdersListFragment.orderItemModelList.get(AllOrdersListFragment.ORDERPOS).getCartItem());
+
+       /* for(CartItem cartItem : orderItemModel.getCartItem())
         {
             if(cartItem.shopId.equals(Login.USERID))
                 cartItems.add(cartItem);
         }
         adapter.setList(cartItems);
 
+
+        */
         /*databaseReference= FirebaseDatabase.getInstance().getReference("Orders");
        databaseReference.addValueEventListener(new ValueEventListener() {
            @Override
@@ -106,6 +160,7 @@ List <CartItem> cartItems = new ArrayList<>();
 
          */
 
+
     }
 
     private void initView(@NonNull final View itemView ) {
@@ -126,6 +181,21 @@ List <CartItem> cartItems = new ArrayList<>();
     private void initRecView() {
         adapter = new CartAdapter();
         cartItemsRec.setAdapter(adapter);
+        adapter.setOnRejectedClickListener(new CartAdapter.OnItemClickListner() {
+            @Override
+            public void onRejectedClick(int pos, CartItem cartItem) {
+
+                Log.e("a" , "before " +orderItemModel.getCartItem().size());
+                 orderItemModel.getCartItem().remove(pos) ;
+                Log.e("a" , "after " +orderItemModel.getCartItem().size());
+
+
+                databaseReference = FirebaseDatabase.getInstance().getReference("Orders").child(orderItemModel.getKey());
+
+                databaseReference.child("cartItem").setValue( orderItemModel.getCartItem());
+
+            }
+        });
 
     }
 

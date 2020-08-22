@@ -145,6 +145,7 @@
             android:id="@+id/action_show_ProductFragment_to_update_Product_Fragment"
             app:destination="@id/update_Product_Fragment" />
     </fragment>
+
     <fragment
         android:id="@+id/orderDetailsFragment"
         android:name="com.example.dokkanseller.views.orders.OrderDetailsFragment.OrderDetailsFragment"

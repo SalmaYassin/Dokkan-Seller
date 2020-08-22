@@ -48,12 +48,12 @@ public class AllOrdersAdapter extends RecyclerView.Adapter<AllOrdersAdapter.AllO
 
 
          // picaso for orderDate
-        //Picasso.get().load(orderItemModels.get(position).getAddress().).placeholder(R.drawable.icon4).into(holder.customerImage);
+        //Picasso.get().load(orderItemModels.get(position).).placeholder(R.drawable.icon4).into(holder.customerImage);
         holder.customerName.setText(orderItemModels.get(position).getAddress().getCustomerName());
         holder.customerPhoneNum.setText(orderItemModels.get(position).getAddress().getCustomerNumber());
         String address = orderItemModels.get(position).getAddress().getCustomerCountry() + orderItemModels.get(position).getAddress().customerAddress ;
         holder.customerAddressLocation.setText(address);
-       //holder.orderDate.setText(""/*todo add order date*/);
+       holder.orderDate.setText(orderItemModels.get(position).getTime());
         Log.e("a",orderItemModels.get(position).getCartItem().size()+"");
 
         if(onItemClickListener!=null)
